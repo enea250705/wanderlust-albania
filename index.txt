@@ -4,7 +4,7 @@ Tourly - Travel agancy
 
 <ion-icon name="call-outline"></ion-icon>
 For Further Inquires :
-+01 (123) 4567 90
++355 684 170 700
 
 alt = Tourly logo
 
@@ -184,25 +184,25 @@ Contact Us
 Feel free to contact and reach us !!
 
 <ion-icon name="call-outline"></ion-icon>
-+01 (123) 4567 90
++355 684 170 700
 
 <ion-icon name="mail-outline"></ion-icon>
-info.tourly.com
+info@wanderlustalbania.eu
 
 <ion-icon name="location-outline"></ion-icon>
-3146 Koontz, California
+Bulevardi Zogu I, Shkodër 4001
 
-Subscribe our newsletter for more update & news !!
+
 
 placeholder = Enter Your Email
 
 Subscribe
 
-&copy; 2022 codewithsadee. All rights reserved
+&copy; 2025 Wanderlust Albania. All rights reserved. Designed by codewithenea.com
 
-Privacy Policy 
-Term & Condition 
-FAQ
+ 
+ 
+
 
 
 

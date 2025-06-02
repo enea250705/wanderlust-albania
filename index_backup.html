@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wanderlust Albania - Travel agency</title>
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    .btn-discover {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bright-navy-blue), var(--yale-blue));
+      color: var(--white);
+      padding: 18px 30px;
+      border-radius: 30px;
+      font-weight: var(--fw-600);
+      font-size: 16px;
+      text-transform: uppercase;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 102, 204, 0.2);
+      transition: all 0.4s ease;
+      z-index: 1;
+      border: none;
+      margin-top: 30px;
+      letter-spacing: 1px;
+      gap: 8px;
+    }
+    
+    .btn-discover::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--yale-blue), var(--bright-navy-blue));
+      z-index: -1;
+      transition: opacity 0.4s ease;
+      opacity: 0;
+      border-radius: 30px;
+    }
+    
+    .btn-discover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 102, 204, 0.3);
+    }
+    
+    .btn-discover:hover::before {
+      opacity: 1;
+    }
+    
+    .btn-discover .arrow {
+      transition: transform 0.4s ease;
+      font-size: 20px;
+    }
+    
+    .btn-discover:hover .arrow {
+      transform: translateX(5px);
+    }
+
+    /* Testimonial card fixed height styles */
+    .testimonial-card {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      margin: 0 15px;
+    }
+    
+    .testimonial-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: var(--radius-10);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .testimonial-text {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      line-height: 1.7;
+      max-height: 200px;
+      padding-right: 5px;
+    }
+    
+    /* Custom scrollbar for testimonial text */
+    .testimonial-text::-webkit-scrollbar {
+      width: 5px;
+    }
+    
+    .testimonial-text::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    
+    .testimonial-text::-webkit-scrollbar-thumb {
+      background: var(--bright-navy-blue);
+      border-radius: 10px;
+    }
+    
+    .testimonial-text::-webkit-scrollbar-thumb:hover {
+      background: var(--yale-blue);
+    }
+    
+    .testimonial-rating {
+      margin-bottom: 15px;
+    }
+    
+    .testimonial-client {
+      margin-top: auto;
+    }
+    
+    /* Mobile Navigation Links in the content */
+    .mobile-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+    
+    .mobile-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      width: calc(50% - 15px);
+      max-width: 150px;
+      border-radius: 10px;
+      background-color: rgba(0, 102, 204, 0.1);
+      color: var(--bright-navy-blue);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-nav-item ion-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    
+    .mobile-nav-item:hover {
+      background-color: var(--bright-navy-blue);
+      color: var(--white);
+      transform: translateY(-5px);
+    }
+    
+    .mobile-nav-item.active {
+      background-color: var(--bright-navy-blue);
+      color: var(--white);
+      box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+    }
+    
+    @media (min-width: 769px) {
+      .mobile-nav-links {
+        display: none;
+      }
+    }
+
+    /* Improved mobile menu */
+    @media (max-width: 768px) {
+      .navbar {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-top">
+      <div class="container">
+
+        <a href="tel:+01123456790" class="helpline-box">
+
+          <div class="icon-box">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+
+          <div class="wrapper">
+            <p class="helpline-title">For Further Inquires :</p>
+
+            <p class="helpline-number">+355 684 170 700</p>
+          </div>
+
+        </a>
+
+        <a href="#" class="logo">
+          <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+        </a>
+
+        <div class="header-btn-group">
+
+          <div class="language-selector">
+            <button class="language-btn">
+              <span class="current-lang">English</span>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </button>
+            <ul class="language-dropdown">
+              <li><a href="#" data-lang="sq">Shqip</a></li>
+              <li><a href="#" data-lang="de">Deutsch</a></li>
+              <li><a href="#" data-lang="fr">French</a></li>
+              <li><a href="#" data-lang="en">English</a></li>
+              <li><a href="#" data-lang="it">Italian</a></li>
+            </ul>
+          </div>
+
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="mobile-language-selector">
+          <button class="language-btn mobile-lang-btn">
+            <span class="current-lang">English</span>
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </button>
+          <ul class="language-dropdown mobile-lang-dropdown">
+            <li><a href="#" data-lang="sq">Shqip</a></li>
+            <li><a href="#" data-lang="de">Deutsch</a></li>
+            <li><a href="#" data-lang="fr">French</a></li>
+            <li><a href="#" data-lang="en">English</a></li>
+            <li><a href="#" data-lang="it">Italian</a></li>
+          </ul>
+        </div>
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="#" class="logo">
+              <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+            </a>
+
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <ul class="navbar-list">
+
+            <li>
+              <a href="#home" class="navbar-link" data-nav-link>Home</a>
+            </li>
+
+            <li>
+              <a href="hotels.html" class="navbar-link" data-nav-link>Hotels</a>
+            </li>
+
+            <li>
+              <a href="travels.html" class="navbar-link" data-nav-link>Travels</a>
+            </li>
+
+            <li>
+              <a href="guides.html" class="navbar-link" data-nav-link>Licensed Guides</a>
+            </li>
+
+            <li>
+              <a href="places.html" class="navbar-link" data-nav-link>Places to Visit & Trips</a>
+            </li>
+
+            <li>
+              <a href="about.html" class="navbar-link" data-nav-link>About Us</a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+        <!-- Desktop Navigation Menu -->
+        <nav class="desktop-navbar">
+          <ul class="navbar-list">
+            <li>
+              <a href="#home" class="navbar-link" data-nav-link>Home</a>
+            </li>
+            <li>
+              <a href="hotels.html" class="navbar-link" data-nav-link>Hotels</a>
+            </li>
+            <li>
+              <a href="travels.html" class="navbar-link" data-nav-link>Travels</a>
+            </li>
+            <li>
+              <a href="guides.html" class="navbar-link" data-nav-link>Licensed Guides</a>
+            </li>
+            <li>
+              <a href="places.html" class="navbar-link" data-nav-link>Places to Visit & Trips</a>
+            </li>
+            <li>
+              <a href="about.html" class="navbar-link" data-nav-link>About Us</a>
+            </li>
+          </ul>
+        </nav>
+
+        <button class="btn btn-primary">Book Now</button>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!-- MOBILE NAVIGATION LINKS -->
+  <div class="mobile-nav-links">
+    <a href="#home" class="mobile-nav-item active">
+      <ion-icon name="home-outline"></ion-icon>
+      <span>Home</span>
+    </a>
+    <a href="hotels.html" class="mobile-nav-item">
+      <ion-icon name="bed-outline"></ion-icon>
+      <span>Hotels</span>
+    </a>
+    <a href="travels.html" class="mobile-nav-item">
+      <ion-icon name="airplane-outline"></ion-icon>
+      <span>Travels</span>
+    </a>
+    <a href="guides.html" class="mobile-nav-item">
+      <ion-icon name="people-outline"></ion-icon>
+      <span>Guides</span>
+    </a>
+    <a href="places.html" class="mobile-nav-item">
+      <ion-icon name="map-outline"></ion-icon>
+      <span>Places</span>
+    </a>
+    <a href="about.html" class="mobile-nav-item">
+      <ion-icon name="information-circle-outline"></ion-icon>
+      <span>About</span>
+    </a>
+  </div>
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero" id="home">
+        <div class="video-container">
+          <video autoplay muted loop playsinline class="hero-video">
+            <source src="homevid.mp4" type="video/mp4">
+            <!-- Fallback for browsers that don't support video -->
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-overlay"></div>
+        </div>
+        <div class="container">
+
+          <h2 class="h1 hero-title">UNVEIL THE LAND WHERE LEGENDS BREATHE</h2>
+
+          <p class="hero-text">
+            Albania is not a trip. It's a revelation. From the eagle's flight over the Accursed Mountains to whispers of Illyrian kings in ancient stones—each step writes your story in a land untouched by time. Welcome to a place the world forgot to ruin.
+          </p>
+
+          <div class="btn-group">
+            <button class="btn btn-primary">Learn more</button>
+
+            <button class="btn btn-secondary">Book now</button>
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #POPULAR
+      -->
+
+      <section class="popular" id="destination">
+        <div class="container">
+
+          <p class="section-subtitle">Destinations That Redefine Discovery</p>
+
+          <h2 class="h2 section-title">These aren't "popular spots." They're revelations.</h2>
+
+          <p class="section-text">
+            Each place on this map isn't just beautiful it's alive with soul, story, and silence you can feel. We don't just show you where to go we guide you into the unknown side of Albania the world never told you about.
+          </p>
+
+          <ul class="popular-list">
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-img">
+                  <img src="./assets/images/berat.jpg" alt="Berat, Albania" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <a href="berat.html">Albania</a>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <a href="berat.html">Berat</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Discover the "City of a Thousand Windows" with its unique Ottoman architecture and UNESCO World Heritage status.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-img">
+                  <img src="./assets/images/shkoder1.jpg" alt="Shkodra, Albania" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <a href="shkodra.html">Northern Albania</a>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <a href="shkodra.html">Shkodra</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Explore Albania's cultural capital with its stunning Rozafa Castle, rich history, and beautiful lakeside setting.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="popular-card">
+
+                <figure class="card-img">
+                  <img src="./assets/images/tirana1.jpg" alt="Tirana, Albania" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <a href="tirana.html">Central Albania</a>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <a href="tirana.html">Tirana</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Discover Albania's vibrant capital city with its colorful buildings, lively atmosphere, and fascinating mix of history and modernity.
+                  </p>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+          <a href="travels.html" class="btn btn-primary">Explore More Destinations</a>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PACKAGE
+      -->
+
+      <section class="package" id="package">
+        <div class="container">
+
+          <p class="section-subtitle">🌍 Features That Elevate Every Journey</p>
+
+          <h2 class="h2 section-title">Handpicked tools. Seamless experiences. Real-world travel, redefined.</h2>
+
+          <ul class="features-list">
+
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="person-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">Curated Itineraries</h3>
+                <p class="card-text">
+                  Trips shaped around your style and pace, crafted to match you, not the masses.
+                </p>
+              </div>
+            </li>
+
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="videocam-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">Lasting Moments</h3>
+                <p class="card-text">
+                  Every location, handpicked to help you live stories worth telling, not just take pictures.
+                </p>
+              </div>
+            </li>
+
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="map-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">Smart Navigation</h3>
+                <p class="card-text">
+                  Find your way with precision, from major sights to secret local spots, always at your fingertips.
+                </p>
+              </div>
+            </li>
+
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="bulb-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">Helpful Tips & Insights</h3>
+                <p class="card-text">
+                  Stay one step ahead with real-time suggestions based on your interests and surroundings.
+                </p>
+              </div>
+            </li>
+
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="time-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">Timely Alerts</h3>
+                <p class="card-text">
+                  Whether it's a reservation or a hike, stay informed and on time, no stress, no surprises.
+                </p>
+              </div>
+            </li>
+
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="airplane-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">All-in-One Trip Tools</h3>
+                <p class="card-text">
+                  From bookings to checklists, manage every part of your journey in one streamlined space.
+                </p>
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #TESTIMONIALS
+      -->
+
+      <section class="testimonials" id="testimonials">
+        <div class="container">
+          <p class="section-subtitle">What Our Travelers Say</p>
+          <h2 class="h2 section-title">Adventures that create authentic memories</h2>
+          
+          <div class="testimonial-wrapper">
+            <div class="testimonial-slider">
+              <!-- Testimonial 1 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    "The Balkan tour was incredibly beautiful. Sadi, our tour guide, made the trip unforgettable with his relaxed and open attitude. Always smiling, always ready with a great story about his homeland. He managed everything smoothly, without showing the slightest sign of stress. Who would have thought the Balkans were so beautiful? This trip is definitely recommended!"
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Viktoria Esau</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 2 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    The Balkan round trip was truly unique. We were a small international group and had Sadjan, the world's best tour guide. 24/7, always present with charm, dedication, and a great attitude. Not to forget our bus driver, who could drive backwards just as well as forwards! We wish you continued success in your business!
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Mareike Altemayer</h3>
+                      <p class="review-date">6 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 3 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    Super tour guide! Competent, entertaining, very pleasant in dealing with the travel guests.
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Wilfried Stenzel</h3>
+                      <p class="review-date">6 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 4 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    The Albania round trip was wonderful. Our tour guide didn't just accompany us — he made this trip something special, a wonderful adventure. You were like a buddy to us. You're the kind of guide everyone wishes for on a trip. Thank you, Sadi.
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Siegmund Pazulla</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 5 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    Sadjan was a great tour guide and companion during our Balkan round trip. The trip took us through 6 countries: Bulgaria, Greece, Albania, North Macedonia, Montenegro, and Kosovo. Special thanks to the bus driver from Skopje, who did a fantastic job and drove safely and reliably. Sadjan led the tour with great passion and was committed to solving all the big and small problems of the travelers. A truly exceptional performance. He described his homeland Albania with humor and a personal touch. It was never boring on the bus, and we always had good laughs.
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Jochen Helbig</h3>
+                      <p class="review-date">6 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 6 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    Sadi was our tour guide for the Balkan round trip. Reliable, knowledgeable in geography and history, always friendly and approachable. He remains calm in tricky situations and manages even difficult groups well. Smart and highly recommended.
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Jürgen Berg (Snoopy)</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 7 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    Fantastic tour guidance by Sadi! We were lucky to have Sadi as our tour guide and can highly recommend him! He was extremely helpful and explained everything with great patience and attention to detail. Especially impressive was how he addressed the needs of all travelers — even the older participants, whom he treated with special care and attention. His friendly and open manner made the Balkan round trip incredibly enjoyable. If you want an informative, well-organized, and relaxed journey, you're in the best hands with Sadi!
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Julzzz</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Duplicate testimonials for infinite loop effect -->
+              <!-- Testimonial 1 (duplicate) -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    "The Balkan tour was incredibly beautiful. Sadi, our tour guide, made the trip unforgettable with his relaxed and open attitude. Always smiling, always ready with a great story about his homeland. He managed everything smoothly, without showing the slightest sign of stress. Who would have thought the Balkans were so beautiful? This trip is definitely recommended!"
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Viktoria Esau</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 2 (duplicate) -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    The Balkan round trip was truly unique. We were a small international group and had Sadjan, the world's best tour guide. 24/7, always present with charm, dedication, and a great attitude. Not to forget our bus driver, who could drive backwards just as well as forwards! We wish you continued success in your business!
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Mareike Altemayer</h3>
+                      <p class="review-date">6 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 3 (duplicate) -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    Super tour guide! Competent, entertaining, very pleasant in dealing with the travel guests.
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Wilfried Stenzel</h3>
+                      <p class="review-date">6 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 4 (duplicate) -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    "The Albania round trip was wonderful. Our tour guide didn't just accompany us — he made this trip something special, a wonderful adventure. You were like a buddy to us. You're the kind of guide everyone wishes for on a trip. Thank you, Sadi."
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Siegmund Pazulla</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #GALLERY
+      -->
+
+      <section class="gallery" id="gallery">
+        <div class="container">
+
+          <p class="section-subtitle">Photo Gallery</p>
+
+          <h2 class="h2 section-title">Photo's From Travellers</h2>
+
+          <p class="section-text">
+            Discover Albania through the eyes of our travelers. These authentic moments capture the beauty, culture, and unforgettable experiences that await you.
+          </p>
+
+          <ul class="gallery-list">
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00001.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00002.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00003.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00004.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00005.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00006.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00007.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00008.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #CONTACT FORM
+      -->
+
+      <section class="contact-form" id="contact">
+        <div class="container">
+
+          <div class="form-content">
+            <p class="section-subtitle">Get In Touch</p>
+
+            <h2 class="h2 section-title">Ready For Unforgettable Travel. Remember Us!</h2>
+
+            <p class="section-text">
+              Let us help you plan your perfect Albanian adventure. Fill out the form below and our travel experts will contact you within 24 hours.
+            </p>
+          </div>
+
+          <form class="contact-form-wrapper">
+            <div class="form-row">
+              <div class="input-wrapper">
+                <label for="name" class="input-label">Full Name</label>
+                <input type="text" name="name" id="name" class="input-field" placeholder="Enter your full name" required>
+              </div>
+
+              <div class="input-wrapper">
+                <label for="email" class="input-label">Email Address</label>
+                <input type="email" name="email" id="email" class="input-field" placeholder="Enter your email" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-wrapper">
+                <label for="phone" class="input-label">Phone Number</label>
+                <input type="tel" name="phone" id="phone" class="input-field" placeholder="Enter your phone number">
+              </div>
+
+              <div class="input-wrapper">
+                <label for="travel-date" class="input-label">Travel Date</label>
+                <input type="date" name="travel-date" id="travel-date" class="input-field date-field" placeholder="MM/DD/YYYY" required>
+              </div>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="subject" class="input-label">Subject</label>
+              <input type="text" name="subject" id="subject" class="input-field" placeholder="Enter message subject">
+            </div>
+
+            <div class="input-wrapper">
+              <label for="message" class="input-label">Your Message</label>
+              <textarea name="message" id="message" class="input-field textarea" placeholder="Enter your message here" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+          </a>
+
+          <p class="footer-text">
+            Because your journey deserves meaning, and Albania delivers it.
+          </p>
+
+        </div>
+
+        <div class="footer-contact">
+
+          <h4 class="contact-title">Contact Us</h4>
+
+          <p class="contact-text">
+            Feel free to contact and reach us !!
+          </p>
+
+          <ul>
+
+            <li class="contact-item">
+              <ion-icon name="call-outline"></ion-icon>
+
+              <a href="tel:+01123456790" class="contact-link">+355 684 170 700</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+
+              <a href="mailto:info@wanderlustalbania.eu" class="contact-link">info@wanderlustalbania.eu</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="location-outline"></ion-icon>
+
+              <address>Bulevardi Zogu I, Shkodër 4001</address>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-form">
+
+          <p class="form-text">
+            
+          </p>
+
+          <form action="" class="form-wrapper">
+            <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
+
+            <button type="submit" class="btn btn-secondary">Subscribe</button>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2025 <a href="#">Wanderlust Albania</a>. All rights reserved. Design by <a href="https://codewithenea.it" target="_blank">codewithenea.it</a>
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+
+
+
+
+  <!-- 
+    - #GO TO TOP
+  -->
+
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>

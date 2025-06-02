@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Wanderlust Albania</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  
+  <style>
+    /* Additional styles for about page */
+    .about-hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./assets/images/theth.jpg);
+      background-position: center;
+      background-size: cover;
+      padding-top: 180px;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .about-hero .container {
+      position: relative;
+      z-index: 5;
+    }
+    
+    .about-section {
+      padding-block: var(--section-padding);
+    }
+    
+    .about-content {
+      margin-bottom: 50px;
+    }
+    
+    .about-text {
+      color: var(--black-coral);
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    
+    .values-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .value-card {
+      background: var(--white);
+      padding: 30px;
+      border-radius: var(--radius-15);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    
+    .value-card:hover {
+      transform: translateY(-10px);
+    }
+    
+    .value-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--bright-navy-blue);
+      color: var(--white);
+      font-size: 30px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 20px;
+    }
+    
+    .value-title {
+      color: var(--yale-blue);
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .value-text {
+      color: var(--black-coral);
+      line-height: 1.6;
+    }
+    
+    /* Responsive adjustments for about hero */
+    @media (max-width: 767px) {
+      .about-hero {
+        padding-top: 150px;
+        min-height: 400px;
+      }
+      
+      .about-hero .hero-title {
+        font-size: calc(20px + 2vw);
+        margin-bottom: 15px;
+      }
+      
+      .about-hero .hero-text {
+        font-size: var(--fs-6);
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- HEADER -->
+  <header class="header" data-header>
+
+    <div class="overlay" data-overlay></div>
+
+    <div class="header-top">
+      <div class="container">
+
+        <a href="tel:+01123456790" class="helpline-box">
+
+          <div class="icon-box">
+            <ion-icon name="call-outline"></ion-icon>
+          </div>
+
+          <div class="wrapper">
+            <p class="helpline-title">For Further Inquires :</p>
+
+            <p class="helpline-number">+355 684 170 700</p>
+          </div>
+
+        </a>
+
+        <a href="#" class="logo">
+          <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+        </a>
+
+        <div class="header-btn-group">
+
+          <div class="language-selector">
+            <button class="language-btn">
+              <span class="current-lang">English</span>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </button>
+            <ul class="language-dropdown">
+              <li><a href="#" data-lang="sq">Shqip</a></li>
+              <li><a href="#" data-lang="de">Deutsch</a></li>
+              <li><a href="#" data-lang="fr">French</a></li>
+              <li><a href="#" data-lang="en">English</a></li>
+              <li><a href="#" data-lang="it">Italian</a></li>
+            </ul>
+          </div>
+
+          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="header-bottom">
+      <div class="container">
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="mobile-language-selector">
+          <button class="language-btn mobile-lang-btn">
+            <span class="current-lang">English</span>
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </button>
+          <ul class="language-dropdown mobile-lang-dropdown">
+            <li><a href="#" data-lang="sq">Shqip</a></li>
+            <li><a href="#" data-lang="de">Deutsch</a></li>
+            <li><a href="#" data-lang="fr">French</a></li>
+            <li><a href="#" data-lang="en">English</a></li>
+            <li><a href="#" data-lang="it">Italian</a></li>
+          </ul>
+        </div>
+
+        <nav class="navbar" data-navbar>
+
+          <div class="navbar-top">
+
+            <a href="#" class="logo">
+              <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+            </a>
+
+            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+          </div>
+
+          <ul class="navbar-list">
+
+            <li>
+              <a href="index.html" class="navbar-link" data-nav-link>Home</a>
+            </li>
+
+            <li>
+              <a href="hotels.html" class="navbar-link" data-nav-link>Hotels</a>
+            </li>
+
+            <li>
+              <a href="travels.html" class="navbar-link" data-nav-link>Travels</a>
+            </li>
+
+            <li>
+              <a href="guides.html" class="navbar-link" data-nav-link>Licensed Guides</a>
+            </li>
+
+            <li>
+              <a href="places.html" class="navbar-link" data-nav-link>Places to Visit & Trips</a>
+            </li>
+            
+            <li>
+              <a href="about.html" class="navbar-link" data-nav-link>About Us</a>
+            </li>
+
+          </ul>
+
+        </nav>
+
+        <button class="btn btn-primary">Book Now</button>
+
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+    <article>
+
+      <!-- HERO -->
+      <section class="hero destination-hero about-hero" id="home">
+        <div class="container">
+          <h2 class="h1 hero-title">About Wanderlust Albania</h2>
+          <p class="hero-text">
+            Your personal gateway to discovering Albania in the most authentic and eco-conscious way possible
+          </p>
+        </div>
+      </section>
+
+      <!-- ABOUT SECTION -->
+      <section class="about-section" id="about">
+        <div class="container">
+          <p class="section-subtitle">Our Mission</p>
+          <h2 class="h2 section-title">More Than a Travel Company</h2>
+          
+          <div class="about-content">
+            <p class="about-text">
+              Wanderlust Albania is more than a travel company, it's your personal gateway to discovering Albania in the most authentic and eco-conscious way possible.
+            </p>
+            
+            <p class="about-text">
+              Our mission is simple: to meet every travel need for every type of visitor, while respecting and protecting the natural beauty of our country. Whether you're seeking relaxation, adventure, culture, or a mix of it all, we tailor your journey with care, detail, and full respect for the environment.
+            </p>
+            
+            <p class="about-text">
+              We proudly embrace a 100% eco-friendly vision, from green transport options to sustainable partnerships across the country. Every decision we make is guided by our commitment to responsible travel and meaningful experiences.
+            </p>
+            
+            <p class="about-text">
+              Tell us your dream, and we'll make it happen, just like a modern-day Genie.
+            </p>
+          </div>
+          
+          <p class="section-subtitle">We're By Your Side</p>
+          <h2 class="h2 section-title">From Arrival to Departure</h2>
+          
+          <ul class="values-list">
+            <li>
+              <div class="value-card">
+                <div class="value-icon">
+                  <ion-icon name="car-outline"></ion-icon>
+                </div>
+                <h3 class="value-title">Private Transfers</h3>
+                <p class="value-text">
+                  Comfortable and convenient transportation from the moment you arrive in Albania, with eco-friendly options available.
+                </p>
+              </div>
+            </li>
+            
+            <li>
+              <div class="value-card">
+                <div class="value-icon">
+                  <ion-icon name="bed-outline"></ion-icon>
+                </div>
+                <h3 class="value-title">Hand-picked Accommodations</h3>
+                <p class="value-text">
+                  Carefully selected stays that match your preferences and provide authentic local experiences with minimal environmental impact.
+                </p>
+              </div>
+            </li>
+            
+            <li>
+              <div class="value-card">
+                <div class="value-icon">
+                  <ion-icon name="map-outline"></ion-icon>
+                </div>
+                <h3 class="value-title">Guided Tours</h3>
+                <p class="value-text">
+                  Expert local guides who share not just knowledge but passion for Albania's culture, history, and natural wonders.
+                </p>
+              </div>
+            </li>
+            
+            <li>
+              <div class="value-card">
+                <div class="value-icon">
+                  <ion-icon name="bicycle-outline"></ion-icon>
+                </div>
+                <h3 class="value-title">Versatile Transportation</h3>
+                <p class="value-text">
+                  Car, bus, bike, or motorcycle rentals to match your adventure style and ecological footprint preferences.
+                </p>
+              </div>
+            </li>
+            
+            <li>
+              <div class="value-card">
+                <div class="value-icon">
+                  <ion-icon name="globe-outline"></ion-icon>
+                </div>
+                <h3 class="value-title">Cultural Immersion</h3>
+                <p class="value-text">
+                  Cultural tips and local experiences that connect you with authentic Albanian traditions and communities.
+                </p>
+              </div>
+            </li>
+            
+            <li>
+              <div class="value-card">
+                <div class="value-icon">
+                  <ion-icon name="leaf-outline"></ion-icon>
+                </div>
+                <h3 class="value-title">100% Eco-Friendly</h3>
+                <p class="value-text">
+                  A commitment to sustainable tourism that preserves Albania's natural beauty for generations to come.
+                </p>
+              </div>
+            </li>
+          </ul>
+          
+          <div class="about-content" style="margin-top: 50px;">
+            <p class="about-text">
+              No matter your travel style, we make sure your experience in Albania is seamless, personal, and unforgettable. And we let our happy guests do the talking, many of whom return again or recommend us to their closest friends.
+            </p>
+            
+            <p class="about-text" style="font-weight: bold; font-size: 1.2em; text-align: center;">
+              Wanderlust Albania, not just a service, but your travel solution.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+          </a>
+
+          <p class="footer-text">
+            Because your journey deserves meaning, and Albania delivers it.
+          </p>
+
+        </div>
+
+        <div class="footer-contact">
+
+          <h4 class="contact-title">Contact Us</h4>
+
+          <p class="contact-text">
+            Feel free to contact and reach us !!
+          </p>
+
+          <ul>
+
+            <li class="contact-item">
+              <ion-icon name="call-outline"></ion-icon>
+
+              <a href="tel:+01123456790" class="contact-link">+355 684 170 700</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+
+              <a href="mailto:info@wanderlustalbania.eu" class="contact-link">info@wanderlustalbania.eu</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="location-outline"></ion-icon>
+
+              <address>Bulevardi Zogu I, Shkodër 4001</address>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <div class="footer-form">
+
+          <p class="form-text">
+            
+          </p>
+
+          <form action="" class="form-wrapper">
+            <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
+
+            <button type="submit" class="btn btn-secondary">Subscribe</button>
+          </form>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2025 <a href="#">Wanderlust Albania</a>. All rights reserved. Design by <a href="https://codewithenea.it" target="_blank">codewithenea.it</a>
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- GO TO TOP -->
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </a>
+
+  <!-- custom js link -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- ionicon link -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html> 

@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pogradec, Sveti Naum & Ohrid - Wanderlust Albania</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* Modern Header & Navigation Styles */
+    body {
+      padding-top: 80px;
+      position: relative;
+    }
+
+    body.nav-active {
+      overflow: hidden;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 15px 0;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .header.active {
+      padding: 10px 0;
+    }
+
+    .desktop-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+    }
+
+    .nav-list {
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .nav-link {
+      position: relative;
+      color: var(--dark-jungle-green);
+      font-size: 15px;
+      padding: 5px 0;
+      transition: color 0.3s;
+    }
+
+    .nav-link:hover, 
+    .nav-link.active {
+      color: var(--bright-yellow);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--bright-yellow);
+      transition: width 0.3s;
+    }
+
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .contact-info-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--dark-jungle-green);
+      transition: color 0.3s;
+    }
+
+    .contact-info-link:hover {
+      color: var(--bright-yellow);
+    }
+
+    .contact-info-link ion-icon {
+      font-size: 20px;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--dark-jungle-green);
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 280px;
+      height: 100vh;
+      background-color: white;
+      padding: 70px 20px 20px;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      z-index: 999;
+      overflow-y: auto;
+      transition: right 0.3s ease;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 24px;
+      background: none;
+      border: none;
+      color: var(--dark-jungle-green);
+      cursor: pointer;
+    }
+
+    .mobile-menu-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu-contact a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--dark-jungle-green);
+      font-size: 14px;
+    }
+
+    .mobile-menu-contact a ion-icon {
+      font-size: 18px;
+    }
+
+    .mobile-nav-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .mobile-nav-link {
+      color: var(--dark-jungle-green);
+      font-size: 16px;
+      padding: 5px 0;
+      transition: color 0.3s;
+    }
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      color: var(--bright-yellow);
+    }
+
+    .mobile-social-list {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .mobile-social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: var(--bright-yellow);
+      color: white;
+      font-size: 18px;
+      transition: background-color 0.3s;
+    }
+
+    .mobile-social-link:hover {
+      background-color: var(--dark-jungle-green);
+    }
+
+    .language-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: white;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      border-radius: 5px;
+      display: none;
+      z-index: 1000;
+    }
+
+    .language-dropdown.active {
+      display: block;
+    }
+
+    .language-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--dark-jungle-green);
+    }
+
+    .language-btn ion-icon {
+      font-size: 18px;
+    }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .lang-option:hover,
+    .lang-option.active {
+      background-color: #f5f5f5;
+    }
+
+    .lang-option img {
+      width: 20px;
+      height: 15px;
+      border-radius: 2px;
+    }
+
+    .mobile-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      z-index: 998;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .desktop-nav {
+        padding: 0 15px;
+      }
+      
+      .nav-list {
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .contact-info {
+        display: none;
+      }
+      
+      .nav-list {
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-list {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* Enhanced Footer Logo Styling */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 350px;
+    }
+    
+    .footer-brand .logo {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      width: fit-content;
+    }
+    
+    .footer-brand .logo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .footer-brand .logo:hover::before {
+      left: 100%;
+    }
+    
+    .footer-brand .logo:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.12));
+      border-color: rgba(255,255,255,0.15);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .footer-brand .logo img {
+      max-height: 45px;
+      width: auto;
+      transition: all 0.3s ease;
+      filter: brightness(1.05) contrast(1.05);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-brand .logo:hover img {
+      filter: brightness(1.15) contrast(1.1);
+    }
+    
+    .footer-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      margin-top: 5px;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-brand:hover .footer-text {
+      color: rgba(255,255,255,0.95);
+    }
+    
+    /* Responsive adjustments for footer logo */
+    @media (max-width: 768px) {
+      .footer-brand {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+      }
+      
+      .footer-brand .logo {
+        padding: 6px 10px;
+      }
+      
+      .footer-brand .logo img {
+        max-height: 40px;
+      }
+      
+      .footer-text {
+        font-size: 15px;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .footer-brand .logo {
+        padding: 5px 8px;
+      }
+      
+      .footer-brand .logo img {
+        max-height: 35px;
+      }
+      
+      .footer-text {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- Header copied from existing files -->
+  <header class="header" data-header>
+    <nav class="desktop-nav container">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/logo-no-background.svg" alt="Tourly logo" width="160" height="50">
+      </a>
+
+      <ul class="nav-list">
+        <li>
+          <a href="index.html" class="nav-link" data-nav-link>Home</a>
+        </li>
+        <li>
+          <a href="places.html" class="nav-link" data-nav-link>Places</a>
+        </li>
+        <li>
+          <a href="hotels.html" class="nav-link" data-nav-link>Hotels</a>
+        </li>
+        <li>
+          <a href="travels.html" class="nav-link" data-nav-link>Travels</a>
+        </li>
+        <li>
+          <a href="guides.html" class="nav-link" data-nav-link>Guides</a>
+        </li>
+        <li>
+          <a href="about.html" class="nav-link" data-nav-link>About</a>
+        </li>
+      </ul>
+
+      <div class="contact-info">
+        <div>
+          <a href="tel:+355697777777" class="contact-info-link">
+            <ion-icon name="call-outline"></ion-icon>
+            <span>+355 69 777 7777</span>
+          </a>
+        </div>
+          </div>
+
+      <div class="mobile-menu-toggle" data-mobile-menu-toggle>
+        <span></span>
+        <span></span>
+        <span></span>
+          </div>
+    </nav>
+
+    <div class="mobile-menu" data-mobile-menu>
+      <button class="mobile-menu-close" data-mobile-menu-close>
+        <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+      <div class="mobile-menu-contact">
+        <a href="tel:+355697777777">
+          <ion-icon name="call-outline"></ion-icon>
+          <span>+355 69 777 7777</span>
+        </a>
+        <a href="mailto:info@tourly.al">
+          <ion-icon name="mail-outline"></ion-icon>
+          <span>info@tourly.al</span>
+        </a>
+    </div>
+
+      <ul class="mobile-nav-list">
+          <li>
+          <a href="index.html" class="mobile-nav-link">Home</a>
+          </li>
+          <li>
+          <a href="places.html" class="mobile-nav-link">Places</a>
+          </li>
+          <li>
+          <a href="hotels.html" class="mobile-nav-link">Hotels</a>
+          </li>
+        <li>
+          <a href="travels.html" class="mobile-nav-link">Travels</a>
+            </li>
+            <li>
+          <a href="guides.html" class="mobile-nav-link">Guides</a>
+            </li>
+            <li>
+          <a href="about.html" class="mobile-nav-link">About</a>
+            </li>
+      </ul>
+
+      <ul class="mobile-social-list">
+            <li>
+          <a href="#" class="mobile-social-link">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+            </li>
+            <li>
+          <a href="#" class="mobile-social-link">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+            </li>
+            <li>
+          <a href="#" class="mobile-social-link">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+            </li>
+          </ul>
+    </div>
+
+    <div class="mobile-overlay" data-mobile-overlay></div>
+  </header>
+
+  <main>
+    <article>
+
+      <!-- Hero Section -->
+      <section class="hero destination-hero pogradec-hero" id="home">
+        <div class="container">
+          <h2 class="h1 hero-title">Pogradec, Sveti Naum & Ohrid</h2>
+          <p class="hero-text">
+            A full-day journey through Lake Ohrid's ancient shores — cross borders to experience Albania and North Macedonia's cultural treasures.
+          </p>
+        </div>
+      </section>
+
+      <!-- Destination Details -->
+      <section class="destination-details">
+        <div class="container">
+          <div class="destination-content">
+            <h2 class="h2 section-title">POGRADEC, SVETI NAUM MONASTERY AND OHRID (FULL DAY TOUR)</h2>
+            
+            <p class="section-text">
+              On this full-day excursion, you'll travel along the shores of Lake Ohrid. Visit the two towns of Pogradec and Tushemisht, close to the Macedonian border. The road continues to the Saint Naum monastery complex. Here you have the opportunity to visit one of the most important shrines of the Orthodox churches in Macedonia. Walking tour in the old town of Ohrid (UNESCO), which is considered due to its church collection the "Jerusalem of the Balkans". Discover its popular sights and enjoy your free time with a walk by the lake.
+            </p>
+            
+            <h3 class="h3 section-subtitle">Highlights</h3>
+            <ul class="itinerary-highlights">
+              <li>Explore Pogradec, a lovely town with ancient history on the shores of Lake Ohrid</li>
+              <li>Visit the natural beauty of Tushemisht village near the Macedonian border</li>
+              <li>Experience Sveti Naum Monastery, founded around 895 AD</li>
+              <li>Discover UNESCO-listed Ohrid, one of Europe's oldest human settlements</li>
+              <li>See Ohrid's famous architecture with 365 Orthodox churches</li>
+              <li>Visit landmarks like the 4th-century Samuil Fortress and Church of Saint Sofia</li>
+              <li>Photograph the iconic Kaneo Church, one of Macedonia's most popular viewpoints</li>
+              <li>Cross the border between Albania and Macedonia for a two-country experience</li>
+            </ul>
+            
+            <h3 class="h3 section-subtitle">Detailed Itinerary</h3>
+            <div class="itinerary-detail">
+              <p>
+                Your journey begins at 8:00 a.m. towards Pogradec. The city is located in the southeast of Albania and directly on the coast of Lake Ohrid, the deepest lake in the Balkans. The border crossing with Macedonia is only 5 km from the city center. Pogradec is a lovely town with ancient history. Worth seeing is Tushemisht village, which is known for its natural beauty.
+              </p>
+              
+              <p>
+                You now cross the border into Macedonia and visit the Sveti Naum monastery, which was founded by Saint Naum around 895. In 1870 a fire almost completely destroyed the monastery, only the monastery church was spared. The current facility was built in the following years. Lunch will be provided in a local restaurant.
+              </p>
+              
+              <p>
+                Continue to Ohrid. The city is one of the most alluring destinations in Macedonia and is considered one of the oldest human settlements in all of Europe. Ohrid City and Lake Ohrid have been a UNESCO World Heritage Site since 1980. Ohrid became an important center of Orthodox believers during the Byzantine Empire and is famous for its 365 Orthodox churches, said to have a church for every day of the year. The houses were built with a very specific architecture that created narrow streets, tunnels and tiny courtyards on the hilly terrain so that each house had a good view of the lake.
+              </p>
+              
+              <p>
+                Today the city is famous for its architecture, the churches, the castle at the top of the city, the amphitheater, the beautiful view of the lake surrounded by mountains and the pearls of the lake. Discover popular landmarks such as the 4th-century Samuil Fortress and the Church of Saint Sofia, and gain insight into several centuries of Macedonian history. Idyllically located on the lake, slightly elevated, is one of the most popular photo spots in the country, the Kaneo Church. After exploring this ancient city, you'll return to your hotel.
+              </p>
+            </div>
+            
+            <div class="booking-section">
+              <p class="booking-info">
+                <strong>Duration:</strong> Full day (10-12 hours)<br>
+                <strong>Departure Time:</strong> 8:00 AM<br>
+                <strong>Includes:</strong> Transportation, English-speaking guide, entrance fees to Sveti Naum Monastery, lunch at local restaurant<br>
+                <strong>Not Included:</strong> Personal expenses, hotel transfers, additional drinks
+              </p>
+              
+              <div class="booking-buttons">
+                <a href="#" class="btn btn-secondary">Book This Tour</a>
+                <a href="travels.html" class="btn btn-primary">Back to All Travels</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+          </a>
+
+          <p class="footer-text">
+            Because your journey deserves meaning, and Albania delivers it.
+          </p>
+
+        </div>
+
+        <div class="footer-contact">
+
+          <h4 class="contact-title">Contact Us</h4>
+
+          <p class="contact-text">
+            Feel free to contact and reach us !!
+          </p>
+
+          <ul>
+
+            <li class="contact-item">
+              <ion-icon name="call-outline"></ion-icon>
+
+              <a href="tel:+01123456790" class="contact-link">+355 684 170 700</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+
+              <a href="mailto:info@wanderlustalbania.eu" class="contact-link">info@wanderlustalbania.eu</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="location-outline"></ion-icon>
+
+              <address>Bulevardi Zogu I, Shkodër 4001</address>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2025 <a href="#">Wanderlust Albania</a>. All rights reserved. Design by <a href="https://codewithenea.it" target="_blank">codewithenea.it</a>
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- GO TO TOP -->
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </a>
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Additional script for improved navigation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elements
+      const header = document.querySelector('.header');
+      const mobileMenuToggle = document.querySelector('[data-mobile-menu-toggle]');
+      const mobileMenuClose = document.querySelector('[data-mobile-menu-close]');
+      const mobileMenu = document.querySelector('[data-mobile-menu]');
+      const overlay = document.querySelector('[data-mobile-overlay]');
+      const langBtn = document.querySelector('.language-btn');
+      const langDropdown = document.querySelector('.language-dropdown');
+      
+      // Set active menu item based on current page
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const desktopLinks = document.querySelectorAll('.nav-link');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+      
+      function setActiveLinks(links) {
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      setActiveLinks(desktopLinks);
+      setActiveLinks(mobileLinks);
+      
+      // Mobile menu toggle
+      function openMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        document.body.classList.add('nav-active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
+        console.log('Opening mobile menu');
+      }
+      
+      function closeMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        document.body.classList.remove('nav-active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+        console.log('Closing mobile menu');
+      }
+      
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+          console.log('Menu toggle clicked');
+          if (mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
+        });
+      }
+      
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function() {
+          console.log('Close button clicked');
+          closeMobileMenu();
+        });
+      }
+      
+      if (overlay) {
+        overlay.addEventListener('click', closeMobileMenu);
+      }
+      
+      // Close mobile menu when clicking a link
+      if (mobileLinks) {
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', closeMobileMenu);
+        });
+      }
+      
+      // Language dropdown toggle
+      if (langBtn) {
+        langBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (langDropdown) langDropdown.classList.toggle('active');
+        });
+      }
+      
+      // Close language dropdown when clicking outside
+      document.addEventListener('click', function() {
+        if (langDropdown) {
+          langDropdown.classList.remove('active');
+        }
+      });
+      
+      // Language selection in mobile menu
+      const langOptions = document.querySelectorAll('.lang-option');
+      if (langOptions) {
+        langOptions.forEach(option => {
+          option.addEventListener('click', function(e) {
+            // Remove active class from all options
+            langOptions.forEach(opt => opt.classList.remove('active'));
+            
+            // Add active class to clicked option
+            this.classList.add('active');
+            
+            // Update the language button text
+            const lang = this.getAttribute('data-lang').toUpperCase();
+            const langBtnText = document.querySelector('.language-btn span');
+            if (langBtnText) {
+              langBtnText.textContent = lang;
+            }
+            
+            // Close mobile menu
+            closeMobileMenu();
+          });
+        });
+      }
+      
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 20) {
+          if (header) header.classList.add('active');
+        } else {
+          if (header) header.classList.remove('active');
+        }
+      });
+      
+      // Handle ESC key to close mobile menu
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMobileMenu();
+          if (langDropdown) {
+            langDropdown.classList.remove('active');
+          }
+        }
+      });
+      
+      console.log('Menu script initialized with new data attributes');
+    });
+  </script>
+
+</body>
+
+</html> 

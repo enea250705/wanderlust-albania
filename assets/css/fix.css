@@ -1,0 +1,103 @@
+/* Fix CSS to ensure content is visible */
+
+/* Reset positioning */
+body {
+  padding-top: 0;
+  margin-top: 0;
+  overflow-x: hidden;
+}
+
+main {
+  position: relative;
+  margin-top: 0;
+}
+
+/* Fix header position */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 50;
+}
+
+/* Ensure hero has proper spacing */
+.hero {
+  margin-top: 0;
+  padding-top: 150px;
+  position: relative;
+}
+
+/* Popular destinations section fix */
+.popular {
+  background-color: white;
+  position: relative;
+  display: block !important;
+  visibility: visible !important;
+  padding: 60px 0;
+  margin-top: 0;
+}
+
+.popular .container {
+  display: block !important;
+  visibility: visible !important;
+}
+
+.section-subtitle,
+.section-title,
+.section-text {
+  display: block !important;
+  visibility: visible !important;
+  color: #000;
+}
+
+.popular-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.popular-card {
+  display: block !important;
+  visibility: visible !important;
+  background-color: white;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+/* Features section fix */
+.package {
+  background-color: white;
+  position: relative;
+  display: block !important;
+  visibility: visible !important;
+  padding: 60px 0;
+}
+
+.features-list {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.feature-card {
+  display: block !important;
+  visibility: visible !important;
+  background-color: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Mobile menu z-index fix */
+.mobile-menu {
+  z-index: 100;
+}
+
+.overlay {
+  z-index: 90;
+} 

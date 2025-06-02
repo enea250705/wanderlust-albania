@@ -1,0 +1,1659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Places to Visit & Trips - Wanderlust Albania</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  
+  <style>
+    /* Modern Header & Navigation */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+      padding: 10px 0;
+      transition: all 0.3s ease;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      max-height: 50px;
+      transition: all 0.3s ease;
+    }
+    
+    .header.active .logo img {
+      max-height: 45px;
+    }
+    
+    /* Desktop Navigation */
+    .desktop-nav {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .desktop-nav-list {
+      display: flex;
+      gap: 5px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 10px 15px;
+      color: var(--gunmetal);
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--bright-navy-blue);
+      background-color: rgba(0, 102, 204, 0.08);
+    }
+    
+    .nav-link.active {
+      color: var(--bright-navy-blue);
+      background-color: rgba(0, 102, 204, 0.12);
+    }
+    
+    /* Header Right Section */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gunmetal);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .header-contact:hover {
+      color: var(--bright-navy-blue);
+    }
+    
+    .contact-icon {
+      font-size: 18px;
+      color: var(--bright-navy-blue);
+    }
+    
+    /* Language Selector */
+    .language-selector {
+      position: relative;
+    }
+    
+    .language-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gunmetal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .language-btn:hover {
+      background-color: rgba(0, 102, 204, 0.08);
+    }
+    
+    .language-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 150px;
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      padding: 10px 0;
+      margin-top: 10px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 200;
+    }
+    
+    .language-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .language-dropdown li {
+      list-style: none;
+    }
+    
+    .language-dropdown li a {
+      display: block;
+      padding: 8px 15px;
+      color: var(--gunmetal);
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .language-dropdown li a:hover {
+      background-color: rgba(0, 102, 204, 0.08);
+      color: var(--bright-navy-blue);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 300;
+    }
+    
+    .menu-bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--gunmetal);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    
+    /* Hamburger menu animation */
+    .mobile-menu-toggle.active .menu-bar:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    
+    .mobile-menu-toggle.active .menu-bar:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active .menu-bar:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 400px;
+      height: 100vh;
+      background-color: var(--white);
+      z-index: 2000;
+      transition: all 0.4s ease-in-out;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+      right: 0;
+    }
+    
+    .mobile-menu-container {
+      padding: 25px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--gunmetal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+    
+    .mobile-menu-close:hover {
+      color: var(--bright-navy-blue);
+      transform: rotate(90deg);
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Mobile Contact */
+    .mobile-contact {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background-color: rgba(0, 102, 204, 0.08);
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 30px;
+    }
+    
+    .mobile-contact ion-icon {
+      font-size: 24px;
+      color: var(--bright-navy-blue);
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .contact-label {
+      font-size: 12px;
+      color: var(--gunmetal);
+    }
+    
+    .contact-number {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--bright-navy-blue);
+    }
+    
+    /* Mobile Navigation */
+    .mobile-nav {
+      margin-bottom: 30px;
+    }
+    
+    .mobile-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 15px;
+      border-radius: 10px;
+      color: var(--gunmetal);
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-bottom: 5px;
+    }
+    
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      background-color: rgba(0, 102, 204, 0.08);
+      color: var(--bright-navy-blue);
+      transform: translateX(5px);
+    }
+    
+    /* Mobile Language Selector */
+    .mobile-language-selector {
+      margin-bottom: 30px;
+    }
+    
+    .lang-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gunmetal);
+      margin-bottom: 15px;
+    }
+    
+    .mobile-language-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .lang-option {
+      display: block;
+      padding: 8px 15px;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+      color: var(--gunmetal);
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .lang-option:hover,
+    .lang-option.active {
+      background-color: var(--bright-navy-blue);
+      color: var(--white);
+    }
+    
+    /* Mobile Social */
+    .mobile-social {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    
+    .social-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gunmetal);
+      margin-bottom: 15px;
+    }
+    
+    .social-list {
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 50%;
+      color: var(--gunmetal);
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background-color: var(--bright-navy-blue);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      
+      .header-contact {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-container {
+        padding: 0 15px;
+      }
+      
+      .logo img {
+        max-height: 45px;
+      }
+      
+      .language-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+      }
+    }
+    
+    main {
+      margin-top: 80px;
+    }
+    
+    /* Additional styles for places page */
+    .places-hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./assets/images/theth.jpg);
+      background-position: center;
+      background-size: cover;
+      padding-top: 180px;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .places-hero .container {
+      position: relative;
+      z-index: 5;
+    }
+    
+    .places-section {
+      padding-block: var(--section-padding);
+    }
+    
+    .places-grid {
+      display: grid;
+      gap: 30px;
+      margin-top: 40px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+    
+    .place-card {
+      border-radius: var(--radius-15);
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: var(--white);
+    }
+    
+    .place-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .place-banner {
+      position: relative;
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .place-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .place-card:hover .place-banner img {
+      transform: scale(1.05);
+    }
+    
+    .place-content {
+      padding: 25px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .place-title {
+      margin-bottom: 15px;
+      color: var(--gunmetal);
+      font-size: 24px;
+    }
+    
+    .place-text {
+      color: var(--black-coral);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+    
+    .place-link {
+      align-self: flex-start;
+      color: var(--bright-navy-blue);
+      font-weight: var(--fw-600);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .place-link:hover {
+      color: var(--yale-blue);
+    }
+    
+    .place-link ion-icon {
+      font-size: 18px;
+    }
+    
+    .map-section {
+      padding-top: 0;
+    }
+    
+    .map-container {
+      border-radius: var(--radius-15);
+      overflow: hidden;
+      margin-top: 40px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Trip section styles */
+    .trip-container {
+      margin-top: 50px;
+      padding: 30px;
+      background-color: var(--white);
+      border-radius: var(--radius-15);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .trip-container h3 {
+      margin-bottom: 25px;
+      color: var(--yale-blue);
+    }
+    
+    .trip-info {
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #eee;
+    }
+    
+    .trip-details p {
+      margin-bottom: 10px;
+      color: var(--black-coral);
+    }
+    
+    .trip-services, .trip-itinerary, .trip-inclusions {
+      margin-bottom: 30px;
+    }
+    
+    .trip-services h4, .trip-itinerary h4, .trip-inclusions h4 {
+      margin-bottom: 15px;
+      color: var(--gunmetal);
+      font-size: 20px;
+    }
+    
+    .trip-services-list li, .trip-inclusions-list li {
+      margin-bottom: 8px;
+      color: var(--black-coral);
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .trip-services-list li:before, .trip-inclusions-list li:before {
+      content: "✓";
+      color: var(--bright-navy-blue);
+      position: absolute;
+      left: 0;
+    }
+    
+    .day-by-day {
+      display: grid;
+      gap: 20px;
+    }
+    
+    .trip-day {
+      padding: 20px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      border-left: 4px solid var(--bright-navy-blue);
+    }
+    
+    .trip-day h5 {
+      margin-bottom: 10px;
+      color: var(--yale-blue);
+      font-size: 18px;
+    }
+    
+    .trip-day p {
+      color: var(--black-coral);
+      line-height: 1.6;
+    }
+    
+    /* Compass divider styles */
+    .compass-divider {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 80px 0;
+      position: relative;
+    }
+    
+    .compass-divider:before, .compass-divider:after {
+      content: "";
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(0, 102, 204, 0.5), transparent);
+      flex-grow: 1;
+      margin: 0 40px;
+    }
+    
+    .compass-container {
+      width: 150px;
+      height: 150px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .compass {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 0 25px rgba(0, 102, 204, 0.15);
+      position: relative;
+      transition: transform 0.5s ease;
+    }
+    
+    .compass:hover {
+      transform: rotate(15deg);
+    }
+    
+    .compass:before {
+      content: "";
+      position: absolute;
+      width: 92%;
+      height: 92%;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 102, 204, 0.2);
+    }
+    
+    .compass-inner {
+      width: 85%;
+      height: 85%;
+      border-radius: 50%;
+      border: 2px solid var(--bright-navy-blue);
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(240,248,255,1) 100%);
+    }
+    
+    .compass-inner:after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      background-color: var(--bright-navy-blue);
+      border-radius: 50%;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .compass-inner span {
+      position: absolute;
+      font-weight: 700;
+    }
+    
+    .compass-inner .north {
+      top: 10px;
+      color: var(--bright-navy-blue);
+      font-size: 22px;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .compass-inner .south {
+      bottom: 10px;
+      color: var(--yale-blue);
+      font-size: 18px;
+    }
+    
+    .compass-inner .east {
+      right: 10px;
+      color: var(--yale-blue);
+      font-size: 18px;
+    }
+    
+    .compass-inner .west {
+      left: 10px;
+      color: var(--yale-blue);
+      font-size: 18px;
+    }
+    
+    .compass-inner:before {
+      content: "";
+      position: absolute;
+      width: 75%;
+      height: 75%;
+      border-radius: 50%;
+      border: 1px dashed rgba(0, 102, 204, 0.3);
+    }
+    
+    .compass-arrow {
+      width: 3px;
+      height: 50%;
+      background: linear-gradient(to bottom, var(--bright-navy-blue) 50%, #c5c5c5 50%);
+      position: absolute;
+      transform-origin: bottom center;
+      transform: rotate(0deg);
+      transition: transform 0.8s ease;
+    }
+    
+    .compass:hover .compass-arrow {
+      transform: rotate(360deg);
+    }
+    
+    .compass-arrow:before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: -6px;
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-bottom: 14px solid var(--bright-navy-blue);
+      filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
+    }
+    
+    /* Compass direction lines */
+    .compass-inner:after {
+      content: "";
+      width: 10px;
+      height: 10px;
+      background-color: var(--bright-navy-blue);
+      border-radius: 50%;
+      box-shadow: 0 0 8px rgba(0, 102, 204, 0.4);
+    }
+    
+    /* Directional markers at 45 degree angles */
+    .compass-inner .ne, .compass-inner .se, .compass-inner .sw, .compass-inner .nw {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background-color: rgba(0, 102, 204, 0.4);
+      border-radius: 50%;
+    }
+    
+    .compass-inner .ne {
+      top: 25%;
+      right: 25%;
+    }
+    
+    .compass-inner .se {
+      bottom: 25%;
+      right: 25%;
+    }
+    
+    .compass-inner .sw {
+      bottom: 25%;
+      left: 25%;
+    }
+    
+    .compass-inner .nw {
+      top: 25%;
+      left: 25%;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .day-by-day {
+        grid-template-columns: 1fr;
+      }
+      
+      .compass-divider:before, .compass-divider:after {
+        margin: 0 15px;
+      }
+      
+      .compass-container {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .compass-inner .north {
+        font-size: 18px;
+      }
+      
+      .compass-inner .south, .compass-inner .east, .compass-inner .west {
+        font-size: 14px;
+      }
+    }
+    
+    @media (min-width: 769px) {
+      .day-by-day {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .day-by-day {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    /* Responsive adjustments for places hero */
+    @media (max-width: 767px) {
+      .places-hero {
+        padding-top: 150px;
+        min-height: 400px;
+      }
+      
+      .places-hero .hero-title {
+        font-size: calc(20px + 2vw);
+        margin-bottom: 15px;
+      }
+      
+      .places-hero .hero-text {
+        font-size: var(--fs-6);
+      }
+    }
+    
+    /* Enhanced Footer Logo Styling */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 350px;
+    }
+    
+    .footer-brand .logo {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      width: fit-content;
+    }
+    
+    .footer-brand .logo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .footer-brand .logo:hover::before {
+      left: 100%;
+    }
+    
+    .footer-brand .logo:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.12));
+      border-color: rgba(255,255,255,0.15);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .footer-brand .logo img {
+      max-height: 45px;
+      width: auto;
+      transition: all 0.3s ease;
+      filter: brightness(1.05) contrast(1.05);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-brand .logo:hover img {
+      filter: brightness(1.15) contrast(1.1);
+    }
+    
+    .footer-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      margin-top: 5px;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-brand:hover .footer-text {
+      color: rgba(255,255,255,0.95);
+    }
+    
+    /* Responsive adjustments for footer logo */
+    @media (max-width: 768px) {
+      .footer-brand {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+      }
+      
+      .footer-brand .logo {
+        padding: 6px 10px;
+      }
+      
+      .footer-brand .logo img {
+        max-height: 40px;
+      }
+      
+      .footer-text {
+        font-size: 15px;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .footer-brand .logo {
+        padding: 5px 8px;
+      }
+      
+      .footer-brand .logo img {
+        max-height: 35px;
+      }
+      
+      .footer-text {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- HEADER -->
+  <header class="header" data-header>
+    <div class="container header-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+          <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+        </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <ul class="desktop-nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li><a href="travels.html" class="nav-link">Travels</a></li>
+          <li><a href="guides.html" class="nav-link">Licensed Guides</a></li>
+          <li><a href="places.html" class="nav-link">Places to Visit</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Header Section -->
+      <div class="header-right">
+        <!-- Contact Info -->
+        <a href="tel:+355684170700" class="header-contact">
+          <ion-icon name="call-outline" class="contact-icon"></ion-icon>
+          <span>+355 684 170 700</span>
+        </a>
+
+        <!-- Language Selector -->
+          <div class="language-selector">
+            <button class="language-btn">
+            <span>EN</span>
+              <ion-icon name="chevron-down-outline"></ion-icon>
+            </button>
+            <ul class="language-dropdown">
+              <li><a href="#" data-lang="sq">Shqip</a></li>
+              <li><a href="#" data-lang="de">Deutsch</a></li>
+            <li><a href="#" data-lang="fr">Français</a></li>
+              <li><a href="#" data-lang="en">English</a></li>
+            <li><a href="#" data-lang="it">Italiano</a></li>
+            </ul>
+          </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" data-mobile-menu-toggle>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" data-mobile-menu>
+    <div class="mobile-menu-container">
+      <!-- Mobile Menu Header -->
+      <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+          <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+        </a>
+        <button class="mobile-menu-close" data-mobile-menu-close>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+        </div>
+
+      <!-- Mobile Contact -->
+      <a href="tel:+355684170700" class="mobile-contact">
+        <ion-icon name="call-outline"></ion-icon>
+        <div class="contact-info">
+          <span class="contact-label">For inquiries:</span>
+          <span class="contact-number">+355 684 170 700</span>
+      </div>
+      </a>
+
+      <!-- Mobile Navigation -->
+      <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="hotels.html" class="mobile-nav-link">Hotels</a></li>
+          <li><a href="travels.html" class="mobile-nav-link">Travels</a></li>
+          <li><a href="guides.html" class="mobile-nav-link">Licensed Guides</a></li>
+          <li><a href="places.html" class="mobile-nav-link">Places to Visit & Trips</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Language Selector -->
+      <div class="mobile-language-selector">
+        <h4 class="lang-title">Choose Language</h4>
+        <ul class="mobile-language-list">
+          <li><a href="#" data-lang="sq" class="lang-option">Shqip</a></li>
+          <li><a href="#" data-lang="de" class="lang-option">Deutsch</a></li>
+          <li><a href="#" data-lang="fr" class="lang-option">Français</a></li>
+          <li><a href="#" data-lang="en" class="lang-option active">English</a></li>
+          <li><a href="#" data-lang="it" class="lang-option">Italiano</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div class="mobile-social">
+        <h4 class="social-title">Follow Us</h4>
+        <ul class="social-list">
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  <!-- Overlay -->
+  <div class="overlay" data-mobile-overlay></div>
+
+  <main>
+    <article>
+
+      <!-- HERO -->
+      <section class="hero destination-hero places-hero" id="home">
+        <div class="container">
+          <h2 class="h1 hero-title">Places to Visit & Trips</h2>
+          <p class="hero-text">
+            Discover Albania's breathtaking destinations - from pristine beaches to mountain views and historic treasures.
+          </p>
+        </div>
+      </section>
+
+      <!-- PLACES SECTION -->
+      <section class="places-section" id="places">
+        <div class="container">
+          <p class="section-subtitle">Magnificent Destinations</p>
+          <h2 class="h2 section-title">Albania's Most Beautiful Places</h2>
+          <p class="section-text">
+            Albania boasts an incredible diversity of natural landscapes, from pristine beaches to majestic mountains, crystal-clear waters to historic sites. Explore our selection of must-visit places that showcase the country's stunning beauty and rich cultural heritage.
+          </p>
+
+          <div class="places-grid">
+            <!-- Koman Lake -->
+            <div class="place-card">
+              <figure class="place-banner">
+                <img src="./assets/images/koman.jpg" alt="Koman Lake" loading="lazy">
+              </figure>
+              <div class="place-content">
+                <h3 class="place-title">Koman Lake</h3>
+                <p class="place-text">
+                  Experience the breathtaking ferry journey through the dramatic fjord-like landscape of Koman Lake. Surrounded by steep mountains that plunge into emerald waters, this man-made lake offers one of Europe's most spectacular boat rides.
+                </p>
+              </div>
+            </div>
+
+            <!-- Jalë Beach -->
+            <div class="place-card">
+              <figure class="place-banner">
+                <img src="./assets/images/jale.jpg" alt="Jalë Beach" loading="lazy">
+              </figure>
+              <div class="place-content">
+                <h3 class="place-title">Jalë Beach</h3>
+                <p class="place-text">
+                  Discover one of the Albanian Riviera's most beautiful beaches. With its crystal-clear turquoise waters, white pebble shores, and lively atmosphere, Jalë Beach offers the perfect blend of natural beauty and vibrant beach culture.
+                </p>
+              </div>
+            </div>
+
+            <!-- Shala River -->
+            <div class="place-card">
+              <figure class="place-banner">
+                <img src="./assets/images/lumiishales.jpg" alt="Shala River" loading="lazy">
+              </figure>
+              <div class="place-content">
+                <h3 class="place-title">Shala River</h3>
+                <p class="place-text">
+                  Often called "Thailand of Albania," the Shala River's crystal-clear turquoise waters flow between majestic mountains, creating a breathtaking natural paradise. This hidden gem offers swimming in pristine waters against a stunning alpine backdrop.
+                </p>
+              </div>
+            </div>
+
+            <!-- Pulebardha Beach -->
+            <div class="place-card">
+              <figure class="place-banner">
+                <img src="./assets/images/pulebardhabeach.jpg" alt="Pulebardha Beach" loading="lazy">
+              </figure>
+              <div class="place-content">
+                <h3 class="place-title">Pulebardha Beach</h3>
+                <p class="place-text">
+                  Experience the untouched beauty of this secluded beach, accessible only by boat. Named after the seagulls ("pulebardha") that frequent the area, this pristine beach features crystal-clear waters and dramatic white cliffs.
+                </p>
+              </div>
+            </div>
+
+            <!-- Theth -->
+            <div class="place-card">
+              <figure class="place-banner">
+                <img src="./assets/images/theth.jpg" alt="Theth" loading="lazy">
+              </figure>
+              <div class="place-content">
+                <h3 class="place-title">Theth</h3>
+                <p class="place-text">
+                  Nestled in the Albanian Alps, Theth is a remote mountain village that offers breathtaking landscapes, traditional stone houses, and excellent hiking opportunities. The iconic Theth Church stands against a backdrop of dramatic peaks.
+                </p>
+              </div>
+            </div>
+
+            <!-- Mesi Bridge -->
+            <div class="place-card">
+              <figure class="place-banner">
+                <img src="./assets/images/uramesit.jpg" alt="Mesi Bridge" loading="lazy">
+              </figure>
+              <div class="place-content">
+                <h3 class="place-title">Mesi Bridge</h3>
+                <p class="place-text">
+                  This beautifully preserved Ottoman stone bridge near Shkodra dates back to the 18th century. With its elegant arches reflected in the clear waters of the Kir River, Mesi Bridge represents one of Albania's finest examples of Ottoman architecture.
+                </p>
+              </div>
+            </div>
+
+            <!-- Blue Eye Theth -->
+            <div class="place-card">
+              <figure class="place-banner">
+                <img src="./assets/images/blueeyetheth.webp" alt="Blue Eye Theth" loading="lazy">
+              </figure>
+              <div class="place-content">
+                <h3 class="place-title">Blue Eye Theth</h3>
+                <p class="place-text">
+                  A natural phenomenon in the Theth National Park, this natural spring creates a deep blue pool surrounded by lush greenery. The vibrant turquoise center resembles an eye, giving this mesmerizing spot its name.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TRIPS SECTION -->
+      <section class="places-section" id="trips">
+        <div class="container">
+          <p class="section-subtitle">Curated Adventures</p>
+          <h2 class="h2 section-title">Explore Albania Through Multi-Day Journeys</h2>
+          <p class="section-text">
+            Immerse yourself in Albania's diverse landscapes and rich cultural heritage with our carefully crafted multi-day trips. From the rugged mountains of the north to the pristine beaches of the south, our expert guides will lead you on unforgettable adventures.
+          </p>
+
+          <!-- North Albania Trip -->
+          <div class="trip-container">
+            <h3 class="h3 section-title">North Albania: Hiking the Albanian Alps</h3>
+            <div class="trip-info">
+              <div class="trip-details">
+                <p><strong>Trip Duration:</strong> 8 days</p>
+                <p><strong>Trip Type:</strong> Hiking adventure</p>
+              </div>
+            </div>
+
+            <div class="trip-services">
+              <h4>Services Include:</h4>
+              <ul class="trip-services-list">
+                <li>Bus/vehicle transportation from/to Tirana airport</li>
+                <li>German-speaking tour guide/continuous hiking guide from/to Tirana Airport</li>
+                <li>1x half board in Shkodra</li>
+                <li>2x half board in Valbona</li>
+                <li>2x half board in Theth</li>
+                <li>1x half board in Nderlysaj</li>
+                <li>1x half board in Tirana</li>
+                <li>Council tax</li>
+                <li>Ferry ride from Koman to Fierze</li>
+              </ul>
+            </div>
+
+            <div class="trip-itinerary">
+              <h4>Program:</h4>
+              <div class="day-by-day">
+                <div class="trip-day">
+                  <h5>Day 1: Arrival</h5>
+                  <p>Flight to Tirana and transfer to Shkodra.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 2: Drin Gorge</h5>
+                  <p>On a ferry trip from Koman to Fierze, we will love the romantic Drin Gorge with its steep limestone cliffs (a transfer may be necessary due to weather). Then drive to Valbona Valley. This valley, as Albanians say, is the most beautiful in Albania. Many girls are named after him. We hike to the high mountain pastures Grykat and Hapta (hike duration: approx. 2.5 hours; +/- 370 m) before leaving for Valbona.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 3: View of Mount Jezerca</h5>
+                  <p>We climb a shepherd's path to a viewpoint at 1,700 m (hike duration: approx. 6 hours, +/- 760 m), from where we can enjoy a magnificent view of the highest peaks of the Albanian Alps: Mt. Jezerca (2,695 m) and Mount Rosi (2,522 m).</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 4: To Thethi</h5>
+                  <p>Today we go up to the Valbona pass (1,860 m). Our luggage is transported by horses. We will then descend to Thethi (hike duration: approximately 7 hours, + 900 m, - 1150 m), a rustic mountain village in the Albanian Alps.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 5: Free day</h5>
+                  <p>Today you can take a break and simply enjoy the beautiful nature or explore the surroundings on your own. Today you will prepare your own dinner during a cooking class together.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 6: Thethi to Nderlysaj</h5>
+                  <p>On a circular walk (walk duration: approximately 5 hours, +/- 350 m) we learn about the natural beauty surrounding Thethi. Then we headed to Nderlysaj. In the afternoon we cool off in the town's water pools (1 night).</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 7: Thore Pass</h5>
+                  <p>We walk through the beautiful and wild Kaprea Valley to the Thore Pass (1,700 m). The Albanian Alps are once again shown in all their splendor (hike duration: approx. 4 hours, + 1300 m, - 130 m). Then a bus picks us up and takes us back to Tirana via Shkodra.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 8: Return Trip</h5>
+                  <p>Transfer to the airport and return flight.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compass Divider -->
+          <div class="compass-divider">
+            <div class="compass-container">
+              <div class="compass">
+                <div class="compass-inner">
+                  <span class="north">N</span>
+                  <span class="east">E</span>
+                  <span class="south">S</span>
+                  <span class="west">W</span>
+                  <span class="ne"></span>
+                  <span class="se"></span>
+                  <span class="sw"></span>
+                  <span class="nw"></span>
+                  <div class="compass-arrow"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- South Albania Trip -->
+          <div class="trip-container">
+            <h3 class="h3 section-title">South Albania: Cultural Treasures & Coastal Beauty</h3>
+            <div class="trip-info">
+              <div class="trip-details">
+                <p><strong>Trip Duration:</strong> 9 days</p>
+                <p><strong>Trip Type:</strong> Cultural exploration</p>
+                <p><strong>Route:</strong> Tirana, Durres, Berat, Apollonia, Vlora, Llogara, Saranda, Butrint, Ksamil, Blue Eye, Gjirokastra, Korca, Ohrid, Elbasan, Kruja</p>
+              </div>
+            </div>
+
+            <div class="trip-itinerary">
+              <h4>Program:</h4>
+              <div class="day-by-day">
+                <div class="trip-day">
+                  <h5>Day 1: Arrival Tirana - Durres</h5>
+                  <p>Flight to Tirana and transfer to our hotel in Durres. Half board included.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 2: Durrës - Berat - Apollonia - Vlora</h5>
+                  <p>In the morning, visit Durres and continue to Berat. The city of 1,000 windows - as Berat is also called - and its fortress, which is still inhabited today, are a UNESCO World Heritage Site. Then continue to the excavations of Apollonia. Over 2,500 years ago, the Greeks built a colony here in honor of Apollo. After the visit we continue to our hotel in Vlora. Half board included.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 3: Vlora - Llogara National Park - Saranda</h5>
+                  <p>Today we leave Vlora and drive along the picturesque coastal road along the Albanian Riviera. Unique nature awaits us in the Llogara National Park. Next stop is Himara - a true jewel of southern Albania. On the peninsula of Porto Palermo we make a photo stop to photograph the massive, triangular fort of Ali Pasha. Continue to the hotel in Saranda. Half board included.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 4: Saranda – Butrint – Ksamil – Blue Eye – Gjirokaster</h5>
+                  <p>Visit to Butrint – UNESCO World Heritage Site. A large number of ancient buildings were discovered here during excavations. Parts of this are still surprisingly well preserved. Continue to Ksamil. On our way to Gjirokaster we see the "Blue Eye". Hotel in Gjirokaster. Half board included.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 5: Gjirokaster – Korca</h5>
+                  <p>Morning visit to Gjirokastra, also a UNESCO World Heritage Site. The city is also called the "City of Stones", we visit the fortress and if you feel like it, you can also visit the only weapons museum in Albania. Then continue through the mountains of Albania to Korca, where we check into our hotel. Half board included.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 6: Korca – Ohrid</h5>
+                  <p>In the morning we visit Korca, then our route leads to the North Macedonian border and the famous Lake Ohrid. The lake is the oldest and deepest lake in Europe. The city and the lake are part of the UNESCO World Heritage Site. On the way to the UNESCO city we visit the monastery of Sv. Naum, embedded in unique nature. Not only is the monastery located here, but also the sources of Lake Ohrid, which we explore on a rowing boat trip. Then drive to our hotel in Ohrid. Half board included.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 7: Ohrid – Elbasan – Tirana</h5>
+                  <p>We start our day with a short boat trip on Lake Ohrid and take in the flair of the city from the water. Afterwards we explore the city on foot. In the afternoon we return to Albania, along the old Roman road "Via Egnatia" we reach the city of Elbasan. After a short sightseeing we continue to our hotel in Tirana. Half board included.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 8: Tirana - Kruja - Tirana</h5>
+                  <p>Drive to Kruje, the city of the national hero Skanderbek. We see the impressive fortress and the old town with the oriental-looking bazaar. Then continue to Tirana. Detailed tour of the city, we see, among other things, Skanderbek Square with its magnificent Italian buildings and the former official residence of Envher Hoxha. In the evening we move into our hotel in Tirana. Half board included.</p>
+                </div>
+                
+                <div class="trip-day">
+                  <h5>Day 9: Departure</h5>
+                  <p>Transfer to Tirana airport.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="trip-inclusions">
+              <h4>Included Entrance Fees:</h4>
+              <ul class="trip-inclusions-list">
+                <li>Berat Fortress & Onufri Museum</li>
+                <li>Apollonia & Butrint</li>
+                <li>Blue Eye</li>
+                <li>Gjirokaster Fortress</li>
+                <li>Kruja Fortress & National Museum</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MAP SECTION -->
+      <section class="places-section map-section">
+        <div class="container">
+          <p class="section-subtitle">Find Your Way</p>
+          <h2 class="h2 section-title">Explore Albania</h2>
+          <p class="section-text">
+            Discover Albania's breathtaking landscapes and plan your perfect journey through this beautiful country.
+          </p>
+          
+          <div class="map-container">
+            <img src="./assets/images/albanianmap.jpg" alt="Albania Map" class="full-width-map" 
+                 style="width: 100%; max-height: 600px; object-fit: contain; display: block; border-radius: var(--radius-15); background-color: #f8f9fa; padding: 20px;">
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+          </a>
+
+          <p class="footer-text">
+            Because your journey deserves meaning, and Albania delivers it.
+          </p>
+
+        </div>
+
+        <div class="footer-contact">
+
+          <h4 class="contact-title">Contact Us</h4>
+
+          <p class="contact-text">
+            Feel free to contact and reach us !!
+          </p>
+
+          <ul>
+
+            <li class="contact-item">
+              <ion-icon name="call-outline"></ion-icon>
+
+              <a href="tel:+01123456790" class="contact-link">+355 684 170 700</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+
+              <a href="mailto:info@wanderlustalbania.eu" class="contact-link">info@wanderlustalbania.eu</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="location-outline"></ion-icon>
+
+              <address>Bulevardi Zogu I, Shkodër 4001</address>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2025 <a href="#">Wanderlust Albania</a>. All rights reserved. Design by <a href="https://codewithenea.it" target="_blank">codewithenea.it</a>
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- GO TO TOP -->
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </a>
+
+  <!-- custom js link -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- ionicon link -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Additional script for improved navigation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elements
+      const header = document.querySelector('.header');
+      const mobileMenuToggle = document.querySelector('[data-mobile-menu-toggle]');
+      const mobileMenuClose = document.querySelector('[data-mobile-menu-close]');
+      const mobileMenu = document.querySelector('[data-mobile-menu]');
+      const overlay = document.querySelector('[data-mobile-overlay]');
+      const langBtn = document.querySelector('.language-btn');
+      const langDropdown = document.querySelector('.language-dropdown');
+      
+      // Set active menu item based on current page
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const desktopLinks = document.querySelectorAll('.nav-link');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+      
+      function setActiveLinks(links) {
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      setActiveLinks(desktopLinks);
+      setActiveLinks(mobileLinks);
+      
+      // Mobile menu toggle
+      function openMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        document.body.classList.add('nav-active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
+        console.log('Opening mobile menu');
+      }
+      
+      function closeMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        document.body.classList.remove('nav-active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+        console.log('Closing mobile menu');
+      }
+      
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+          console.log('Menu toggle clicked');
+          if (mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
+        });
+      }
+      
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function() {
+          console.log('Close button clicked');
+          closeMobileMenu();
+        });
+      }
+      
+      if (overlay) {
+        overlay.addEventListener('click', closeMobileMenu);
+      }
+      
+      // Close mobile menu when clicking a link
+      if (mobileLinks) {
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', closeMobileMenu);
+        });
+      }
+      
+      // Language dropdown toggle
+      if (langBtn) {
+        langBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (langDropdown) langDropdown.classList.toggle('active');
+        });
+      }
+      
+      // Close language dropdown when clicking outside
+      document.addEventListener('click', function() {
+        if (langDropdown) {
+          langDropdown.classList.remove('active');
+        }
+      });
+      
+      // Language selection in mobile menu
+      const langOptions = document.querySelectorAll('.lang-option');
+      if (langOptions) {
+        langOptions.forEach(option => {
+          option.addEventListener('click', function(e) {
+            // Remove active class from all options
+            langOptions.forEach(opt => opt.classList.remove('active'));
+            
+            // Add active class to clicked option
+            this.classList.add('active');
+            
+            // Update the language button text
+            const lang = this.getAttribute('data-lang').toUpperCase();
+            const langBtnText = document.querySelector('.language-btn span');
+            if (langBtnText) {
+              langBtnText.textContent = lang;
+            }
+            
+            // Close mobile menu
+            closeMobileMenu();
+          });
+        });
+      }
+      
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 20) {
+          if (header) header.classList.add('active');
+        } else {
+          if (header) header.classList.remove('active');
+        }
+      });
+      
+      // Handle ESC key to close mobile menu
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMobileMenu();
+          if (langDropdown) {
+            langDropdown.classList.remove('active');
+          }
+        }
+      });
+      
+      console.log('Menu script initialized with new data attributes');
+    });
+  </script>
+
+</body>
+
+</html> 

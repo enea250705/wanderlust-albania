@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tourly - Travel agancy</title>
+  <title>Wanderlust Albania - Travel agency</title>
 
   <!-- 
     - favicon
@@ -25,133 +25,1187 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+
+  <style>
+    /* Modern Header & Navigation */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      z-index: 90;
+      padding: 10px 0;
+      transition: all 0.3s ease;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      max-height: 50px;
+      transition: all 0.3s ease;
+    }
+    
+    .header.active .logo img {
+      max-height: 45px;
+    }
+    
+    /* Desktop Navigation */
+    .desktop-nav {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .desktop-nav-list {
+      display: flex;
+      gap: 5px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 10px 15px;
+      color: var(--gunmetal);
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--bright-navy-blue);
+      background-color: rgba(0, 102, 204, 0.08);
+    }
+    
+    .nav-link.active {
+      color: var(--bright-navy-blue);
+      background-color: rgba(0, 102, 204, 0.12);
+    }
+    
+    /* Header Right Section */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gunmetal);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .header-contact:hover {
+      color: var(--bright-navy-blue);
+    }
+    
+    .contact-icon {
+      font-size: 18px;
+      color: var(--bright-navy-blue);
+    }
+    
+    /* Language Selector */
+    .language-selector {
+      position: relative;
+    }
+    
+    .language-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gunmetal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .language-btn:hover {
+      background-color: rgba(0, 102, 204, 0.08);
+    }
+    
+    .language-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 150px;
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      padding: 10px 0;
+      margin-top: 10px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 200;
+    }
+    
+    .language-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .language-dropdown li {
+      list-style: none;
+    }
+    
+    .language-dropdown li a {
+      display: block;
+      padding: 8px 15px;
+      color: var(--gunmetal);
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .language-dropdown li a:hover {
+      background-color: rgba(0, 102, 204, 0.08);
+      color: var(--bright-navy-blue);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 300;
+    }
+    
+    .menu-bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--gunmetal);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    
+    /* Hamburger menu animation */
+    .mobile-menu-toggle.active .menu-bar:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    
+    .mobile-menu-toggle.active .menu-bar:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active .menu-bar:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 400px;
+      height: 100vh;
+      background-color: var(--white);
+      z-index: 100;
+      transition: all 0.4s ease-in-out;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+      right: 0;
+    }
+    
+    .mobile-menu-container {
+      padding: 25px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--gunmetal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+    
+    .mobile-menu-close:hover {
+      color: var(--bright-navy-blue);
+      transform: rotate(90deg);
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Mobile Contact */
+    .mobile-contact {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background-color: rgba(0, 102, 204, 0.08);
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 30px;
+    }
+    
+    .mobile-contact ion-icon {
+      font-size: 24px;
+      color: var(--bright-navy-blue);
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .contact-label {
+      font-size: 12px;
+      color: var(--gunmetal);
+    }
+    
+    .contact-number {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--bright-navy-blue);
+    }
+    
+    /* Mobile Navigation */
+    .mobile-nav {
+      margin-bottom: 30px;
+    }
+    
+    .mobile-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 15px;
+      border-radius: 10px;
+      color: var(--gunmetal);
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-bottom: 5px;
+    }
+    
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      background-color: rgba(0, 102, 204, 0.08);
+      color: var(--bright-navy-blue);
+      transform: translateX(5px);
+    }
+    
+    /* Mobile Language Selector */
+    .mobile-language-selector {
+      margin-bottom: 30px;
+    }
+    
+    .lang-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gunmetal);
+      margin-bottom: 15px;
+    }
+    
+    .mobile-language-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .lang-option {
+      display: block;
+      padding: 8px 15px;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+      color: var(--gunmetal);
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .lang-option:hover,
+    .lang-option.active {
+      background-color: var(--bright-navy-blue);
+      color: var(--white);
+    }
+    
+    /* Mobile Social */
+    .mobile-social {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    
+    .social-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gunmetal);
+      margin-bottom: 15px;
+    }
+    
+    .social-list {
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 50%;
+      color: var(--gunmetal);
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background-color: var(--bright-navy-blue);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+      z-index: 99;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      
+      .header-contact {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-container {
+        padding: 0 15px;
+      }
+      
+      .logo img {
+        max-height: 45px;
+      }
+      
+      .language-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+      }
+    }
+    
+    main {
+      margin-top: 0;
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Fix for popular destinations section */
+    .popular {
+      padding-top: 60px;
+      position: relative;
+      z-index: 5;
+      background-color: var(--white);
+      margin-top: 0;
+    }
+    
+    .popular-list {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+    
+    .popular-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-15);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .popular-card .card-img {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+    }
+    
+    .popular-card .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .popular-card:hover .card-img img {
+      transform: scale(1.1);
+    }
+    
+    .popular-card .card-content {
+      position: relative;
+      padding: 20px;
+      background-color: var(--white);
+    }
+    
+    /* Fix for features section */
+    .package {
+      padding-top: 60px;
+      position: relative;
+      z-index: 10;
+      background-color: var(--white);
+    }
+    
+    .features-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .feature-card {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: var(--radius-15);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      background-color: rgba(0, 102, 204, 0.1);
+      color: var(--bright-navy-blue);
+      font-size: 28px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    
+    @media (min-width: 768px) {
+      .popular-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .features-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .popular-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .features-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    /* Fix for testimonial section */
+    .testimonials {
+      padding-top: 60px;
+      position: relative;
+      z-index: 10;
+      background-color: var(--white);
+    }
+    
+    /* Fix for video container */
+    .hero {
+      position: relative;
+      margin-top: 0;
+      padding-top: 180px;
+      padding-bottom: 80px;
+      z-index: 5;
+    }
+    
+    .video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    
+    .hero-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+    
+    .hero .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .btn-discover {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--bright-navy-blue), var(--yale-blue));
+      color: var(--white);
+      padding: 18px 30px;
+      border-radius: 30px;
+      font-weight: var(--fw-600);
+      font-size: 16px;
+      text-transform: uppercase;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 102, 204, 0.2);
+      transition: all 0.4s ease;
+      z-index: 1;
+      border: none;
+      margin-top: 30px;
+      letter-spacing: 1px;
+      gap: 8px;
+    }
+    
+    .btn-discover::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--yale-blue), var(--bright-navy-blue));
+      z-index: -1;
+      transition: opacity 0.4s ease;
+      opacity: 0;
+      border-radius: 30px;
+    }
+    
+    .btn-discover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 25px rgba(0, 102, 204, 0.3);
+    }
+    
+    .btn-discover:hover::before {
+      opacity: 1;
+    }
+    
+    .btn-discover .arrow {
+      transition: transform 0.4s ease;
+      font-size: 20px;
+    }
+    
+    .btn-discover:hover .arrow {
+      transform: translateX(5px);
+    }
+
+    /* Testimonial card fixed height styles */
+    .testimonial-card {
+      height: 400px;
+      display: flex;
+      flex-direction: column;
+      margin: 0 15px;
+    }
+    
+    .testimonial-content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: var(--radius-10);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    }
+    
+    .testimonial-text {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-bottom: 20px;
+      line-height: 1.7;
+      max-height: 200px;
+      padding-right: 5px;
+    }
+    
+    /* Custom scrollbar for testimonial text */
+    .testimonial-text::-webkit-scrollbar {
+      width: 5px;
+    }
+    
+    .testimonial-text::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+    
+    .testimonial-text::-webkit-scrollbar-thumb {
+      background: var(--bright-navy-blue);
+      border-radius: 10px;
+    }
+    
+    .testimonial-text::-webkit-scrollbar-thumb:hover {
+      background: var(--yale-blue);
+    }
+    
+    .testimonial-rating {
+      margin-bottom: 15px;
+    }
+    
+    .testimonial-client {
+      margin-top: auto;
+    }
+    
+    /* Mobile Navigation Links in the content */
+    .mobile-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin: 30px 0;
+    }
+    
+    .mobile-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      width: calc(50% - 15px);
+      max-width: 150px;
+      border-radius: 10px;
+      background-color: rgba(0, 102, 204, 0.1);
+      color: var(--bright-navy-blue);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .mobile-nav-item ion-icon {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    
+    .mobile-nav-item:hover {
+      background-color: var(--bright-navy-blue);
+      color: var(--white);
+      transform: translateY(-5px);
+    }
+    
+    .mobile-nav-item.active {
+      background-color: var(--bright-navy-blue);
+      color: var(--white);
+      box-shadow: 0 5px 15px rgba(0, 102, 204, 0.3);
+    }
+    
+    @media (min-width: 769px) {
+      .mobile-nav-links {
+        display: none;
+      }
+    }
+
+    /* Fix for content positioning with fixed header */
+    body {
+      padding-top: 0;
+    }
+    
+    .hero {
+      margin-top: 0;
+      padding-top: 180px;
+    }
+    
+    /* Ensure the section content is visible */
+    .section-subtitle, 
+    .section-title, 
+    .section-text,
+    .popular-list,
+    .features-list {
+      position: relative;
+      z-index: 10;
+    }
+    
+    /* Ensure all sections have proper background and padding */
+    section {
+      position: relative;
+      background-color: var(--white);
+      padding: 60px 0;
+      overflow: visible;
+    }
+    
+    /* Fix for mobile overlay - ensure it doesn't block content */
+    .overlay {
+      z-index: 99;
+    }
+    
+    /* Header should be above content but below mobile menu */
+    .header {
+      z-index: 90;
+    }
+    
+    /* Mobile menu should be the highest z-index */
+    .mobile-menu {
+      z-index: 100;
+    }
+
+    /* Critical fix to force content visibility */
+    .popular .container,
+    .package .container,
+    .testimonials .container,
+    .gallery .container,
+    .contact-form .container {
+      position: relative;
+      z-index: 15;
+      background-color: var(--white);
+    }
+    
+    /* Fix any layering issues */
+    .section-subtitle,
+    .section-title,
+    .section-text {
+      opacity: 1 !important;
+      visibility: visible !important;
+      display: block !important;
+    }
+    
+    /* Ensure the main content is on top of any background elements */
+    main {
+      isolation: isolate;
+    }
+    
+    /* Fix for destination cards */
+    .popular-card {
+      background-color: var(--white);
+      z-index: 20;
+      position: relative;
+    }
+    
+    /* Fix for feature cards */
+    .feature-card {
+      z-index: 20;
+      position: relative;
+    }
+
+    /* Date field specific styling */
+    .date-field {
+      color: var(--gunmetal);
+      position: relative;
+    }
+    
+    .date-field::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+      opacity: 0.8;
+      filter: invert(0.5);
+    }
+    
+    .date-field[type="date"]::-webkit-datetime-edit-fields-wrapper {
+      position: relative;
+    }
+    
+    .date-field[type="date"]:invalid::-webkit-datetime-edit {
+      color: transparent;
+    }
+    
+    .date-field[type="date"]:valid::-webkit-datetime-edit {
+      color: var(--black-coral);
+    }
+    
+    /* Make sure the date field has proper height */
+    #travel-date {
+      min-height: 53px;
+    }
+
+    /* Enhanced Footer Logo Styling */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 350px;
+    }
+    
+    .footer-brand .logo {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      width: fit-content;
+    }
+    
+    .footer-brand .logo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .footer-brand .logo:hover::before {
+      left: 100%;
+    }
+    
+    .footer-brand .logo:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.12));
+      border-color: rgba(255,255,255,0.15);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .footer-brand .logo img {
+      max-height: 45px;
+      width: auto;
+      transition: all 0.3s ease;
+      filter: brightness(1.05) contrast(1.05);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-brand .logo:hover img {
+      filter: brightness(1.15) contrast(1.1);
+    }
+    
+    .footer-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      margin-top: 5px;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-brand:hover .footer-text {
+      color: rgba(255,255,255,0.95);
+    }
+    
+    /* Responsive adjustments for footer logo */
+    @media (max-width: 768px) {
+      .footer-brand {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+      }
+      
+      .footer-brand .logo {
+        padding: 6px 10px;
+      }
+      
+      .footer-brand .logo img {
+        max-height: 40px;
+      }
+      
+      .footer-text {
+        font-size: 15px;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .footer-brand .logo {
+        padding: 5px 8px;
+      }
+      
+      .footer-brand .logo img {
+        max-height: 35px;
+      }
+      
+      .footer-text {
+        font-size: 14px;
+      }
+    }
+  </style>
+  
+  <!-- Fix CSS for content visibility -->
+  <link rel="stylesheet" href="./assets/css/fix.css">
+
+  <!-- CRITICAL FIX FOR CONTENT VISIBILITY -->
+  <style id="content-fix" type="text/css">
+    /* Force content visibility */
+    .popular, .package {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    .section-subtitle, .section-title, .section-text {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      color: #000 !important;
+    }
+    
+    .popular-list, .features-list {
+      display: grid !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    .popular-card, .feature-card, .card-content, .card-img {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+    }
+    
+    /* Reset positioning that might be causing issues */
+    .popular, .package {
+      position: static !important;
+      transform: none !important;
+    }
+    
+    /* Add background colors to ensure text is visible */
+    .popular, .package {
+      background-color: #fff !important;
+    }
+    
+    .popular-card, .feature-card {
+      background-color: #fff !important;
+    }
+    
+    /* Reset any transforms or transitions that might be affecting visibility */
+    .popular *, .package * {
+      transform: none !important;
+      transition: none !important;
+    }
+    
+    /* Reset any conflicting z-index values */
+    .header {
+      z-index: 999 !important;
+    }
+    
+    .popular, .package {
+      z-index: auto !important;
+    }
+    
+    main {
+      margin-top: 0 !important;
+    }
+    
+    body {
+      padding-top: 0 !important;
+    }
+    
+    .hero {
+      margin-top: 0 !important;
+      padding-top: 180px !important;
+    }
+  </style>
 </head>
 
 <body id="top">
 
-  <!-- 
-    - #HEADER
-  -->
-
+  <!-- HEADER -->
   <header class="header" data-header>
+    <div class="container header-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+      </a>
 
-    <div class="overlay" data-overlay></div>
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <ul class="desktop-nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li><a href="travels.html" class="nav-link">Travels</a></li>
+          <li><a href="guides.html" class="nav-link">Licensed Guides</a></li>
+          <li><a href="places.html" class="nav-link">Places to Visit</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+      </nav>
 
-    <div class="header-top">
-      <div class="container">
-
-        <a href="tel:+01123456790" class="helpline-box">
-
-          <div class="icon-box">
-            <ion-icon name="call-outline"></ion-icon>
-          </div>
-
-          <div class="wrapper">
-            <p class="helpline-title">For Further Inquires :</p>
-
-            <p class="helpline-number">+01 (123) 4567 90</p>
-          </div>
-
+      <!-- Right Header Section -->
+      <div class="header-right">
+        <!-- Contact Info -->
+        <a href="tel:+355684170700" class="header-contact">
+          <ion-icon name="call-outline" class="contact-icon"></ion-icon>
+          <span>+355 684 170 700</span>
         </a>
 
-        <a href="#" class="logo">
-          <img src="./assets/images/logo.svg" alt="Tourly logo">
-        </a>
-
-        <div class="header-btn-group">
-
-          <button class="search-btn" aria-label="Search">
-            <ion-icon name="search"></ion-icon>
+        <!-- Language Selector -->
+        <div class="language-selector">
+          <button class="language-btn">
+            <span>EN</span>
+            <ion-icon name="chevron-down-outline"></ion-icon>
           </button>
-
-          <button class="nav-open-btn" aria-label="Open Menu" data-nav-open-btn>
-            <ion-icon name="menu-outline"></ion-icon>
-          </button>
-
+          <ul class="language-dropdown">
+            <li><a href="#" data-lang="sq">Shqip</a></li>
+            <li><a href="#" data-lang="de">Deutsch</a></li>
+            <li><a href="#" data-lang="fr">Français</a></li>
+            <li><a href="#" data-lang="en">English</a></li>
+            <li><a href="#" data-lang="it">Italiano</a></li>
+          </ul>
         </div>
 
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" data-mobile-menu-toggle>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
       </div>
     </div>
+  </header>
 
-    <div class="header-bottom">
-      <div class="container">
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" data-mobile-menu>
+    <div class="mobile-menu-container">
+      <!-- Mobile Menu Header -->
+      <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+              <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+            </a>
+        <button class="mobile-menu-close" data-mobile-menu-close>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+      </div>
 
+      <!-- Mobile Contact -->
+      <a href="tel:+355684170700" class="mobile-contact">
+        <ion-icon name="call-outline"></ion-icon>
+        <div class="contact-info">
+          <span class="contact-label">For inquiries:</span>
+          <span class="contact-number">+355 684 170 700</span>
+          </div>
+      </a>
+
+      <!-- Mobile Navigation -->
+      <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="hotels.html" class="mobile-nav-link">Hotels</a></li>
+          <li><a href="travels.html" class="mobile-nav-link">Travels</a></li>
+          <li><a href="guides.html" class="mobile-nav-link">Licensed Guides</a></li>
+          <li><a href="places.html" class="mobile-nav-link">Places to Visit & Trips</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Language Selector -->
+      <div class="mobile-language-selector">
+        <h4 class="lang-title">Choose Language</h4>
+        <ul class="mobile-language-list">
+          <li><a href="#" data-lang="sq" class="lang-option">Shqip</a></li>
+          <li><a href="#" data-lang="de" class="lang-option">Deutsch</a></li>
+          <li><a href="#" data-lang="fr" class="lang-option">Français</a></li>
+          <li><a href="#" data-lang="en" class="lang-option active">English</a></li>
+          <li><a href="#" data-lang="it" class="lang-option">Italiano</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div class="mobile-social">
+        <h4 class="social-title">Follow Us</h4>
         <ul class="social-list">
-
           <li>
             <a href="#" class="social-link">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
-          </li>
-
-          <li>
+            </li>
+            <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+            </li>
+            <li>
             <a href="#" class="social-link">
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-youtube"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-        <nav class="navbar" data-navbar>
-
-          <div class="navbar-top">
-
-            <a href="#" class="logo">
-              <img src="./assets/images/logo-blue.svg" alt="Tourly logo">
-            </a>
-
-            <button class="nav-close-btn" aria-label="Close Menu" data-nav-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-          </div>
-
-          <ul class="navbar-list">
-
-            <li>
-              <a href="#home" class="navbar-link" data-nav-link>home</a>
             </li>
-
-            <li>
-              <a href="#" class="navbar-link" data-nav-link>about us</a>
-            </li>
-
-            <li>
-              <a href="#destination" class="navbar-link" data-nav-link>destination</a>
-            </li>
-
-            <li>
-              <a href="#package" class="navbar-link" data-nav-link>packages</a>
-            </li>
-
-            <li>
-              <a href="#gallery" class="navbar-link" data-nav-link>gallery</a>
-            </li>
-
-            <li>
-              <a href="#contact" class="navbar-link" data-nav-link>contact us</a>
-            </li>
-
           </ul>
-
-        </nav>
-
-        <button class="btn btn-primary">Book Now</button>
-
+      </div>
       </div>
     </div>
 
-  </header>
-
-
-
-
+  <!-- Overlay -->
+  <div class="overlay" data-mobile-overlay></div>
 
   <main>
     <article>
@@ -161,14 +1215,20 @@
       -->
 
       <section class="hero" id="home">
+        <div class="video-container">
+          <video autoplay muted loop playsinline class="hero-video">
+            <source src="homevid.mp4" type="video/mp4">
+            <!-- Fallback for browsers that don't support video -->
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-overlay"></div>
+        </div>
         <div class="container">
 
-          <h2 class="h1 hero-title">Journey to explore world</h2>
+          <h2 class="h1 hero-title">UNVEIL THE LAND WHERE LEGENDS BREATHE</h2>
 
           <p class="hero-text">
-            Ac mi duis mollis. Sapiente? Scelerisque quae, penatibus? Suscipit class corporis nostra rem quos
-            voluptatibus habitant?
-            Fames, vivamus minim nemo enim, gravida lobortis quasi, eum.
+            Albania is not a trip. It's a revelation. From the eagle's flight over the Accursed Mountains to whispers of Illyrian kings in ancient stones—each step writes your story in a land untouched by time. Welcome to a place the world forgot to ruin.
           </p>
 
           <div class="btn-group">
@@ -185,65 +1245,18 @@
 
 
       <!-- 
-        - #TOUR SEARCH
-      -->
-
-      <section class="tour-search">
-        <div class="container">
-
-          <form action="" class="tour-search-form">
-
-            <div class="input-wrapper">
-              <label for="destination" class="input-label">Search Destination*</label>
-
-              <input type="text" name="destination" id="destination" required placeholder="Enter Destination"
-                class="input-field">
-            </div>
-
-            <div class="input-wrapper">
-              <label for="people" class="input-label">Pax Number*</label>
-
-              <input type="number" name="people" id="people" required placeholder="No.of People" class="input-field">
-            </div>
-
-            <div class="input-wrapper">
-              <label for="checkin" class="input-label">Checkin Date**</label>
-
-              <input type="date" name="checkin" id="checkin" required class="input-field">
-            </div>
-
-            <div class="input-wrapper">
-              <label for="checkout" class="input-label">Checkout Date*</label>
-
-              <input type="date" name="checkout" id="checkout" required class="input-field">
-            </div>
-
-            <button type="submit" class="btn btn-secondary">Inquire now</button>
-
-          </form>
-
-        </div>
-      </section>
-
-
-
-
-
-      <!-- 
         - #POPULAR
       -->
 
       <section class="popular" id="destination">
         <div class="container">
 
-          <p class="section-subtitle">Uncover place</p>
+          <p class="section-subtitle">Destinations That Redefine Discovery</p>
 
-          <h2 class="h2 section-title">Popular destination</h2>
+          <h2 class="h2 section-title">These aren't "popular spots." They're revelations.</h2>
 
           <p class="section-text">
-            Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-            Sit ornare
-            mollitia tenetur, aptent.
+            Each place on this map isn't just beautiful it's alive with soul, story, and silence you can feel. We don't just show you where to go we guide you into the unknown side of Albania the world never told you about.
           </p>
 
           <ul class="popular-list">
@@ -252,7 +1265,7 @@
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="./assets/images/popular-1.jpg" alt="San miguel, italy" loading="lazy">
+                  <img src="./assets/images/berat.jpg" alt="Berat, Albania" loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -266,15 +1279,15 @@
                   </div>
 
                   <p class="card-subtitle">
-                    <a href="#">Italy</a>
+                    <a href="berat.html">Albania</a>
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="#">San miguel</a>
+                    <a href="berat.html">Berat</a>
                   </h3>
 
                   <p class="card-text">
-                    Fusce hic augue velit wisi ips quibusdam pariatur, iusto.
+                    Discover the "City of a Thousand Windows" with its unique Ottoman architecture and UNESCO World Heritage status.
                   </p>
 
                 </div>
@@ -286,7 +1299,7 @@
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="./assets/images/popular-2.jpg" alt="Burj khalifa, dubai" loading="lazy">
+                  <img src="./assets/images/shkoder1.jpg" alt="Shkodra, Albania" loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -300,15 +1313,15 @@
                   </div>
 
                   <p class="card-subtitle">
-                    <a href="#">Dubai</a>
+                    <a href="shkodra.html">Northern Albania</a>
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="#">Burj khalifa</a>
+                    <a href="shkodra.html">Shkodra</a>
                   </h3>
 
                   <p class="card-text">
-                    Fusce hic augue velit wisi ips quibusdam pariatur, iusto.
+                    Explore Albania's cultural capital with its stunning Rozafa Castle, rich history, and beautiful lakeside setting.
                   </p>
 
                 </div>
@@ -320,7 +1333,7 @@
               <div class="popular-card">
 
                 <figure class="card-img">
-                  <img src="./assets/images/popular-3.jpg" alt="Kyoto temple, japan" loading="lazy">
+                  <img src="./assets/images/tirana1.jpg" alt="Tirana, Albania" loading="lazy">
                 </figure>
 
                 <div class="card-content">
@@ -334,15 +1347,15 @@
                   </div>
 
                   <p class="card-subtitle">
-                    <a href="#">Japan</a>
+                    <a href="tirana.html">Central Albania</a>
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="#">Kyoto temple</a>
+                    <a href="tirana.html">Tirana</a>
                   </h3>
 
                   <p class="card-text">
-                    Fusce hic augue velit wisi ips quibusdam pariatur, iusto.
+                    Discover Albania's vibrant capital city with its colorful buildings, lively atmosphere, and fascinating mix of history and modernity.
                   </p>
 
                 </div>
@@ -352,7 +1365,7 @@
 
           </ul>
 
-          <button class="btn btn-primary">More destintion</button>
+          <a href="travels.html" class="btn btn-primary">Explore More Destinations</a>
 
         </div>
       </section>
@@ -368,244 +1381,359 @@
       <section class="package" id="package">
         <div class="container">
 
-          <p class="section-subtitle">Popular Packeges</p>
+          <p class="section-subtitle">🌍 Features That Elevate Every Journey</p>
 
-          <h2 class="h2 section-title">Checkout Our Packeges</h2>
+          <h2 class="h2 section-title">Handpicked tools. Seamless experiences. Real-world travel, redefined.</h2>
 
-          <p class="section-text">
-            Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-            Sit ornare
-            mollitia tenetur, aptent.
-          </p>
+          <ul class="features-list">
 
-          <ul class="package-list">
-
-            <li>
-              <div class="package-card">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/packege-1.jpg" alt="Experience The Great Holiday On Beach" loading="lazy">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">Experience The Great Holiday On Beach</h3>
-
-                  <p class="card-text">
-                    Laoreet, voluptatum nihil dolor esse quaerat mattis explicabo maiores, est aliquet porttitor! Eaque,
-                    cras, aspernatur.
-                  </p>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="time"></ion-icon>
-
-                        <p class="text">7D/6N</p>
-                      </div>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="people"></ion-icon>
-
-                        <p class="text">pax: 10</p>
-                      </div>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="location"></ion-icon>
-
-                        <p class="text">Malaysia</p>
-                      </div>
-                    </li>
-
-                  </ul>
-
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="person-outline"></ion-icon>
                 </div>
-
-                <div class="card-price">
-
-                  <div class="wrapper">
-
-                    <p class="reviews">(25 reviews)</p>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </div>
-
-                  </div>
-
-                  <p class="price">
-                    $750
-                    <span>/ per person</span>
-                  </p>
-
-                  <button class="btn btn-secondary">Book Now</button>
-
-                </div>
-
+                <h3 class="h3 feature-title">Curated Itineraries</h3>
+                <p class="card-text">
+                  Trips shaped around your style and pace, crafted to match you, not the masses.
+                </p>
               </div>
             </li>
 
-            <li>
-              <div class="package-card">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/packege-2.jpg" alt="Summer Holiday To The Oxolotan River" loading="lazy">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">Summer Holiday To The Oxolotan River</h3>
-
-                  <p class="card-text">
-                    Laoreet, voluptatum nihil dolor esse quaerat mattis explicabo maiores, est aliquet porttitor! Eaque,
-                    cras, aspernatur.
-                  </p>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="time"></ion-icon>
-
-                        <p class="text">7D/6N</p>
-                      </div>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="people"></ion-icon>
-
-                        <p class="text">pax: 10</p>
-                      </div>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="location"></ion-icon>
-
-                        <p class="text">Malaysia</p>
-                      </div>
-                    </li>
-
-                  </ul>
-
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="videocam-outline"></ion-icon>
                 </div>
-
-                <div class="card-price">
-
-                  <div class="wrapper">
-
-                    <p class="reviews">(20 reviews)</p>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </div>
-
-                  </div>
-
-                  <p class="price">
-                    $520
-                    <span>/ per person</span>
-                  </p>
-
-                  <button class="btn btn-secondary">Book Now</button>
-
-                </div>
-
+                <h3 class="h3 feature-title">Lasting Moments</h3>
+                <p class="card-text">
+                  Every location, handpicked to help you live stories worth telling, not just take pictures.
+                </p>
               </div>
             </li>
 
-            <li>
-              <div class="package-card">
-
-                <figure class="card-banner">
-                  <img src="./assets/images/packege-3.jpg" alt="Santorini Island's Weekend Vacation" loading="lazy">
-                </figure>
-
-                <div class="card-content">
-
-                  <h3 class="h3 card-title">Santorini Island's Weekend Vacation</h3>
-
-                  <p class="card-text">
-                    Laoreet, voluptatum nihil dolor esse quaerat mattis explicabo maiores, est aliquet porttitor! Eaque,
-                    cras, aspernatur.
-                  </p>
-
-                  <ul class="card-meta-list">
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="time"></ion-icon>
-
-                        <p class="text">7D/6N</p>
-                      </div>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="people"></ion-icon>
-
-                        <p class="text">pax: 10</p>
-                      </div>
-                    </li>
-
-                    <li class="card-meta-item">
-                      <div class="meta-box">
-                        <ion-icon name="location"></ion-icon>
-
-                        <p class="text">Malaysia</p>
-                      </div>
-                    </li>
-
-                  </ul>
-
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="map-outline"></ion-icon>
                 </div>
+                <h3 class="h3 feature-title">Smart Navigation</h3>
+                <p class="card-text">
+                  Find your way with precision, from major sights to secret local spots, always at your fingertips.
+                </p>
+              </div>
+            </li>
 
-                <div class="card-price">
-
-                  <div class="wrapper">
-
-                    <p class="reviews">(40 reviews)</p>
-
-                    <div class="card-rating">
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                      <ion-icon name="star"></ion-icon>
-                    </div>
-
-                  </div>
-
-                  <p class="price">
-                    $660
-                    <span>/ per person</span>
-                  </p>
-
-                  <button class="btn btn-secondary">Book Now</button>
-
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="bulb-outline"></ion-icon>
                 </div>
+                <h3 class="h3 feature-title">Helpful Tips & Insights</h3>
+                <p class="card-text">
+                  Stay one step ahead with real-time suggestions based on your interests and surroundings.
+                </p>
+              </div>
+            </li>
 
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="time-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">Timely Alerts</h3>
+                <p class="card-text">
+                  Whether it's a reservation or a hike, stay informed and on time, no stress, no surprises.
+                </p>
+              </div>
+            </li>
+
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="airplane-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">All-in-One Trip Tools</h3>
+                <p class="card-text">
+                  From bookings to checklists, manage every part of your journey in one streamlined space.
+                </p>
               </div>
             </li>
 
           </ul>
 
-          <button class="btn btn-primary">View All Packages</button>
+        </div>
+      </section>
 
+
+
+
+
+      <!-- 
+        - #TESTIMONIALS
+      -->
+
+      <section class="testimonials" id="testimonials">
+        <div class="container">
+          <p class="section-subtitle">What Our Travelers Say</p>
+          <h2 class="h2 section-title">Adventures that create authentic memories</h2>
+          
+          <div class="testimonial-wrapper">
+            <div class="testimonial-slider">
+              <!-- Testimonial 1 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    "The Balkan tour was incredibly beautiful. Sadi, our tour guide, made the trip unforgettable with his relaxed and open attitude. Always smiling, always ready with a great story about his homeland. He managed everything smoothly, without showing the slightest sign of stress. Who would have thought the Balkans were so beautiful? This trip is definitely recommended!"
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Viktoria Esau</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 2 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    The Balkan round trip was truly unique. We were a small international group and had Sadjan, the world's best tour guide. 24/7, always present with charm, dedication, and a great attitude. Not to forget our bus driver, who could drive backwards just as well as forwards! We wish you continued success in your business!
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Mareike Altemayer</h3>
+                      <p class="review-date">6 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 3 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    Super tour guide! Competent, entertaining, very pleasant in dealing with the travel guests.
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Wilfried Stenzel</h3>
+                      <p class="review-date">6 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 4 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    The Albania round trip was wonderful. Our tour guide didn't just accompany us — he made this trip something special, a wonderful adventure. You were like a buddy to us. You're the kind of guide everyone wishes for on a trip. Thank you, Sadi.
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Siegmund Pazulla</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 5 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    Sadjan was a great tour guide and companion during our Balkan round trip. The trip took us through 6 countries: Bulgaria, Greece, Albania, North Macedonia, Montenegro, and Kosovo. Special thanks to the bus driver from Skopje, who did a fantastic job and drove safely and reliably. Sadjan led the tour with great passion and was committed to solving all the big and small problems of the travelers. A truly exceptional performance. He described his homeland Albania with humor and a personal touch. It was never boring on the bus, and we always had good laughs.
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Jochen Helbig</h3>
+                      <p class="review-date">6 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 6 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    Sadi was our tour guide for the Balkan round trip. Reliable, knowledgeable in geography and history, always friendly and approachable. He remains calm in tricky situations and manages even difficult groups well. Smart and highly recommended.
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Jürgen Berg (Snoopy)</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 7 -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    Fantastic tour guidance by Sadi! We were lucky to have Sadi as our tour guide and can highly recommend him! He was extremely helpful and explained everything with great patience and attention to detail. Especially impressive was how he addressed the needs of all travelers — even the older participants, whom he treated with special care and attention. His friendly and open manner made the Balkan round trip incredibly enjoyable. If you want an informative, well-organized, and relaxed journey, you're in the best hands with Sadi!
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Julzzz</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Duplicate testimonials for infinite loop effect -->
+              <!-- Testimonial 1 (duplicate) -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    "The Balkan tour was incredibly beautiful. Sadi, our tour guide, made the trip unforgettable with his relaxed and open attitude. Always smiling, always ready with a great story about his homeland. He managed everything smoothly, without showing the slightest sign of stress. Who would have thought the Balkans were so beautiful? This trip is definitely recommended!"
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Viktoria Esau</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 2 (duplicate) -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    The Balkan round trip was truly unique. We were a small international group and had Sadjan, the world's best tour guide. 24/7, always present with charm, dedication, and a great attitude. Not to forget our bus driver, who could drive backwards just as well as forwards! We wish you continued success in your business!
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Mareike Altemayer</h3>
+                      <p class="review-date">6 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 3 (duplicate) -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    Super tour guide! Competent, entertaining, very pleasant in dealing with the travel guests.
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Wilfried Stenzel</h3>
+                      <p class="review-date">6 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Testimonial 4 (duplicate) -->
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <div class="testimonial-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <span class="rating-text">5/5</span>
+                  </div>
+                  <p class="testimonial-text">
+                    "The Albania round trip was wonderful. Our tour guide didn't just accompany us — he made this trip something special, a wonderful adventure. You were like a buddy to us. You're the kind of guide everyone wishes for on a trip. Thank you, Sadi."
+                  </p>
+                  <div class="testimonial-client">
+                    <div class="client-info">
+                      <h3 class="client-name">Siegmund Pazulla</h3>
+                      <p class="review-date">7 months ago</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -625,40 +1753,56 @@
           <h2 class="h2 section-title">Photo's From Travellers</h2>
 
           <p class="section-text">
-            Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque laudantium.
-            Sit ornare
-            mollitia tenetur, aptent.
+            Discover Albania through the eyes of our travelers. These authentic moments capture the beauty, culture, and unforgettable experiences that await you.
           </p>
 
           <ul class="gallery-list">
 
             <li class="gallery-item">
               <figure class="gallery-image">
-                <img src="./assets/images/gallery-1.jpg" alt="Gallery image">
+                <img src="./assets/images/image00001.jpeg" alt="Albania travel gallery image">
               </figure>
             </li>
 
             <li class="gallery-item">
               <figure class="gallery-image">
-                <img src="./assets/images/gallery-2.jpg" alt="Gallery image">
+                <img src="./assets/images/image00002.jpeg" alt="Albania travel gallery image">
               </figure>
             </li>
 
             <li class="gallery-item">
               <figure class="gallery-image">
-                <img src="./assets/images/gallery-3.jpg" alt="Gallery image">
+                <img src="./assets/images/image00003.jpeg" alt="Albania travel gallery image">
               </figure>
             </li>
 
             <li class="gallery-item">
               <figure class="gallery-image">
-                <img src="./assets/images/gallery-4.jpg" alt="Gallery image">
+                <img src="./assets/images/image00004.jpeg" alt="Albania travel gallery image">
               </figure>
             </li>
 
             <li class="gallery-item">
               <figure class="gallery-image">
-                <img src="./assets/images/gallery-5.jpg" alt="Gallery image">
+                <img src="./assets/images/image00005.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00006.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00007.jpeg" alt="Albania travel gallery image">
+              </figure>
+            </li>
+
+            <li class="gallery-item">
+              <figure class="gallery-image">
+                <img src="./assets/images/image00008.jpeg" alt="Albania travel gallery image">
               </figure>
             </li>
 
@@ -672,25 +1816,59 @@
 
 
       <!-- 
-        - #CTA
+        - #CONTACT FORM
       -->
 
-      <section class="cta" id="contact">
+      <section class="contact-form" id="contact">
         <div class="container">
 
-          <div class="cta-content">
-            <p class="section-subtitle">Call To Action</p>
+          <div class="form-content">
+            <p class="section-subtitle">Get In Touch</p>
 
-            <h2 class="h2 section-title">Ready For Unforgatable Travel. Remember Us!</h2>
+            <h2 class="h2 section-title">Ready For Unforgettable Travel. Remember Us!</h2>
 
             <p class="section-text">
-              Fusce hic augue velit wisi quibusdam pariatur, iusto primis, nec nemo, rutrum. Vestibulum cumque
-              laudantium. Sit ornare
-              mollitia tenetur, aptent.
+              Let us help you plan your perfect Albanian adventure. Fill out the form below and our travel experts will contact you within 24 hours.
             </p>
           </div>
 
-          <button class="btn btn-secondary">Contact Us !</button>
+          <form class="contact-form-wrapper">
+            <div class="form-row">
+              <div class="input-wrapper">
+                <label for="name" class="input-label">Full Name</label>
+                <input type="text" name="name" id="name" class="input-field" placeholder="Enter your full name" required>
+              </div>
+
+              <div class="input-wrapper">
+                <label for="email" class="input-label">Email Address</label>
+                <input type="email" name="email" id="email" class="input-field" placeholder="Enter your email" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="input-wrapper">
+                <label for="phone" class="input-label">Phone Number</label>
+                <input type="tel" name="phone" id="phone" class="input-field" placeholder="Enter your phone number">
+              </div>
+
+              <div class="input-wrapper">
+                <label for="travel-date" class="input-label">Travel Date</label>
+                <input type="text" name="travel-date" id="travel-date" class="input-field date-field" placeholder="MM/DD/YYYY" onfocus="this.type='date'" onblur="if(!this.value) this.type='text'" required>
+              </div>
+            </div>
+
+            <div class="input-wrapper">
+              <label for="subject" class="input-label">Subject</label>
+              <input type="text" name="subject" id="subject" class="input-field" placeholder="Enter message subject">
+            </div>
+
+            <div class="input-wrapper">
+              <label for="message" class="input-label">Your Message</label>
+              <textarea name="message" id="message" class="input-field textarea" placeholder="Enter your message here" rows="5"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
 
         </div>
       </section>
@@ -714,13 +1892,11 @@
         <div class="footer-brand">
 
           <a href="#" class="logo">
-            <img src="./assets/images/logo.svg" alt="Tourly logo">
+            <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
           </a>
 
           <p class="footer-text">
-            Urna ratione ante harum provident, eleifend, vulputate molestiae proin fringilla, praesentium magna conubia
-            at
-            perferendis, pretium, aenean aut ultrices.
+            Because your journey deserves meaning, and Albania delivers it.
           </p>
 
         </div>
@@ -738,36 +1914,22 @@
             <li class="contact-item">
               <ion-icon name="call-outline"></ion-icon>
 
-              <a href="tel:+01123456790" class="contact-link">+01 (123) 4567 90</a>
+              <a href="tel:+01123456790" class="contact-link">+355 684 170 700</a>
             </li>
 
             <li class="contact-item">
               <ion-icon name="mail-outline"></ion-icon>
 
-              <a href="mailto:info.tourly.com" class="contact-link">info.tourly.com</a>
+              <a href="mailto:info@wanderlustalbania.eu" class="contact-link">info@wanderlustalbania.eu</a>
             </li>
 
             <li class="contact-item">
               <ion-icon name="location-outline"></ion-icon>
 
-              <address>3146 Koontz, California</address>
+              <address>Bulevardi Zogu I, Shkodër 4001</address>
             </li>
 
           </ul>
-
-        </div>
-
-        <div class="footer-form">
-
-          <p class="form-text">
-            Subscribe our newsletter for more update & news !!
-          </p>
-
-          <form action="" class="form-wrapper">
-            <input type="email" name="email" class="input-field" placeholder="Enter Your Email" required>
-
-            <button type="submit" class="btn btn-secondary">Subscribe</button>
-          </form>
 
         </div>
 
@@ -778,21 +1940,21 @@
       <div class="container">
 
         <p class="copyright">
-          &copy; 2022 <a href="">codewithsadee</a>. All rights reserved
+          &copy; 2025 <a href="#">Wanderlust Albania</a>. All rights reserved. Design by <a href="https://codewithenea.it" target="_blank">codewithenea.it</a>
         </p>
 
         <ul class="footer-bottom-list">
 
           <li>
-            <a href="#" class="footer-bottom-link">Privacy Policy</a>
+            <a href="#" class="footer-bottom-link"></a>
           </li>
 
           <li>
-            <a href="#" class="footer-bottom-link">Term & Condition</a>
+            <a href="#" class="footer-bottom-link"></a>
           </li>
 
           <li>
-            <a href="#" class="footer-bottom-link">FAQ</a>
+            <a href="#" class="footer-bottom-link"></a>
           </li>
 
         </ul>
@@ -828,6 +1990,300 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- EmailJS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init({
+        publicKey: "LTq-AbEGP9ZTNLKHy",
+      });
+    })();
+  </script>
+
+  <!-- Contact Form Handler -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const contactForm = document.querySelector('.contact-form-wrapper');
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.textContent;
+      
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Show loading state
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        
+        // Prepare template parameters
+        const templateParams = {
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone') || 'Not provided',
+          travel_date: formData.get('travel-date'),
+          subject: formData.get('subject') || 'General Inquiry',
+          message: formData.get('message'),
+          submission_date: new Date().toLocaleString()
+        };
+        
+        // Send email using EmailJS
+        emailjs.send('service_78lpyut', 'template_8buuw3p', templateParams)
+          .then(function(response) {
+            // Success
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Show success message
+            showMessage('Thank you! Your message has been sent successfully. We will contact you soon.', 'success');
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Reset button
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+          })
+          .catch(function(error) {
+            // Error
+            console.log('FAILED...', error);
+            
+            // Show error message
+            showMessage('Sorry, there was an error sending your message. Please try again or contact us directly.', 'error');
+            
+            // Reset button
+            submitBtn.textContent = originalBtnText;
+            submitBtn.disabled = false;
+          });
+      });
+      
+      // Function to show messages
+      function showMessage(message, type) {
+        // Remove existing message
+        const existingMessage = document.querySelector('.form-message');
+        if (existingMessage) {
+          existingMessage.remove();
+        }
+        
+        // Create message element
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `form-message ${type}`;
+        messageDiv.innerHTML = `
+          <p>${message}</p>
+          <button class="close-message" onclick="this.parentElement.remove()">×</button>
+        `;
+        
+        // Add styles
+        messageDiv.style.cssText = `
+          padding: 15px 20px;
+          margin: 20px 0;
+          border-radius: 8px;
+          position: relative;
+          font-weight: 500;
+          ${type === 'success' ? 
+            'background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb;' : 
+            'background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;'
+          }
+        `;
+        
+        // Style close button
+        const closeBtn = messageDiv.querySelector('.close-message');
+        closeBtn.style.cssText = `
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          background: none;
+          border: none;
+          font-size: 20px;
+          font-weight: bold;
+          cursor: pointer;
+          color: inherit;
+          padding: 0;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        `;
+        
+        // Insert message before form
+        contactForm.parentNode.insertBefore(messageDiv, contactForm);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+          if (messageDiv.parentNode) {
+            messageDiv.remove();
+          }
+        }, 5000);
+      }
+    });
+  </script>
+
+  <!-- Additional script for improved navigation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elements
+      const header = document.querySelector('.header');
+      const mobileMenuToggle = document.querySelector('[data-mobile-menu-toggle]');
+      const mobileMenuClose = document.querySelector('[data-mobile-menu-close]');
+      const mobileMenu = document.querySelector('[data-mobile-menu]');
+      const overlay = document.querySelector('[data-mobile-overlay]');
+      const langBtn = document.querySelector('.language-btn');
+      const langDropdown = document.querySelector('.language-dropdown');
+      
+      // Set active menu item based on current page
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const desktopLinks = document.querySelectorAll('.nav-link');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+      
+      function setActiveLinks(links) {
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      setActiveLinks(desktopLinks);
+      setActiveLinks(mobileLinks);
+      
+      // Mobile menu toggle
+      function openMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        document.body.classList.add('nav-active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
+        console.log('Opening mobile menu');
+      }
+      
+      function closeMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        document.body.classList.remove('nav-active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+        console.log('Closing mobile menu');
+      }
+      
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+          console.log('Menu toggle clicked');
+          if (mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
+        });
+      }
+      
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function() {
+          console.log('Close button clicked');
+          closeMobileMenu();
+        });
+      }
+      
+      if (overlay) {
+        overlay.addEventListener('click', closeMobileMenu);
+      }
+      
+      // Close mobile menu when clicking a link
+      if (mobileLinks) {
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', closeMobileMenu);
+        });
+      }
+      
+      // Language dropdown toggle
+      if (langBtn) {
+        langBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (langDropdown) langDropdown.classList.toggle('active');
+        });
+      }
+      
+      // Close language dropdown when clicking outside
+      document.addEventListener('click', function() {
+        if (langDropdown) {
+          langDropdown.classList.remove('active');
+        }
+      });
+      
+      // Language selection in mobile menu
+      const langOptions = document.querySelectorAll('.lang-option');
+      if (langOptions) {
+        langOptions.forEach(option => {
+          option.addEventListener('click', function(e) {
+            // Remove active class from all options
+            langOptions.forEach(opt => opt.classList.remove('active'));
+            
+            // Add active class to clicked option
+            this.classList.add('active');
+            
+            // Update the language button text
+            const lang = this.getAttribute('data-lang').toUpperCase();
+            const langBtnText = document.querySelector('.language-btn span');
+            if (langBtnText) {
+              langBtnText.textContent = lang;
+            }
+            
+            // Close mobile menu
+            closeMobileMenu();
+          });
+        });
+      }
+      
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 20) {
+          if (header) header.classList.add('active');
+        } else {
+          if (header) header.classList.remove('active');
+        }
+      });
+      
+      // Handle ESC key to close mobile menu
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMobileMenu();
+          if (langDropdown) {
+            langDropdown.classList.remove('active');
+          }
+        }
+      });
+      
+      console.log('Menu script initialized with new data attributes');
+    });
+  </script>
+
+  <!-- Initialize date field functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize travel date field
+      const dateField = document.getElementById('travel-date');
+      if (dateField) {
+        // Make sure the date field shows placeholder on load
+        if (!dateField.value) {
+          dateField.setAttribute('type', 'text');
+        }
+        
+        // When field is focused, change to date type
+        dateField.addEventListener('focus', function() {
+          this.setAttribute('type', 'date');
+        });
+        
+        // When field loses focus and is empty, change back to text type
+        dateField.addEventListener('blur', function() {
+          if (!this.value) {
+            this.setAttribute('type', 'text');
+          }
+        });
+        
+        console.log('Date field initialized');
+      }
+    });
+  </script>
 
 </body>
 

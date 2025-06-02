@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wanderlust Albania - Travel agency</title>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- custom css link -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!-- google font link -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    /* Basic header styles */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+      padding: 10px 0;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    
+    .logo img {
+      max-height: 50px;
+    }
+    
+    /* Desktop Navigation */
+    .desktop-nav-list {
+      display: flex;
+      gap: 5px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 10px 15px;
+      color: var(--gunmetal);
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+    
+    .nav-link:hover, .nav-link.active {
+      color: var(--bright-navy-blue);
+      background-color: rgba(0, 102, 204, 0.08);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+    
+    .menu-bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--gunmetal);
+      border-radius: 2px;
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 400px;
+      height: 100vh;
+      background-color: white;
+      z-index: 999;
+      transition: all 0.4s ease-in-out;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+      right: 0;
+    }
+    
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 990;
+      opacity: 0;
+      visibility: hidden;
+    }
+    
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Body spacing for fixed header */
+    body {
+      padding-top: 70px;
+    }
+    
+    /* Content sections */
+    section {
+      padding: 60px 0;
+      position: relative;
+      background-color: white;
+    }
+    
+    /* Hero section adjustments */
+    .hero {
+      padding-top: 30px;
+      margin-top: -70px;
+      position: relative;
+    }
+    
+    .video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    
+    /* Popular destination cards */
+    .popular-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .popular-card {
+      background-color: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Features cards */
+    .features-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    
+    .feature-card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      .popular-list, .features-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (min-width: 992px) {
+      .popular-list, .features-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      
+      .desktop-nav {
+        display: flex;
+      }
+      
+      .mobile-menu-toggle {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 991px) {
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container header-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <ul class="desktop-nav-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li><a href="travels.html" class="nav-link">Travels</a></li>
+          <li><a href="guides.html" class="nav-link">Licensed Guides</a></li>
+          <li><a href="places.html" class="nav-link">Places to Visit</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="mobile-menu-toggle">
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+        <span class="menu-bar"></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div style="padding: 20px;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 20px;">
+        <a href="index.html" class="logo">
+          <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" style="max-height: 40px;">
+        </a>
+        <button style="background: none; border: none; font-size: 24px; cursor: pointer;">×</button>
+      </div>
+      
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li><a href="index.html" style="display: block; padding: 15px; text-decoration: none; color: #333;">Home</a></li>
+        <li><a href="hotels.html" style="display: block; padding: 15px; text-decoration: none; color: #333;">Hotels</a></li>
+        <li><a href="travels.html" style="display: block; padding: 15px; text-decoration: none; color: #333;">Travels</a></li>
+        <li><a href="guides.html" style="display: block; padding: 15px; text-decoration: none; color: #333;">Licensed Guides</a></li>
+        <li><a href="places.html" style="display: block; padding: 15px; text-decoration: none; color: #333;">Places to Visit</a></li>
+        <li><a href="about.html" style="display: block; padding: 15px; text-decoration: none; color: #333;">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
+
+  <main>
+    <article>
+
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="video-container">
+          <video autoplay muted loop playsinline>
+            <source src="homevid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.6);"></div>
+        </div>
+        
+        <div class="container">
+          <h2 class="h1 hero-title">UNVEIL THE LAND WHERE LEGENDS BREATHE</h2>
+
+          <p class="hero-text">
+            Albania is not a trip. It's a revelation. From the eagle's flight over the Accursed Mountains to whispers of Illyrian kings in ancient stones—each step writes your story in a land untouched by time. Welcome to a place the world forgot to ruin.
+          </p>
+
+          <div class="btn-group">
+            <button class="btn btn-primary">Learn more</button>
+            <button class="btn btn-secondary">Book now</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- POPULAR DESTINATIONS -->
+      <section class="popular" id="destination">
+        <div class="container">
+          <p class="section-subtitle">Destinations That Redefine Discovery</p>
+
+          <h2 class="h2 section-title">These aren't "popular spots." They're revelations.</h2>
+
+          <p class="section-text">
+            Each place on this map isn't just beautiful it's alive with soul, story, and silence you can feel. We don't just show you where to go we guide you into the unknown side of Albania the world never told you about.
+          </p>
+
+          <ul class="popular-list">
+            <li>
+              <div class="popular-card">
+                <figure class="card-img">
+                  <img src="./assets/images/berat.jpg" alt="Berat, Albania" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <a href="berat.html">Albania</a>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <a href="berat.html">Berat</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Discover the "City of a Thousand Windows" with its unique Ottoman architecture and UNESCO World Heritage status.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="popular-card">
+                <figure class="card-img">
+                  <img src="./assets/images/shkoder1.jpg" alt="Shkodra, Albania" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <a href="shkodra.html">Northern Albania</a>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <a href="shkodra.html">Shkodra</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Explore Albania's cultural capital with its stunning Rozafa Castle, rich history, and beautiful lakeside setting.
+                  </p>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="popular-card">
+                <figure class="card-img">
+                  <img src="./assets/images/tirana1.jpg" alt="Tirana, Albania" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <a href="tirana.html">Central Albania</a>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <a href="tirana.html">Tirana</a>
+                  </h3>
+
+                  <p class="card-text">
+                    Discover Albania's vibrant capital city with its colorful buildings, lively atmosphere, and fascinating mix of history and modernity.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+
+          <a href="travels.html" class="btn btn-primary">Explore More Destinations</a>
+        </div>
+      </section>
+
+      <!-- FEATURES -->
+      <section class="package" id="package">
+        <div class="container">
+          <p class="section-subtitle">🌍 Features That Elevate Every Journey</p>
+
+          <h2 class="h2 section-title">Handpicked tools. Seamless experiences. Real-world travel, redefined.</h2>
+
+          <ul class="features-list">
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="person-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">Curated Itineraries</h3>
+                <p class="card-text">
+                  Trips shaped around your style and pace, crafted to match you, not the masses.
+                </p>
+              </div>
+            </li>
+
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="videocam-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">Lasting Moments</h3>
+                <p class="card-text">
+                  Every location, handpicked to help you live stories worth telling, not just take pictures.
+                </p>
+              </div>
+            </li>
+
+            <li class="feature-item">
+              <div class="feature-card">
+                <div class="feature-icon">
+                  <ion-icon name="map-outline"></ion-icon>
+                </div>
+                <h3 class="h3 feature-title">Smart Navigation</h3>
+                <p class="card-text">
+                  Find your way with precision, from major sights to secret local spots, always at your fingertips.
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Other sections omitted for brevity -->
+
+    </article>
+  </main>
+
+  <!-- Footer and other elements omitted for brevity -->
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <script>
+    // Simple mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.querySelector('.mobile-menu-toggle');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const overlay = document.querySelector('.overlay');
+      const closeBtn = document.querySelector('.mobile-menu button');
+      
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+          mobileMenu.classList.add('active');
+          overlay.classList.add('active');
+        });
+      }
+      
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          overlay.classList.remove('active');
+        });
+      }
+      
+      if (overlay) {
+        overlay.addEventListener('click', function() {
+          mobileMenu.classList.remove('active');
+          overlay.classList.remove('active');
+        });
+      }
+    });
+  </script>
+</body>
+
+</html> 

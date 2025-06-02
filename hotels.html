@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotels - Wanderlust Albania</title>
+
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  
+  <style>
+    /* Additional styles for hotels page */
+    body {
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+    
+    body.nav-active {
+      overflow: hidden;
+    }
+    
+    /* Modern Header & Navigation */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+      padding: 10px 0;
+      transition: all 0.3s ease;
+    }
+    
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+    
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+    
+    .logo img {
+      max-height: 50px;
+      transition: all 0.3s ease;
+    }
+    
+    .header.active .logo img {
+      max-height: 45px;
+    }
+    
+    /* Desktop Navigation */
+    .desktop-nav {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .desktop-nav-list {
+      display: flex;
+      gap: 5px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .nav-link {
+      display: block;
+      padding: 10px 15px;
+      color: var(--gunmetal);
+      font-size: 16px;
+      font-weight: 500;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      position: relative;
+    }
+    
+    .nav-link:hover {
+      color: var(--bright-navy-blue);
+      background-color: rgba(0, 102, 204, 0.08);
+    }
+    
+    .nav-link.active {
+      color: var(--bright-navy-blue);
+      background-color: rgba(0, 102, 204, 0.12);
+    }
+    
+    /* Header Right Section */
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    
+    .header-contact {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--gunmetal);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .header-contact:hover {
+      color: var(--bright-navy-blue);
+    }
+    
+    .contact-icon {
+      font-size: 18px;
+      color: var(--bright-navy-blue);
+    }
+    
+    /* Language Selector */
+    .language-selector {
+      position: relative;
+    }
+    
+    .language-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gunmetal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .language-btn:hover {
+      background-color: rgba(0, 102, 204, 0.08);
+    }
+    
+    .language-dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 150px;
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+      padding: 10px 0;
+      margin-top: 10px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 200;
+    }
+    
+    .language-dropdown.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .language-dropdown li {
+      list-style: none;
+    }
+    
+    .language-dropdown li a {
+      display: block;
+      padding: 8px 15px;
+      color: var(--gunmetal);
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .language-dropdown li a:hover {
+      background-color: rgba(0, 102, 204, 0.08);
+      color: var(--bright-navy-blue);
+    }
+    
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 300;
+    }
+    
+    .menu-bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: var(--gunmetal);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    
+    /* Hamburger menu animation */
+    .mobile-menu-toggle.active .menu-bar:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+    
+    .mobile-menu-toggle.active .menu-bar:nth-child(2) {
+      opacity: 0;
+    }
+    
+    .mobile-menu-toggle.active .menu-bar:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+    
+    /* Mobile Menu */
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 85%;
+      max-width: 400px;
+      height: 100vh;
+      background-color: var(--white);
+      z-index: 2000;
+      transition: all 0.4s ease-in-out;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+      overflow-y: auto;
+    }
+    
+    .mobile-menu.active {
+      right: 0;
+    }
+    
+    .mobile-menu-container {
+      padding: 25px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    
+    .mobile-menu-close {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--gunmetal);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+    
+    .mobile-menu-close:hover {
+      color: var(--bright-navy-blue);
+      transform: rotate(90deg);
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+    
+    /* Mobile Contact */
+    .mobile-contact {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 15px;
+      background-color: rgba(0, 102, 204, 0.08);
+      border-radius: 10px;
+      text-decoration: none;
+      margin-bottom: 30px;
+    }
+    
+    .mobile-contact ion-icon {
+      font-size: 24px;
+      color: var(--bright-navy-blue);
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .contact-label {
+      font-size: 12px;
+      color: var(--gunmetal);
+    }
+    
+    .contact-number {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--bright-navy-blue);
+    }
+    
+    /* Mobile Navigation */
+    .mobile-nav {
+      margin-bottom: 30px;
+    }
+    
+    .mobile-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 15px;
+      border-radius: 10px;
+      color: var(--gunmetal);
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-bottom: 5px;
+    }
+    
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      background-color: rgba(0, 102, 204, 0.08);
+      color: var(--bright-navy-blue);
+      transform: translateX(5px);
+    }
+    
+    /* Mobile Language Selector */
+    .mobile-language-selector {
+      margin-bottom: 30px;
+    }
+    
+    .lang-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gunmetal);
+      margin-bottom: 15px;
+    }
+    
+    .mobile-language-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .lang-option {
+      display: block;
+      padding: 8px 15px;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 8px;
+      color: var(--gunmetal);
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .lang-option:hover,
+    .lang-option.active {
+      background-color: var(--bright-navy-blue);
+      color: var(--white);
+    }
+    
+    /* Mobile Social */
+    .mobile-social {
+      margin-top: auto;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    
+    .social-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gunmetal);
+      margin-bottom: 15px;
+    }
+    
+    .social-list {
+      display: flex;
+      gap: 15px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    
+    .social-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(0, 0, 0, 0.04);
+      border-radius: 50%;
+      color: var(--gunmetal);
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+    
+    .social-link:hover {
+      background-color: var(--bright-navy-blue);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+    
+    /* Overlay */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(3px);
+      z-index: 1500;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+    
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .desktop-nav {
+        display: none;
+      }
+      
+      .mobile-menu-toggle {
+        display: flex;
+      }
+      
+      .header-contact {
+        display: none;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-container {
+        padding: 0 15px;
+      }
+      
+      .logo img {
+        max-height: 45px;
+      }
+      
+      .language-btn {
+        padding: 5px 8px;
+        font-size: 12px;
+      }
+    }
+    
+    main {
+      margin-top: 80px;
+    }
+    
+    .hotels-hero {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./assets/images/maritim.jpg);
+      background-position: center;
+      background-size: cover;
+      padding-top: 120px;
+      padding-bottom: 80px;
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hotels-hero .container {
+      position: relative;
+      z-index: 5;
+    }
+    
+    /* Improved mobile menu */
+    @media (max-width: 768px) {
+      .navbar {
+        background-color: var(--white);
+        transition: transform 0.4s ease, opacity 0.3s ease;
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        z-index: 2000;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        padding: 30px 20px;
+        visibility: hidden;
+        opacity: 0;
+        overflow-y: auto;
+      }
+      
+      .navbar.active {
+        right: 0;
+        visibility: visible;
+        opacity: 1;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .overlay.active {
+        z-index: 1500;
+      }
+      
+      .navbar-list {
+        margin-top: 15px;
+        padding: 20px;
+        flex-direction: column;
+      }
+      
+      .navbar-link {
+        padding: 12px 15px;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+      }
+      
+      .navbar-link:hover,
+      .navbar-link.active {
+        background-color: rgba(0, 102, 204, 0.1);
+        color: var(--bright-navy-blue);
+      }
+      
+      .navbar-link::after {
+        display: none;
+      }
+      
+      .nav-open-btn,
+      .nav-close-btn {
+        font-size: 24px;
+        transition: transform 0.3s ease;
+      }
+      
+      .nav-open-btn:hover,
+      .nav-close-btn:hover {
+        transform: scale(1.1);
+      }
+      
+      .mobile-language-selector {
+        margin-bottom: 15px;
+      }
+    }
+    
+    /* Language selector enhancement */
+    .language-selector {
+      position: relative;
+    }
+    
+    .language-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+    }
+    
+    .language-btn:hover {
+      background-color: rgba(0, 102, 204, 0.1);
+    }
+    
+    .language-dropdown {
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      transform-origin: top center;
+    }
+    
+    .language-dropdown li a {
+      transition: all 0.2s ease;
+      padding: 8px 15px;
+      display: block;
+    }
+    
+    .language-dropdown li a:hover {
+      background-color: rgba(0, 102, 204, 0.1);
+      color: var(--bright-navy-blue);
+    }
+    
+    .hotels-section {
+      padding-block: var(--section-padding);
+    }
+    
+    .section-header {
+      margin-bottom: 20px;
+    }
+    
+    .home-link {
+      margin-top: 20px;
+      margin-bottom: 30px;
+      display: flex;
+      justify-content: flex-start;
+    }
+    
+    .back-home-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--bright-navy-blue);
+      font-weight: var(--fw-500);
+      font-size: var(--fs-5);
+      transition: all 0.3s ease;
+    }
+    
+    .back-home-link:hover {
+      color: var(--yale-blue);
+      transform: translateX(-5px);
+    }
+    
+    .back-home-link ion-icon {
+      font-size: 18px;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-home-link:hover ion-icon {
+      transform: translateX(-3px);
+    }
+    
+    .hotel-list {
+      display: grid;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .hotel-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--white);
+      border-radius: var(--radius-15);
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hotel-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hotel-image {
+      height: 280px;
+      overflow: hidden;
+    }
+    
+    .hotel-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    
+    .hotel-card:hover .hotel-image img {
+      transform: scale(1.05);
+    }
+    
+    .hotel-content {
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    
+    .hotel-name {
+      font-size: 24px;
+      margin-bottom: 15px;
+      color: var(--gunmetal);
+    }
+    
+    .hotel-location {
+      font-size: 16px;
+      color: var(--yale-blue);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .hotel-location ion-icon {
+      font-size: 18px;
+      color: var(--bright-navy-blue);
+    }
+    
+    .hotel-description {
+      color: var(--black-coral);
+      line-height: 1.6;
+      margin-bottom: 30px;
+      flex-grow: 1;
+    }
+    
+    .hotel-actions {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .hotel-actions .btn {
+      font-size: 14px;
+      padding: 10px 20px;
+      transition: all 0.3s ease;
+    }
+    
+    .hotel-actions .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Small screens */
+    @media (max-width: 767px) {
+      .hotels-hero {
+        padding-top: 150px;
+        min-height: 400px;
+      }
+      
+      .hotels-hero .hero-title {
+        font-size: calc(20px + 2vw);
+        margin-bottom: 15px;
+      }
+      
+      .hotels-hero .hero-text {
+        font-size: var(--fs-6);
+      }
+      
+      .hotel-name {
+        font-size: 20px;
+      }
+      
+      .hotel-image {
+        height: 220px;
+      }
+    }
+    
+    /* Larger screens */
+    @media (min-width: 768px) {
+      .hotel-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .hotel-card {
+        height: 100%;
+      }
+    }
+    
+    /* Extra large screens */
+    @media (min-width: 992px) {
+      .hotel-list {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    
+    /* Enhanced Footer Logo Styling */
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      max-width: 350px;
+    }
+    
+    .footer-brand .logo {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.08));
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+      width: fit-content;
+    }
+    
+    .footer-brand .logo::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .footer-brand .logo:hover::before {
+      left: 100%;
+    }
+    
+    .footer-brand .logo:hover {
+      transform: translateY(-3px);
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.12));
+      border-color: rgba(255,255,255,0.15);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .footer-brand .logo img {
+      max-height: 45px;
+      width: auto;
+      transition: all 0.3s ease;
+      filter: brightness(1.05) contrast(1.05);
+      position: relative;
+      z-index: 1;
+    }
+    
+    .footer-brand .logo:hover img {
+      filter: brightness(1.15) contrast(1.1);
+    }
+    
+    .footer-text {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.8);
+      margin-top: 5px;
+      font-weight: 400;
+      transition: color 0.3s ease;
+    }
+    
+    .footer-brand:hover .footer-text {
+      color: rgba(255,255,255,0.95);
+    }
+    
+    /* Responsive adjustments for footer logo */
+    @media (max-width: 768px) {
+      .footer-brand {
+        align-items: center;
+        text-align: center;
+        max-width: 100%;
+      }
+      
+      .footer-brand .logo {
+        padding: 6px 10px;
+      }
+      
+      .footer-brand .logo img {
+        max-height: 40px;
+      }
+      
+      .footer-text {
+        font-size: 15px;
+        text-align: center;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .footer-brand .logo {
+        padding: 5px 8px;
+      }
+      
+      .footer-brand .logo img {
+        max-height: 35px;
+      }
+      
+      .footer-text {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <!-- HEADER -->
+  <header class="header" data-header>
+    <div class="container header-container">
+      <!-- Logo -->
+      <a href="index.html" class="logo">
+        <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <ul class="desktop-nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
+          <li><a href="travels.html" class="nav-link">Travels</a></li>
+          <li><a href="guides.html" class="nav-link">Licensed Guides</a></li>
+          <li><a href="places.html" class="nav-link">Places to Visit</a></li>
+          <li><a href="about.html" class="nav-link">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Header Section -->
+      <div class="header-right">
+        <!-- Contact Info -->
+        <a href="tel:+355684170700" class="header-contact">
+          <ion-icon name="call-outline" class="contact-icon"></ion-icon>
+          <span>+355 684 170 700</span>
+        </a>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+          <button class="language-btn">
+            <span>EN</span>
+            <ion-icon name="chevron-down-outline"></ion-icon>
+          </button>
+          <ul class="language-dropdown">
+            <li><a href="#" data-lang="sq">Shqip</a></li>
+            <li><a href="#" data-lang="de">Deutsch</a></li>
+            <li><a href="#" data-lang="fr">Français</a></li>
+            <li><a href="#" data-lang="en">English</a></li>
+            <li><a href="#" data-lang="it">Italiano</a></li>
+          </ul>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" data-mobile-menu-toggle>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+          <span class="menu-bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" data-mobile-menu>
+    <div class="mobile-menu-container">
+      <!-- Mobile Menu Header -->
+      <div class="mobile-menu-header">
+        <a href="index.html" class="logo">
+          <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+        </a>
+        <button class="mobile-menu-close" data-mobile-menu-close>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+      </div>
+
+      <!-- Mobile Contact -->
+      <a href="tel:+355684170700" class="mobile-contact">
+        <ion-icon name="call-outline"></ion-icon>
+        <div class="contact-info">
+          <span class="contact-label">For inquiries:</span>
+          <span class="contact-number">+355 684 170 700</span>
+        </div>
+      </a>
+
+      <!-- Mobile Navigation -->
+      <nav class="mobile-nav">
+        <ul class="mobile-nav-list">
+          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
+          <li><a href="hotels.html" class="mobile-nav-link">Hotels</a></li>
+          <li><a href="travels.html" class="mobile-nav-link">Travels</a></li>
+          <li><a href="guides.html" class="mobile-nav-link">Licensed Guides</a></li>
+          <li><a href="places.html" class="mobile-nav-link">Places to Visit & Trips</a></li>
+          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Mobile Language Selector -->
+      <div class="mobile-language-selector">
+        <h4 class="lang-title">Choose Language</h4>
+        <ul class="mobile-language-list">
+          <li><a href="#" data-lang="sq" class="lang-option">Shqip</a></li>
+          <li><a href="#" data-lang="de" class="lang-option">Deutsch</a></li>
+          <li><a href="#" data-lang="fr" class="lang-option">Français</a></li>
+          <li><a href="#" data-lang="en" class="lang-option active">English</a></li>
+          <li><a href="#" data-lang="it" class="lang-option">Italiano</a></li>
+        </ul>
+      </div>
+
+      <!-- Social Links -->
+      <div class="mobile-social">
+        <h4 class="social-title">Follow Us</h4>
+        <ul class="social-list">
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay -->
+  <div class="overlay" data-mobile-overlay></div>
+
+  <main>
+    <article>
+
+      <!-- HERO -->
+      <section class="hero destination-hero hotels-hero" id="home">
+        <div class="container">
+          <h2 class="h1 hero-title">Authentic Albanian Hospitality</h2>
+          <p class="hero-text">
+            From mountain retreats to coastal resorts, experience the best accommodations Albania has to offer
+          </p>
+        </div>
+      </section>
+
+      <!-- HOTELS SECTION -->
+      <section class="hotels-section" id="hotels">
+        <div class="container">
+          <div class="section-header">
+            <p class="section-subtitle">Mountain Retreats & Coastal Gems</p>
+            <h2 class="h2 section-title">Experience Albania's Diverse Accommodations</h2>
+            <p class="section-text">
+              Discover the best places to stay throughout Albania - from charming highland guesthouses in Theth to luxurious coastal resorts along the Albanian Riviera. Our carefully selected accommodations offer authentic experiences, exceptional service, and unforgettable stays in both the rugged mountains of the north and the pristine beaches of the south.
+            </p>
+            <div class="home-link">
+              <a href="index.html" class="back-home-link">
+                <ion-icon name="arrow-back-outline"></ion-icon> Back to Homepage
+              </a>
+            </div>
+          </div>
+
+          <div class="hotel-list">
+            <!-- Logu i Harushave -->
+            <div class="hotel-card">
+              <div class="hotel-image">
+                <img src="./assets/images/loguharushave.jpg" alt="Logu i Harushave" loading="lazy">
+              </div>
+              <div class="hotel-content">
+                <h3 class="hotel-name">Logu i Harushave</h3>
+                <p class="hotel-location">
+                  <ion-icon name="location-outline"></ion-icon> Theth, Albania
+                </p>
+                <p class="hotel-description">
+                  A standout in Theth, this hotel boasts traditional architecture with modern comforts, offering panoramic mountain views and proximity to hiking trails. Perfect for nature lovers seeking authentic Albanian highlands experience.
+                </p>
+                <div class="hotel-actions">
+                  <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Vidis Chalet Boutique Hotel -->
+            <div class="hotel-card">
+              <div class="hotel-image">
+                <img src="./assets/images/vidischalet.jpg" alt="Vidis Chalet Boutique Hotel" loading="lazy">
+              </div>
+              <div class="hotel-content">
+                <h3 class="hotel-name">Vidis Chalet Boutique Hotel</h3>
+                <p class="hotel-location">
+                  <ion-icon name="location-outline"></ion-icon> Albanian Alps, Albania
+                </p>
+                <p class="hotel-description">
+                  Known for its exceptional service and cozy ambiance, Vidis Chalet is a favorite among couples seeking a romantic getaway. This boutique hotel offers an intimate atmosphere with personalized attention to every guest.
+                </p>
+                <div class="hotel-actions">
+                  <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Gegest Hotel -->
+            <div class="hotel-card">
+              <div class="hotel-image">
+                <img src="./assets/images/gegest.jpg" alt="Gegest Hotel" loading="lazy">
+              </div>
+              <div class="hotel-content">
+                <h3 class="hotel-name">Gegest Hotel</h3>
+                <p class="hotel-location">
+                  <ion-icon name="location-outline"></ion-icon> Northern Albania
+                </p>
+                <p class="hotel-description">
+                  Offers spacious rooms with stunning valley views, complemented by a hearty breakfast to start your day. The hotel is an ideal base for exploring the natural beauty of northern Albania with comfortable accommodations for all types of travelers.
+                </p>
+                <div class="hotel-actions">
+                  <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hotel Jezerca Theth -->
+            <div class="hotel-card">
+              <div class="hotel-image">
+                <img src="./assets/images/jezerca.jpg" alt="Hotel Jezerca Theth" loading="lazy">
+              </div>
+              <div class="hotel-content">
+                <h3 class="hotel-name">Hotel Jezerca Theth</h3>
+                <p class="hotel-location">
+                  <ion-icon name="location-outline"></ion-icon> Theth, Albania
+                </p>
+                <p class="hotel-description">
+                  Situated close to the village center, it offers comfortable accommodations with easy access to local attractions. The hotel provides a perfect blend of comfort and convenience for travelers exploring the beautiful Theth National Park.
+                </p>
+                <div class="hotel-actions">
+                  <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- La Brisa Boutique Hotel -->
+            <div class="hotel-card">
+              <div class="hotel-image">
+                <img src="./assets/images/labrisa.jpg" alt="La Brisa Boutique Hotel" loading="lazy">
+              </div>
+              <div class="hotel-content">
+                <h3 class="hotel-name">La Brisa Boutique Hotel</h3>
+                <p class="hotel-location">
+                  <ion-icon name="location-outline"></ion-icon> Dhermi, Albania
+                </p>
+                <p class="hotel-description">
+                  Perched above the Ionian Sea, it features a rooftop infinity pool and is surrounded by lush mountains. This elegant boutique hotel offers stunning views and easy access to the crystal-clear waters of Dhermi's beaches.
+                </p>
+                <div class="hotel-actions">
+                  <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Poda Boutique Hotel -->
+            <div class="hotel-card">
+              <div class="hotel-image">
+                <img src="./assets/images/poda.jpg" alt="Poda Boutique Hotel" loading="lazy">
+              </div>
+              <div class="hotel-content">
+                <h3 class="hotel-name">Poda Boutique Hotel</h3>
+                <p class="hotel-location">
+                  <ion-icon name="location-outline"></ion-icon> Ksamil, Albania
+                </p>
+                <p class="hotel-description">
+                  Overlooking Poda Bay, this hotel offers a serene atmosphere with direct beach access and exquisite dining options. A perfect retreat for those seeking to experience the Albanian Riviera's pristine beaches and clear waters.
+                </p>
+                <div class="hotel-actions">
+                  <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Maritim Marina Bay Resort & Casino -->
+            <div class="hotel-card">
+              <div class="hotel-image">
+                <img src="./assets/images/maritim.jpg" alt="Maritim Marina Bay Resort & Casino" loading="lazy">
+              </div>
+              <div class="hotel-content">
+                <h3 class="hotel-name">Maritim Marina Bay Resort & Casino</h3>
+                <p class="hotel-location">
+                  <ion-icon name="location-outline"></ion-icon> Vlorë, Albania
+                </p>
+                <p class="hotel-description">
+                  A luxurious resort featuring multiple pools, fine dining, and vibrant nightlife, perfect for those seeking both relaxation and entertainment. The Guardian recommends this resort for its exceptional amenities and service.
+                </p>
+                <div class="hotel-actions">
+                  <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Hotel Villa Pascucci -->
+            <div class="hotel-card">
+              <div class="hotel-image">
+                <img src="./assets/images/pascucci.jpg" alt="Hotel Villa Pascucci" loading="lazy">
+              </div>
+              <div class="hotel-content">
+                <h3 class="hotel-name">Hotel Villa Pascucci</h3>
+                <p class="hotel-location">
+                  <ion-icon name="location-outline"></ion-icon> Durrës, Albania
+                </p>
+                <p class="hotel-description">
+                  An opulent villa with grand interiors, offering top-tier amenities and a tranquil environment near the Adriatic coast. The hotel combines historical charm with modern luxury for a sophisticated stay.
+                </p>
+                <div class="hotel-actions">
+                  <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kerculla Resort -->
+            <div class="hotel-card">
+              <div class="hotel-image">
+                <img src="./assets/images/kerculla.jpg" alt="Kerculla Resort" loading="lazy">
+              </div>
+              <div class="hotel-content">
+                <h3 class="hotel-name">Kerculla Resort</h3>
+                <p class="hotel-location">
+                  <ion-icon name="location-outline"></ion-icon> Gjirokastër, Albania
+                </p>
+                <p class="hotel-description">
+                  Set in a UNESCO World Heritage town, this resort combines historical charm with modern luxury, featuring an infinity pool with panoramic views. The perfect base to explore the rich cultural heritage of Gjirokastër.
+                </p>
+                <div class="hotel-actions">
+                  <a href="#" class="btn btn-secondary">View Details</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">
+            <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+          </a>
+
+          <p class="footer-text">
+            Because your journey deserves meaning, and Albania delivers it.
+          </p>
+
+        </div>
+
+        <div class="footer-contact">
+
+          <h4 class="contact-title">Contact Us</h4>
+
+          <p class="contact-text">
+            Feel free to contact and reach us !!
+          </p>
+
+          <ul>
+
+            <li class="contact-item">
+              <ion-icon name="call-outline"></ion-icon>
+
+              <a href="tel:+01123456790" class="contact-link">+355 684 170 700</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="mail-outline"></ion-icon>
+
+              <a href="mailto:info@wanderlustalbania.eu" class="contact-link">info@wanderlustalbania.eu</a>
+            </li>
+
+            <li class="contact-item">
+              <ion-icon name="location-outline"></ion-icon>
+
+              <address>Bulevardi Zogu I, Shkodër 4001</address>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+
+        <p class="copyright">
+          &copy; 2025 <a href="#">Wanderlust Albania</a>. All rights reserved. Design by <a href="https://codewithenea.it" target="_blank">codewithenea.it</a>
+        </p>
+
+        <ul class="footer-bottom-list">
+
+          <li>
+            <a href="#" class="footer-bottom-link">Privacy Policy</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-bottom-link"></a>
+          </li>
+
+        </ul>
+
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- GO TO TOP -->
+  <a href="#top" class="go-top" data-go-top>
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </a>
+
+  <!-- custom js link -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- Additional script for improved navigation -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Elements
+      const header = document.querySelector('.header');
+      const mobileMenuToggle = document.querySelector('[data-mobile-menu-toggle]');
+      const mobileMenuClose = document.querySelector('[data-mobile-menu-close]');
+      const mobileMenu = document.querySelector('[data-mobile-menu]');
+      const overlay = document.querySelector('[data-mobile-overlay]');
+      const langBtn = document.querySelector('.language-btn');
+      const langDropdown = document.querySelector('.language-dropdown');
+      
+      // Set active menu item based on current page
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const desktopLinks = document.querySelectorAll('.nav-link');
+      const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+      
+      function setActiveLinks(links) {
+        links.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      setActiveLinks(desktopLinks);
+      setActiveLinks(mobileLinks);
+      
+      // Mobile menu toggle
+      function openMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.add('active');
+        if (overlay) overlay.classList.add('active');
+        document.body.classList.add('nav-active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
+        console.log('Opening mobile menu');
+      }
+      
+      function closeMobileMenu() {
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        if (overlay) overlay.classList.remove('active');
+        document.body.classList.remove('nav-active');
+        if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
+        console.log('Closing mobile menu');
+      }
+      
+      if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+          console.log('Menu toggle clicked');
+          if (mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+          } else {
+            openMobileMenu();
+          }
+        });
+      }
+      
+      if (mobileMenuClose) {
+        mobileMenuClose.addEventListener('click', function() {
+          console.log('Close button clicked');
+          closeMobileMenu();
+        });
+      }
+      
+      if (overlay) {
+        overlay.addEventListener('click', closeMobileMenu);
+      }
+      
+      // Close mobile menu when clicking a link
+      if (mobileLinks) {
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', closeMobileMenu);
+        });
+      }
+      
+      // Language dropdown toggle
+      if (langBtn) {
+        langBtn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          if (langDropdown) langDropdown.classList.toggle('active');
+        });
+      }
+      
+      // Close language dropdown when clicking outside
+      document.addEventListener('click', function() {
+        if (langDropdown) {
+          langDropdown.classList.remove('active');
+        }
+      });
+      
+      // Language selection in mobile menu
+      const langOptions = document.querySelectorAll('.lang-option');
+      if (langOptions) {
+        langOptions.forEach(option => {
+          option.addEventListener('click', function(e) {
+            // Remove active class from all options
+            langOptions.forEach(opt => opt.classList.remove('active'));
+            
+            // Add active class to clicked option
+            this.classList.add('active');
+            
+            // Update the language button text
+            const lang = this.getAttribute('data-lang').toUpperCase();
+            const langBtnText = document.querySelector('.language-btn span');
+            if (langBtnText) {
+              langBtnText.textContent = lang;
+            }
+            
+            // Close mobile menu
+            closeMobileMenu();
+          });
+        });
+      }
+      
+      // Header scroll effect
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 20) {
+          if (header) header.classList.add('active');
+        } else {
+          if (header) header.classList.remove('active');
+        }
+      });
+      
+      // Handle ESC key to close mobile menu
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          closeMobileMenu();
+          if (langDropdown) {
+            langDropdown.classList.remove('active');
+          }
+        }
+      });
+      
+      console.log('Menu script initialized with new data attributes');
+    });
+  </script>
+
+  <!-- ionicon link -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html> 
