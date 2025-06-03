@@ -16,6 +16,13 @@
     rel="stylesheet">
   
   <style>
+    /* Prevent body scroll when mobile menu is open */
+    body.nav-active {
+      overflow: hidden;
+      position: fixed;
+      width: 100%;
+    }
+    
     /* Modern Header & Navigation */
     .header {
       position: fixed;
@@ -24,7 +31,7 @@
       width: 100%;
       background-color: var(--white);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-      z-index: 100;
+      z-index: 1000;
       padding: 10px 0;
       transition: all 0.3s ease;
     }
@@ -151,7 +158,7 @@
       visibility: hidden;
       transform: translateY(10px);
       transition: all 0.3s ease;
-      z-index: 200;
+      z-index: 2000;
     }
     
     .language-dropdown.active {
@@ -189,7 +196,8 @@
       border: none;
       cursor: pointer;
       padding: 0;
-      z-index: 300;
+      z-index: 3000;
+      position: relative;
     }
     
     .menu-bar {
@@ -223,7 +231,7 @@
       max-width: 400px;
       height: 100vh;
       background-color: var(--white);
-      z-index: 2000;
+      z-index: 2500;
       transition: all 0.4s ease-in-out;
       box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
       overflow-y: auto;
@@ -238,6 +246,7 @@
       height: 100%;
       display: flex;
       flex-direction: column;
+      padding-top: 90px; /* Add top padding to avoid header overlap */
     }
     
     .mobile-menu-header {
@@ -245,6 +254,14 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 30px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--white);
+      padding: 15px 25px;
+      z-index: 2600;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
     
     .mobile-menu-close {
@@ -304,6 +321,7 @@
     /* Mobile Navigation */
     .mobile-nav {
       margin-bottom: 30px;
+      flex: 1;
     }
     
     .mobile-nav-list {
@@ -314,14 +332,15 @@
     
     .mobile-nav-link {
       display: block;
-      padding: 15px;
+      padding: 18px 15px;
       border-radius: 10px;
       color: var(--gunmetal);
       font-size: 16px;
       font-weight: 500;
       text-decoration: none;
       transition: all 0.3s ease;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
+      border-left: 3px solid transparent;
     }
     
     .mobile-nav-link:hover,
@@ -329,6 +348,7 @@
       background-color: rgba(0, 102, 204, 0.08);
       color: var(--bright-navy-blue);
       transform: translateX(5px);
+      border-left-color: var(--bright-navy-blue);
     }
     
     /* Mobile Language Selector */
@@ -419,7 +439,7 @@
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.6);
       backdrop-filter: blur(3px);
-      z-index: 1500;
+      z-index: 2000;
       opacity: 0;
       visibility: hidden;
       transition: all 0.3s ease;
@@ -443,6 +463,23 @@
       .header-contact {
         display: none;
       }
+      
+      /* Ensure mobile menu is properly hidden initially */
+      .mobile-menu {
+        display: none;
+      }
+      
+      .mobile-menu.active {
+        display: block;
+      }
+      
+      .overlay {
+        display: none;
+      }
+      
+      .overlay.active {
+        display: block;
+      }
     }
     
     @media (max-width: 576px) {
@@ -457,6 +494,25 @@
       .language-btn {
         padding: 5px 8px;
         font-size: 12px;
+      }
+      
+      .mobile-menu {
+        width: 100%;
+        max-width: 100%;
+      }
+      
+      .mobile-menu-container {
+        padding: 20px;
+        padding-top: 85px;
+      }
+      
+      .mobile-menu-header {
+        padding: 10px 20px;
+      }
+      
+      .mobile-nav-link {
+        padding: 15px 12px;
+        font-size: 15px;
       }
     }
     
@@ -999,12 +1055,12 @@
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <ul class="desktop-nav-list">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
-          <li><a href="travels.html" class="nav-link">Travels</a></li>
-          <li><a href="guides.html" class="nav-link">Licensed Guides</a></li>
-          <li><a href="places.html" class="nav-link">Places to Visit</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="index.html" class="nav-link" data-translate="nav_home">Home</a></li>
+          <li><a href="hotels.html" class="nav-link" data-translate="nav_hotels">Hotels</a></li>
+          <li><a href="travels.html" class="nav-link" data-translate="nav_travels">Travels</a></li>
+          <li><a href="guides.html" class="nav-link" data-translate="nav_guides">Licensed Guides</a></li>
+          <li><a href="places.html" class="nav-link" data-translate="nav_places">Places to Visit</a></li>
+          <li><a href="about.html" class="nav-link" data-translate="nav_about">About Us</a></li>
         </ul>
       </nav>
 
@@ -1013,7 +1069,7 @@
         <!-- Contact Info -->
         <a href="tel:+355684170700" class="header-contact">
           <ion-icon name="call-outline" class="contact-icon"></ion-icon>
-          <span>+355 684 170 700</span>
+          <span data-translate="header_phone">+355 684 170 700</span>
         </a>
 
         <!-- Language Selector -->
@@ -1517,6 +1573,9 @@
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+  <!-- Translation System -->
+  <script src="assets/js/translations.js"></script>
+
   <!-- Additional script for improved navigation -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -1546,25 +1605,50 @@
       setActiveLinks(desktopLinks);
       setActiveLinks(mobileLinks);
       
-      // Mobile menu toggle
+      // Mobile menu toggle functions
       function openMobileMenu() {
-        if (mobileMenu) mobileMenu.classList.add('active');
-        if (overlay) overlay.classList.add('active');
+        if (mobileMenu) {
+          mobileMenu.classList.add('active');
+          mobileMenu.style.display = 'block';
+        }
+        if (overlay) {
+          overlay.classList.add('active');
+          overlay.style.display = 'block';
+        }
         document.body.classList.add('nav-active');
+        document.body.style.overflow = 'hidden';
         if (mobileMenuToggle) mobileMenuToggle.classList.add('active');
-        console.log('Opening mobile menu');
+        console.log('Mobile menu opened');
       }
       
       function closeMobileMenu() {
-        if (mobileMenu) mobileMenu.classList.remove('active');
-        if (overlay) overlay.classList.remove('active');
+        if (mobileMenu) {
+          mobileMenu.classList.remove('active');
+          setTimeout(() => {
+            if (!mobileMenu.classList.contains('active')) {
+              mobileMenu.style.display = 'none';
+            }
+          }, 400);
+        }
+        if (overlay) {
+          overlay.classList.remove('active');
+          setTimeout(() => {
+            if (!overlay.classList.contains('active')) {
+              overlay.style.display = 'none';
+            }
+          }, 300);
+        }
         document.body.classList.remove('nav-active');
+        document.body.style.overflow = '';
         if (mobileMenuToggle) mobileMenuToggle.classList.remove('active');
-        console.log('Closing mobile menu');
+        console.log('Mobile menu closed');
       }
       
+      // Event listeners for mobile menu
       if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function() {
+        mobileMenuToggle.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
           console.log('Menu toggle clicked');
           if (mobileMenu && mobileMenu.classList.contains('active')) {
             closeMobileMenu();
@@ -1575,43 +1659,53 @@
       }
       
       if (mobileMenuClose) {
-        mobileMenuClose.addEventListener('click', function() {
+        mobileMenuClose.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
           console.log('Close button clicked');
           closeMobileMenu();
         });
       }
       
       if (overlay) {
-        overlay.addEventListener('click', closeMobileMenu);
+        overlay.addEventListener('click', function(e) {
+          e.preventDefault();
+          closeMobileMenu();
+        });
       }
       
-      // Close mobile menu when clicking a link
+      // Close mobile menu when clicking a navigation link
       if (mobileLinks) {
         mobileLinks.forEach(link => {
-          link.addEventListener('click', closeMobileMenu);
+          link.addEventListener('click', function() {
+            setTimeout(closeMobileMenu, 100);
+          });
         });
       }
       
       // Language dropdown toggle
-      if (langBtn) {
+      if (langBtn && langDropdown) {
         langBtn.addEventListener('click', function(e) {
+          e.preventDefault();
           e.stopPropagation();
-          if (langDropdown) langDropdown.classList.toggle('active');
+          langDropdown.classList.toggle('active');
+        });
+        
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
+            langDropdown.classList.remove('active');
+          }
         });
       }
       
-      // Close language dropdown when clicking outside
-      document.addEventListener('click', function() {
-        if (langDropdown) {
-          langDropdown.classList.remove('active');
-        }
-      });
-      
-      // Language selection in mobile menu
+      // Language selection handling
       const langOptions = document.querySelectorAll('.lang-option');
       if (langOptions) {
         langOptions.forEach(option => {
           option.addEventListener('click', function(e) {
+            e.preventDefault();
+            
             // Remove active class from all options
             langOptions.forEach(opt => opt.classList.remove('active'));
             
@@ -1625,22 +1719,36 @@
               langBtnText.textContent = lang;
             }
             
-            // Close mobile menu
-            closeMobileMenu();
+            // Close language dropdown
+            if (langDropdown) {
+              langDropdown.classList.remove('active');
+            }
+            
+            // Close mobile menu if open
+            if (mobileMenu && mobileMenu.classList.contains('active')) {
+              closeMobileMenu();
+            }
           });
         });
       }
       
       // Header scroll effect
+      let lastScrollY = 0;
       window.addEventListener('scroll', function() {
-        if (window.scrollY > 20) {
-          if (header) header.classList.add('active');
-        } else {
-          if (header) header.classList.remove('active');
+        const currentScrollY = window.scrollY;
+        
+        if (header) {
+          if (currentScrollY > 20) {
+            header.classList.add('active');
+          } else {
+            header.classList.remove('active');
+          }
         }
+        
+        lastScrollY = currentScrollY;
       });
       
-      // Handle ESC key to close mobile menu
+      // Handle ESC key to close mobile menu and language dropdown
       document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
           closeMobileMenu();
@@ -1650,7 +1758,14 @@
         }
       });
       
-      console.log('Menu script initialized with new data attributes');
+      // Prevent mobile menu from closing when clicking inside it
+      if (mobileMenu) {
+        mobileMenu.addEventListener('click', function(e) {
+          e.stopPropagation();
+        });
+      }
+      
+      console.log('Enhanced navigation script initialized');
     });
   </script>
 

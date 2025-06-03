@@ -140,32 +140,99 @@
     .mobile-menu {
       position: fixed;
       top: 0;
-      right: -300px;
-      width: 280px;
+      right: -100%;
+      width: 85%;
+      max-width: 400px;
       height: 100vh;
-      background-color: white;
-      padding: 70px 20px 20px;
-      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-      z-index: 999;
+      background-color: var(--white);
+      z-index: 2500;
+      transition: all 0.4s ease-in-out;
+      box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
       overflow-y: auto;
-      transition: right 0.3s ease;
     }
-
+    
     .mobile-menu.active {
       right: 0;
     }
-
+    
+    .mobile-menu-container {
+      padding: 25px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding-top: 90px; /* Add top padding to avoid header overlap */
+    }
+    
+    .mobile-menu-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: var(--white);
+      padding: 15px 25px;
+      z-index: 2600;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+    
     .mobile-menu-close {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      font-size: 24px;
       background: none;
       border: none;
-      color: var(--dark-jungle-green);
+      font-size: 24px;
+      color: var(--gunmetal);
       cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+    
+    .mobile-menu-close:hover {
+      color: var(--bright-navy-blue);
+      transform: rotate(90deg);
+      background-color: rgba(0, 0, 0, 0.04);
     }
 
+    /* Mobile Navigation */
+    .mobile-nav {
+      margin-bottom: 30px;
+      flex: 1;
+    }
+    
+    .mobile-nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .mobile-nav-link {
+      display: block;
+      padding: 18px 15px;
+      border-radius: 10px;
+      color: var(--gunmetal);
+      font-size: 16px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      margin-bottom: 8px;
+      border-left: 3px solid transparent;
+    }
+    
+    .mobile-nav-link:hover,
+    .mobile-nav-link.active {
+      background-color: rgba(0, 102, 204, 0.08);
+      color: var(--bright-navy-blue);
+      transform: translateX(5px);
+      border-left-color: var(--bright-navy-blue);
+    }
+
+    /* Mobile Menu Contact */
     .mobile-menu-contact {
       display: flex;
       flex-direction: column;
@@ -185,24 +252,6 @@
 
     .mobile-menu-contact a ion-icon {
       font-size: 18px;
-    }
-
-    .mobile-nav-list {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .mobile-nav-link {
-      color: var(--dark-jungle-green);
-      font-size: 16px;
-      padding: 5px 0;
-      transition: color 0.3s;
-    }
-
-    .mobile-nav-link:hover,
-    .mobile-nav-link.active {
-      color: var(--bright-yellow);
     }
 
     .mobile-social-list {
@@ -447,22 +496,22 @@
 
       <ul class="nav-list">
         <li>
-          <a href="index.html" class="nav-link" data-nav-link>Home</a>
+          <a href="index.html" class="nav-link" data-nav-link data-translate="nav_home">Home</a>
         </li>
         <li>
-          <a href="places.html" class="nav-link" data-nav-link>Places</a>
+          <a href="places.html" class="nav-link" data-nav-link data-translate="nav_places">Places</a>
         </li>
         <li>
-          <a href="hotels.html" class="nav-link" data-nav-link>Hotels</a>
+          <a href="hotels.html" class="nav-link" data-nav-link data-translate="nav_hotels">Hotels</a>
         </li>
         <li>
-          <a href="travels.html" class="nav-link" data-nav-link>Travels</a>
+          <a href="travels.html" class="nav-link" data-nav-link data-translate="nav_travels">Travels</a>
         </li>
         <li>
-          <a href="guides.html" class="nav-link" data-nav-link>Guides</a>
+          <a href="guides.html" class="nav-link" data-nav-link data-translate="nav_guides">Guides</a>
         </li>
         <li>
-          <a href="about.html" class="nav-link" data-nav-link>About</a>
+          <a href="about.html" class="nav-link" data-nav-link data-translate="nav_about">About</a>
         </li>
       </ul>
 
@@ -711,6 +760,9 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Translation System -->
+  <script src="assets/js/translations.js"></script>
 
   <!-- Additional script for improved navigation -->
   <script>

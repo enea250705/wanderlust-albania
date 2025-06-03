@@ -24,7 +24,7 @@
       width: 100%;
       background-color: var(--white);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-      z-index: 100;
+      z-index: 1000;
       padding: 10px 0;
       transition: all 0.3s ease;
     }
@@ -1183,12 +1183,12 @@
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <ul class="desktop-nav-list">
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="hotels.html" class="nav-link">Hotels</a></li>
-          <li><a href="travels.html" class="nav-link">Travels</a></li>
-          <li><a href="guides.html" class="nav-link">Licensed Guides</a></li>
-          <li><a href="places.html" class="nav-link">Places to Visit</a></li>
-          <li><a href="about.html" class="nav-link">About Us</a></li>
+          <li><a href="index.html" class="nav-link" data-translate="nav_home">Home</a></li>
+          <li><a href="hotels.html" class="nav-link" data-translate="nav_hotels">Hotels</a></li>
+          <li><a href="travels.html" class="nav-link" data-translate="nav_travels">Travels</a></li>
+          <li><a href="guides.html" class="nav-link" data-translate="nav_guides">Licensed Guides</a></li>
+          <li><a href="places.html" class="nav-link" data-translate="nav_places">Places to Visit</a></li>
+          <li><a href="about.html" class="nav-link" data-translate="nav_about">About Us</a></li>
         </ul>
       </nav>
 
@@ -1197,16 +1197,16 @@
         <!-- Contact Info -->
         <a href="tel:+355684170700" class="header-contact">
           <ion-icon name="call-outline" class="contact-icon"></ion-icon>
-          <span>+355 684 170 700</span>
+          <span data-translate="header_phone">+355 684 170 700</span>
         </a>
 
         <!-- Language Selector -->
-          <div class="language-selector">
-            <button class="language-btn">
+        <div class="language-selector">
+          <button class="language-btn">
             <span>EN</span>
             <ion-icon name="chevron-down-outline"></ion-icon>
           </button>
-            <ul class="language-dropdown">
+          <ul class="language-dropdown">
             <li><a href="#" data-lang="sq">Shqip</a></li>
             <li><a href="#" data-lang="de">Deutsch</a></li>
             <li><a href="#" data-lang="fr">Français</a></li>
@@ -1220,7 +1220,7 @@
           <span class="menu-bar"></span>
           <span class="menu-bar"></span>
           <span class="menu-bar"></span>
-          </button>
+        </button>
       </div>
     </div>
   </header>
@@ -1231,11 +1231,11 @@
       <!-- Mobile Menu Header -->
       <div class="mobile-menu-header">
         <a href="index.html" class="logo">
-              <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
-            </a>
+          <img src="./assets/images/wanderlogo1.png" alt="Wanderlust Albania logo" class="smaller-logo">
+        </a>
         <button class="mobile-menu-close" data-mobile-menu-close>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
       </div>
 
       <!-- Mobile Contact -->
@@ -1244,24 +1244,24 @@
         <div class="contact-info">
           <span class="contact-label">For inquiries:</span>
           <span class="contact-number">+355 684 170 700</span>
-          </div>
+        </div>
       </a>
 
       <!-- Mobile Navigation -->
       <nav class="mobile-nav">
         <ul class="mobile-nav-list">
-          <li><a href="index.html" class="mobile-nav-link">Home</a></li>
-          <li><a href="hotels.html" class="mobile-nav-link">Hotels</a></li>
-          <li><a href="travels.html" class="mobile-nav-link">Travels</a></li>
-          <li><a href="guides.html" class="mobile-nav-link">Licensed Guides</a></li>
-          <li><a href="places.html" class="mobile-nav-link">Places to Visit & Trips</a></li>
-          <li><a href="about.html" class="mobile-nav-link">About Us</a></li>
+          <li><a href="index.html" class="mobile-nav-link" data-translate="nav_home">Home</a></li>
+          <li><a href="hotels.html" class="mobile-nav-link" data-translate="nav_hotels">Hotels</a></li>
+          <li><a href="travels.html" class="mobile-nav-link" data-translate="nav_travels">Travels</a></li>
+          <li><a href="guides.html" class="mobile-nav-link" data-translate="nav_guides">Licensed Guides</a></li>
+          <li><a href="places.html" class="mobile-nav-link" data-translate="nav_places">Places to Visit</a></li>
+          <li><a href="about.html" class="mobile-nav-link" data-translate="nav_about">About Us</a></li>
         </ul>
       </nav>
 
       <!-- Mobile Language Selector -->
       <div class="mobile-language-selector">
-        <h4 class="lang-title">Choose Language</h4>
+        <h4 class="lang-title" data-translate="header_lang_select">Choose Language</h4>
         <ul class="mobile-language-list">
           <li><a href="#" data-lang="sq" class="lang-option">Shqip</a></li>
           <li><a href="#" data-lang="de" class="lang-option">Deutsch</a></li>
@@ -1273,27 +1273,27 @@
 
       <!-- Social Links -->
       <div class="mobile-social">
-        <h4 class="social-title">Follow Us</h4>
+        <h4 class="social-title" data-translate="footer_follow_title">Follow Us</h4>
         <ul class="social-list">
           <li>
             <a href="#" class="social-link">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
-            </li>
-            <li>
+          </li>
+          <li>
             <a href="#" class="social-link">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
-            </li>
-            <li>
+          </li>
+          <li>
             <a href="#" class="social-link">
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
-            </li>
-          </ul>
-          </div>
+          </li>
+        </ul>
       </div>
     </div>
+  </div>
 
   <!-- Overlay -->
   <div class="overlay" data-mobile-overlay></div>
@@ -1304,8 +1304,8 @@
       <!-- HERO SECTION -->
       <section class="about-hero" id="home">
         <div class="container">
-          <h1 class="hero-title">About Wanderlust Albania</h1>
-          <p class="hero-text">
+          <h1 class="hero-title" data-translate="about_hero_title">About Wanderlust Albania</h1>
+          <p class="hero-text" data-translate="about_hero_subtitle">
             Your personal gateway to discovering Albania in the most authentic and eco-conscious way possible
           </p>
         </div>
@@ -1314,7 +1314,7 @@
       <!-- ABOUT SECTION -->
       <section class="about-section" id="about">
         <div class="container">
-          <p class="section-subtitle fade-in-up">Our Story</p>
+          <p class="section-subtitle fade-in-up" data-translate="about_story_title">Our Story</p>
           <h2 class="h2 section-title fade-in-up">More Than a Travel Company</h2>
           
           <div class="about-layout">
@@ -1323,7 +1323,7 @@
             </div>
             
             <div class="about-content fade-in-up">
-            <p class="about-text">
+            <p class="about-text" data-translate="about_story_desc">
                 Wanderlust Albania is more than a travel company, it's your <span class="about-highlight">personal gateway</span> to discovering Albania in the most authentic and eco-conscious way possible.
             </p>
             
@@ -1337,7 +1337,7 @@
             </div>
           </div>
           
-          <p class="section-subtitle fade-in-up">Our Values</p>
+          <p class="section-subtitle fade-in-up" data-translate="about_values_title">Our Values</p>
           <h2 class="h2 section-title fade-in-up">What Makes Us Different</h2>
           
           <ul class="values-list">
@@ -1829,6 +1829,9 @@
   <!-- ionicon link -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Translation System -->
+  <script src="assets/js/translations.js"></script>
 
 </body>
 

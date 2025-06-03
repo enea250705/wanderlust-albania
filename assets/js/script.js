@@ -69,6 +69,7 @@ const mobileLangOptions = document.querySelectorAll(".mobile-lang-dropdown a");
 // Function to handle language selection
 const handleLanguageSelection = function(option, isDesktop) {
   const selectedLang = option.textContent;
+  const langCode = option.getAttribute("data-lang");
   
   // Update all language display elements
   currentLangText.forEach(el => {
@@ -79,8 +80,15 @@ const handleLanguageSelection = function(option, isDesktop) {
   if (languageSelector) languageSelector.classList.remove("active");
   if (mobileLangSelector) mobileLangSelector.classList.remove("active");
   
-  // Get language code for further processing
-  const langCode = option.getAttribute("data-lang");
+  // Trigger translation using the translation manager
+  if (window.translationManager) {
+    window.translationManager.changeLanguage(langCode);
+  } else {
+    // Fallback: store the selected language and translate when manager is ready
+    localStorage.setItem('tourly-language', langCode);
+    console.log(`Language changed to: ${langCode} (translation manager not ready yet)`);
+  }
+  
   console.log(`Language changed to: ${langCode}`);
 };
 
@@ -121,6 +129,26 @@ if (mobileLangBtn && mobileLangSelector) {
     });
   });
 }
+
+// Handle mobile menu language options too
+document.addEventListener('DOMContentLoaded', function() {
+  const mobileLanguageOptions = document.querySelectorAll('.mobile-language-list .lang-option');
+  
+  mobileLanguageOptions.forEach(option => {
+    option.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Remove active class from all mobile language options
+      mobileLanguageOptions.forEach(opt => opt.classList.remove('active'));
+      
+      // Add active class to selected option
+      this.classList.add('active');
+      
+      // Handle the language selection
+      handleLanguageSelection(this, false);
+    });
+  });
+});
 
 // Close dropdowns when clicking outside
 document.addEventListener("click", function(e) {
