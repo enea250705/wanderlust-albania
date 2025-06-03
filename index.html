@@ -20,6 +20,8 @@
     - custom css link
   -->
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/mobile-menu-fix.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
 
   <!-- 
     - google font link
@@ -27,7 +29,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/mobile-menu-fix.css">
 
   <style>
     /* Modern Header & Navigation */
@@ -1478,29 +1479,22 @@
         - #HERO
       -->
 
-      <section class="hero" id="home">
-        <div class="video-container">
-          <video autoplay muted loop playsinline class="hero-video">
-            <source src="homevid.mp4" type="video/mp4">
-            <!-- Fallback for browsers that don't support video -->
-            Your browser does not support the video tag.
-          </video>
-          <div class="video-overlay"></div>
-        </div>
+      <section class="hero fade-in-up" id="home">
         <div class="container">
 
-          <h2 class="h1 hero-title" data-translate="hero_title">UNVEIL THE LAND WHERE LEGENDS BREATHE</h2>
+          <h2 class="h1 hero-title fade-in-up" data-translate="hero_title">Journey to explore world</h2>
 
-          <p class="hero-text" data-translate="hero_subtitle">
-            Albania is not a trip. It's a revelation. From the eagle's flight over the Accursed Mountains to whispers of Illyrian kings in ancient stones—each step writes your story in a land untouched by time. Welcome to a place the world forgot to ruin.
+          <p class="hero-text fade-in-up" data-translate="hero_subtitle">
+            Discover Albania's hidden gems with personalized, sustainable travel experiences that connect you to authentic local culture and breathtaking landscapes.
           </p>
 
-          <div class="btn-group">
-            <button class="btn btn-primary" data-translate="btn_learn_more">Learn more</button>
+          <div class="btn-wrapper fade-in-up">
 
-            <button class="btn btn-secondary" data-translate="btn_book_now">Book now</button>
+            <a href="#" class="btn btn-primary btn-animated" data-translate="cta_explore">Explore now</a>
+
+            <a href="#" class="btn btn-outline btn-animated" data-translate="cta_book">Book now</a>
+
           </div>
-
         </div>
       </section>
 
@@ -1512,18 +1506,18 @@
         - #POPULAR
       -->
 
-      <section class="popular" id="destination">
+      <section class="popular fade-in-up" id="destination">
         <div class="container">
 
-          <p class="section-subtitle" data-translate="popular_subtitle">Destinations That Redefine Discovery</p>
+          <p class="section-subtitle fade-in-up" data-translate="popular_subtitle">Uncover place</p>
 
-          <h2 class="h2 section-title" data-translate="popular_title">These aren't "popular spots." They're revelations.</h2>
+          <h2 class="h2 section-title fade-in-up" data-translate="popular_title">Popular destination</h2>
 
-          <p class="section-text" data-translate="popular_description">
-            Each place on this map isn't just beautiful it's alive with soul, story, and silence you can feel. We don't just show you where to go we guide you into the unknown side of Albania the world never told you about.
+          <p class="section-text fade-in-up" data-translate="popular_desc">
+            Albania offers breathtaking experiences from pristine beaches to majestic mountains, medieval castles to vibrant cultural scenes.
           </p>
 
-          <ul class="popular-list">
+          <ul class="popular-list" data-stagger="100">
 
             <li>
               <div class="popular-card">
@@ -1642,82 +1636,86 @@
         - #PACKAGE
       -->
 
-      <section class="package" id="package">
+      <section class="package fade-in-up" id="package">
         <div class="container">
 
-          <p class="section-subtitle" data-translate="features_subtitle">🌍 Features That Elevate Every Journey</p>
+          <p class="section-subtitle fade-in-up" data-translate="package_subtitle">Popular Packages</p>
 
-          <h2 class="h2 section-title" data-translate="features_title">Handpicked tools. Seamless experiences. Real-world travel, redefined.</h2>
+          <h2 class="h2 section-title fade-in-up" data-translate="package_title">Checkout Our Packages</h2>
 
-          <ul class="features-list">
+          <p class="section-text fade-in-up" data-translate="package_desc">
+            Carefully crafted travel experiences that showcase the best of Albania while respecting local communities and environment.
+          </p>
 
-            <li class="feature-item">
-              <div class="feature-card">
-                <div class="feature-icon">
+          <ul class="package-list" data-stagger="150">
+
+            <li class="package-item">
+              <div class="package-card">
+                <div class="package-icon">
                   <ion-icon name="person-outline"></ion-icon>
                 </div>
-                <h3 class="h3 feature-title" data-translate="feature_custom_title">Curated Itineraries</h3>
-                <p class="card-text" data-translate="feature_custom_desc">
+                <h3 class="h3 package-title" data-translate="package_custom_title">Custom Itineraries</h3>
+                <p class="card-text" data-translate="package_custom_desc">
                   Trips shaped around your style and pace, crafted to match you, not the masses.
                 </p>
               </div>
             </li>
 
-            <li class="feature-item">
-              <div class="feature-card">
-                <div class="feature-icon">
+            <li class="package-item">
+              <div class="package-card">
+                <div class="package-icon">
                   <ion-icon name="videocam-outline"></ion-icon>
                 </div>
-                <h3 class="h3 feature-title" data-translate="feature_guide_title">Lasting Moments</h3>
-                <p class="card-text" data-translate="feature_guide_desc">
+                <h3 class="h3 package-title" data-translate="package_guide_title">Lasting Moments</h3>
+                <p class="card-text" data-translate="package_guide_desc">
                   Every location, handpicked to help you live stories worth telling, not just take pictures.
                 </p>
               </div>
             </li>
 
-            <li class="feature-item">
-              <div class="feature-card">
-                <div class="feature-icon">
+            <li class="package-item">
+              <div class="package-card">
+                <div class="package-icon">
                   <ion-icon name="map-outline"></ion-icon>
                 </div>
-                <h3 class="h3 feature-title" data-translate="feature_support_title">Smart Navigation</h3>
-                <p class="card-text" data-translate="feature_support_desc">
+                <h3 class="h3 package-title" data-translate="package_support_title">Smart Navigation</h3>
+                <p class="card-text" data-translate="package_support_desc">
                   Find your way with precision, from major sights to secret local spots, always at your fingertips.
                 </p>
               </div>
             </li>
 
-            <li class="feature-item">
-              <div class="feature-card">
-                <div class="feature-icon">
+            <li class="package-item">
+              <div class="package-card">
+                <div class="package-icon">
                   <ion-icon name="bulb-outline"></ion-icon>
                 </div>
-                <h3 class="h3 feature-title" data-translate="feature_best_title">Helpful Tips & Insights</h3>
-                <p class="card-text" data-translate="feature_best_desc">
+                <h3 class="h3 package-title" data-translate="package_best_title">Helpful Tips & Insights</h3>
+                <p class="card-text" data-translate="package_best_desc">
                   Stay one step ahead with real-time suggestions based on your interests and surroundings.
                 </p>
               </div>
             </li>
 
-            <li class="feature-item">
-              <div class="feature-card">
-                <div class="feature-icon">
+            <li class="package-item">
+              <div class="package-card">
+                <div class="package-icon">
                   <ion-icon name="time-outline"></ion-icon>
                 </div>
-                <h3 class="h3 feature-title" data-translate="feature_alerts_title">Timely Alerts</h3>
-                <p class="card-text" data-translate="feature_alerts_desc">
+                <h3 class="h3 package-title" data-translate="package_alerts_title">Timely Alerts</h3>
+                <p class="card-text" data-translate="package_alerts_desc">
                   Whether it's a reservation or a hike, stay informed and on time, no stress, no surprises.
                 </p>
               </div>
             </li>
 
-            <li class="feature-item">
-              <div class="feature-card">
-                <div class="feature-icon">
+            <li class="package-item">
+              <div class="package-card">
+                <div class="package-icon">
                   <ion-icon name="airplane-outline"></ion-icon>
                 </div>
-                <h3 class="h3 feature-title" data-translate="feature_tools_title">All-in-One Trip Tools</h3>
-                <p class="card-text" data-translate="feature_tools_desc">
+                <h3 class="h3 package-title" data-translate="package_tools_title">All-in-One Trip Tools</h3>
+                <p class="card-text" data-translate="package_tools_desc">
                   From bookings to checklists, manage every part of your journey in one streamlined space.
                 </p>
               </div>
@@ -1736,10 +1734,10 @@
         - #TESTIMONIALS
       -->
 
-      <section class="testimonials" id="testimonials">
+      <section class="testimonials fade-in-up" id="testimonials">
         <div class="container">
-          <p class="section-subtitle" data-translate="testimonials_subtitle">What Our Travelers Say</p>
-          <h2 class="h2 section-title" data-translate="testimonials_title">Adventures that create authentic memories</h2>
+          <p class="section-subtitle fade-in-up" data-translate="testimonials_subtitle">What Our Travelers Say</p>
+          <h2 class="h2 section-title fade-in-up" data-translate="testimonials_title">Adventures that create authentic memories</h2>
           
           <div class="testimonial-wrapper">
             <div class="testimonial-slider">
@@ -2009,14 +2007,14 @@
         - #GALLERY
       -->
 
-      <section class="gallery" id="gallery">
+      <section class="gallery fade-in-up" id="gallery">
         <div class="container">
 
-          <p class="section-subtitle" data-translate="gallery_subtitle">Photo Gallery</p>
+          <p class="section-subtitle fade-in-up" data-translate="gallery_subtitle">Photo Gallery</p>
 
-          <h2 class="h2 section-title" data-translate="gallery_title">Photo's From Travellers</h2>
+          <h2 class="h2 section-title fade-in-up" data-translate="gallery_title">Photo's From Travellers</h2>
 
-          <p class="section-text" data-translate="gallery_description">
+          <p class="section-text fade-in-up" data-translate="gallery_description">
             Discover Albania through the eyes of our travelers. These authentic moments capture the beauty, culture, and unforgettable experiences that await you.
           </p>
 
@@ -2083,20 +2081,20 @@
         - #CONTACT FORM
       -->
 
-      <section class="contact-form" id="contact">
+      <section class="contact-form fade-in-up" id="contact">
         <div class="container">
 
           <div class="form-content">
-            <p class="section-subtitle" data-translate="contact_subtitle">Get In Touch</p>
+            <p class="section-subtitle fade-in-up" data-translate="contact_subtitle">Get In Touch</p>
 
-            <h2 class="h2 section-title" data-translate="contact_title">Ready For Unforgettable Travel. Remember Us!</h2>
+            <h2 class="h2 section-title fade-in-up" data-translate="contact_title">Ready For Unforgettable Travel. Remember Us!</h2>
 
-            <p class="section-text" data-translate="contact_description">
+            <p class="section-text fade-in-up" data-translate="contact_description">
               Let us help you plan your perfect Albanian adventure. Fill out the form below and our travel experts will contact you within 24 hours.
             </p>
           </div>
 
-          <form class="contact-form-wrapper">
+          <form class="contact-form-wrapper fade-in-up">
             <div class="form-row">
               <div class="input-wrapper">
                 <label for="name" class="input-label" data-translate="contact_name_label">Full Name</label>
@@ -2642,8 +2640,47 @@
     });
   </script>
 
+  <!-- Translation System Debug Test -->
+  <script>
+    // Debug function to test translations manually
+    function testTranslations() {
+      console.log('🔍 Testing Translation System...');
+      
+      // Check if translation manager exists
+      if (window.translationManager) {
+        console.log('✅ Translation Manager found');
+        
+        // Test language change
+        console.log('🔄 Testing language changes...');
+        
+        // Change to Albanian
+        window.translationManager.changeLanguage('sq');
+        setTimeout(() => {
+          // Change to German
+          window.translationManager.changeLanguage('de');
+          setTimeout(() => {
+            // Change back to English
+            window.translationManager.changeLanguage('en');
+            console.log('✅ Translation test completed');
+          }, 1000);
+        }, 1000);
+        
+      } else {
+        console.error('❌ Translation Manager not found');
+      }
+    }
+    
+    // Auto-run test after page loads
+    window.addEventListener('load', function() {
+      setTimeout(testTranslations, 2000);
+    });
+  </script>
+
   <!-- Translation System -->
   <script src="assets/js/translations.js"></script>
+
+  <!-- animations -->
+  <script src="assets/js/animations.js"></script>
 
 </body>
 

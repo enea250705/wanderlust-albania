@@ -133,7 +133,44 @@ const translations = {
     location_vlore: "Vlorë, Albania",
     location_durres: "Durrës, Albania",
     location_gjirokaster: "Gjirokastër, Albania",
-    location_alps: "Albanian Alps, Albania"
+    location_alps: "Albanian Alps, Albania",
+    
+    // Missing translations from the HTML
+    hero_title: "Journey to explore world",
+    hero_subtitle: "Discover Albania's hidden gems with personalized, sustainable travel experiences that connect you to authentic local culture and breathtaking landscapes.",
+    cta_explore: "Explore now",
+    cta_book: "Book now",
+    popular_desc: "Albania offers breathtaking experiences from pristine beaches to majestic mountains, medieval castles to vibrant cultural scenes.",
+    package_subtitle: "Popular Packages",
+    package_title: "Checkout Our Packages",
+    package_desc: "Carefully crafted travel experiences that showcase the best of Albania while respecting local communities and environment.",
+    package_custom_title: "Custom Itineraries",
+    package_custom_desc: "Trips shaped around your style and pace, crafted to match you, not the masses.",
+    package_guide_title: "Lasting Moments",
+    package_guide_desc: "Every location, handpicked to help you live stories worth telling, not just take pictures.",
+    package_support_title: "Smart Navigation",
+    package_support_desc: "Find your way with precision, from major sights to secret local spots, always at your fingertips.",
+    package_best_title: "Helpful Tips & Insights",
+    package_best_desc: "Stay one step ahead with real-time suggestions based on your interests and surroundings.",
+    package_alerts_title: "Timely Alerts",
+    package_alerts_desc: "Whether it's a reservation or a hike, stay informed and on time, no stress, no surprises.",
+    package_tools_title: "All-in-One Trip Tools",
+    package_tools_desc: "From bookings to checklists, manage every part of your journey in one streamlined space.",
+    
+    // About page specific translations
+    about_hero_title: "About Wanderlust Albania",
+    about_hero_subtitle: "Your personal gateway to discovering Albania in the most authentic and eco-conscious way possible",
+    about_story_title: "Our Story",
+    about_story_desc: "Wanderlust Albania is more than a travel company, it's your personal gateway to discovering Albania in the most authentic and eco-conscious way possible.",
+    about_values_title: "Our Values",
+    
+    // Page titles
+    page_title_home: "Wanderlust Albania - Travel agency",
+    page_title_about: "About Wanderlust Albania",
+    page_title_hotels: "Hotels - Wanderlust Albania",
+    page_title_places: "Places to Visit - Wanderlust Albania", 
+    page_title_travels: "Travels - Wanderlust Albania",
+    page_title_guides: "Licensed Guides - Wanderlust Albania"
   },
   
   sq: {
@@ -269,222 +306,605 @@ const translations = {
     location_vlore: "Vlorë, Shqipëri",
     location_durres: "Durrës, Shqipëri",
     location_gjirokaster: "Gjirokastër, Shqipëri",
-    location_alps: "Alpet Shqiptare, Shqipëri"
+    location_alps: "Alpet Shqiptare, Shqipëri",
+    
+    // Missing translations from the HTML
+    hero_title: "Journey to explore world",
+    hero_subtitle: "Discover Albania's hidden gems with personalized, sustainable travel experiences that connect you to authentic local culture and breathtaking landscapes.",
+    cta_explore: "Explore now",
+    cta_book: "Book now",
+    popular_desc: "Albania offers breathtaking experiences from pristine beaches to majestic mountains, medieval castles to vibrant cultural scenes.",
+    package_subtitle: "Popular Packages",
+    package_title: "Checkout Our Packages",
+    package_desc: "Carefully crafted travel experiences that showcase the best of Albania while respecting local communities and environment.",
+    package_custom_title: "Custom Itineraries",
+    package_custom_desc: "Trips shaped around your style and pace, crafted to match you, not the masses.",
+    package_guide_title: "Lasting Moments",
+    package_guide_desc: "Every location, handpicked to help you live stories worth telling, not just take pictures.",
+    package_support_title: "Smart Navigation",
+    package_support_desc: "Find your way with precision, from major sights to secret local spots, always at your fingertips.",
+    package_best_title: "Helpful Tips & Insights",
+    package_best_desc: "Stay one step ahead with real-time suggestions based on your interests and surroundings.",
+    package_alerts_title: "Timely Alerts",
+    package_alerts_desc: "Whether it's a reservation or a hike, stay informed and on time, no stress, no surprises.",
+    package_tools_title: "All-in-One Trip Tools",
+    package_tools_desc: "From bookings to checklists, manage every part of your journey in one streamlined space.",
+    
+    // About page specific translations
+    about_hero_title: "About Wanderlust Albania",
+    about_hero_subtitle: "Your personal gateway to discovering Albania in the most authentic and eco-conscious way possible",
+    about_story_title: "Our Story",
+    about_story_desc: "Wanderlust Albania is more than a travel company, it's your personal gateway to discovering Albania in the most authentic and eco-conscious way possible.",
+    about_values_title: "Our Values",
+    
+    // Page titles
+    page_title_home: "Wanderlust Albania - Travel agency",
+    page_title_about: "About Wanderlust Albania",
+    page_title_hotels: "Hotels - Wanderlust Albania",
+    page_title_places: "Places to Visit - Wanderlust Albania", 
+    page_title_travels: "Travels - Wanderlust Albania",
+    page_title_guides: "Licensed Guides - Wanderlust Albania"
   },
   
   de: {
-    nav_home: "Startseite", nav_about: "Über Uns", nav_places: "Orte", nav_hotels: "Hotels", nav_travels: "Reisen", nav_guides: "Reiseführer",
-    header_phone: "+355 684 170 700", header_lang_select: "Sprache Wählen",
-    hero_title: "ENTHÜLLEN SIE DAS LAND, WO LEGENDEN ATMEN", hero_subtitle: "Albanien ist nicht nur eine Reise. Es ist eine Offenbarung.",
-    btn_learn_more: "Mehr Erfahren", btn_book_now: "Jetzt Buchen", btn_contact_us: "Kontaktieren Sie Uns",
-    popular_subtitle: "Destinationen, die Entdeckung neu definieren", popular_title: "Das sind keine \"beliebten Orte.\" Das sind Offenbarungen.",
-    testimonials_subtitle: "Was unsere Reisenden sagen", testimonials_title: "Abenteuer, die authentische Erinnerungen schaffen",
-    footer_text: "Weil Ihre Reise Bedeutung verdient, und Albanien liefert sie."
+    // Navigation
+    nav_home: "Startseite",
+    nav_about: "Über Uns",
+    nav_places: "Orte zu Besuchen", 
+    nav_hotels: "Hotels",
+    nav_travels: "Reisen",
+    nav_guides: "Lizenzierte Führer",
+    
+    // Header
+    header_phone: "+355 684 170 700",
+    header_lang_select: "Sprache Wählen",
+    
+    // Hero Section
+    hero_title: "Reise zur Welterkundung",
+    hero_subtitle: "Entdecken Sie Albaniens verborgene Schätze mit personalisierten, nachhaltigen Reiseerlebnissen, die Sie mit authentischer lokaler Kultur und atemberaubenden Landschaften verbinden.",
+    
+    // Buttons
+    btn_learn_more: "Mehr Erfahren",
+    btn_book_now: "Jetzt Buchen",
+    btn_contact_us: "Kontaktieren Sie Uns",
+    btn_get_directions: "Wegbeschreibung Erhalten",
+    btn_view_gallery: "Galerie Anzeigen",
+    btn_read_more: "Mehr Lesen",
+    btn_back_home: "Zurück zur Startseite",
+    btn_send_message: "Nachricht Senden",
+    cta_explore: "Jetzt Erkunden",
+    cta_book: "Jetzt Buchen",
+    
+    // Popular Destinations Section
+    popular_subtitle: "Ort Entdecken",
+    popular_title: "Beliebte Destination",
+    popular_desc: "Albanien bietet atemberaubende Erlebnisse von unberührten Stränden bis zu majestätischen Bergen, mittelalterlichen Burgen bis zu lebendigen Kulturszenen.",
+    popular_explore: "Mehr Destinationen Erkunden",
+    
+    // Destination Cards
+    popular_berat: "Berat",
+    popular_berat_desc: "Entdecken Sie die \"Stadt der Tausend Fenster\" mit ihrer einzigartigen osmanischen Architektur und dem UNESCO-Welterbestatus.",
+    popular_shkodra: "Shkodra",
+    popular_shkodra_desc: "Erkunden Sie Albaniens Kulturhauptstadt mit ihrer atemberaubenden Rozafa-Burg, reichen Geschichte und schönen Lage am See.",
+    popular_tirana: "Tirana",
+    popular_tirana_desc: "Entdecken Sie Albaniens lebendige Hauptstadt mit ihren bunten Gebäuden, lebhaften Atmosphäre und faszinierenden Mischung aus Geschichte und Moderne.",
+    
+    // Package Section
+    package_subtitle: "Beliebte Pakete",
+    package_title: "Schauen Sie sich unsere Pakete an",
+    package_desc: "Sorgfältig gestaltete Reiseerlebnisse, die das Beste von Albanien zeigen und dabei lokale Gemeinschaften und Umwelt respektieren.",
+    package_custom_title: "Maßgeschneiderte Reiserouten",
+    package_custom_desc: "Reisen, die um Ihren Stil und Ihr Tempo geformt sind, angepasst an Sie, nicht an die Massen.",
+    package_guide_title: "Bleibende Momente",
+    package_guide_desc: "Jeder Ort, handverlesen, um Ihnen zu helfen, Geschichten zu erleben, die es wert sind, erzählt zu werden, nicht nur Fotos zu machen.",
+    package_support_title: "Intelligente Navigation",
+    package_support_desc: "Finden Sie Ihren Weg mit Präzision, von großen Sehenswürdigkeiten bis zu geheimen lokalen Orten, immer griffbereit.",
+    package_best_title: "Hilfreiche Tipps & Einblicke",
+    package_best_desc: "Bleiben Sie einen Schritt voraus mit Echtzeit-Vorschlägen basierend auf Ihren Interessen und der Umgebung.",
+    package_alerts_title: "Rechtzeitige Warnungen",
+    package_alerts_desc: "Ob es eine Reservierung oder eine Wanderung ist, bleiben Sie informiert und pünktlich, kein Stress, keine Überraschungen.",
+    package_tools_title: "All-in-One Reise-Tools",
+    package_tools_desc: "Von Buchungen bis zu Checklisten, verwalten Sie jeden Teil Ihrer Reise in einem optimierten Raum.",
+    
+    // Testimonials Section
+    testimonials_subtitle: "Was unsere Reisenden sagen",
+    testimonials_title: "Abenteuer, die authentische Erinnerungen schaffen",
+    
+    // Gallery Section
+    gallery_subtitle: "Fotogalerie",
+    gallery_title: "Fotos von Reisenden",
+    gallery_description: "Entdecken Sie Albanien durch die Augen unserer Reisenden. Diese authentischen Momente catturieren die Schönheit, Kultur und unvergesslichen Erlebnisse, die auf Sie warten.",
+    
+    // Contact Form Section
+    contact_subtitle: "In Kontakt Treten",
+    contact_title: "Bereit für unvergessliche Reisen. Denken Sie an uns!",
+    contact_description: "Lassen Sie uns Ihnen helfen, Ihr perfektes albanisches Abenteuer zu planen. Füllen Sie das folgende Formular aus und unsere Reiseexperten werden Sie innerhalb von 24 Stunden kontaktieren.",
+    
+    // Contact Form Fields
+    contact_name_label: "Vollständiger Name",
+    contact_name_placeholder: "Geben Sie Ihren vollständigen Namen ein",
+    contact_email_label: "E-Mail-Adresse", 
+    contact_email_placeholder: "Geben Sie Ihre E-Mail ein",
+    contact_phone_label: "Telefonnummer",
+    contact_phone_placeholder: "Geben Sie Ihre Telefonnummer ein",
+    contact_date_label: "Reisedatum",
+    contact_date_placeholder: "TT/MM/JJJJ",
+    contact_subject_label: "Betreff",
+    contact_subject_placeholder: "Geben Sie den Nachrichtenbetreff ein",
+    contact_message_label: "Ihre Nachricht",
+    contact_message_placeholder: "Geben Sie Ihre Nachricht hier ein",
+    
+    // Footer
+    footer_text: "Weil Ihre Reise Bedeutung verdient, und Albanien liefert sie.",
+    footer_contact_title: "Kontaktieren Sie Uns",
+    footer_contact_description: "Zögern Sie nicht, uns zu kontaktieren und zu erreichen!",
+    footer_address: "Bulevardi Zogu I, Shkodër 4001",
+    footer_email: "info@wanderlustalbania.eu",
+    footer_phone: "+355 684 170 700",
+    footer_copyright_text: "Alle Rechte vorbehalten. Design von",
+    footer_copyright_company: "Wanderlust Albania",
+    footer_copyright_designer: "codewithenea.it",
+    
+    // About page specific translations
+    about_hero_title: "Über Wanderlust Albania",
+    about_hero_subtitle: "Ihr persönliches Tor zur Entdeckung Albaniens auf die authentischste und umweltbewussteste Art und Weise",
+    about_story_title: "Unsere Geschichte",
+    about_story_desc: "Wanderlust Albania ist mehr als ein Reiseunternehmen, es ist Ihr persönliches Tor zur Entdeckung Albaniens auf die authentischste und umweltbewussteste Art und Weise.",
+    about_values_title: "Unsere Werte",
+    
+    // Contact Information Labels
+    contact_info_label: "Für Anfragen:",
+    
+    // Common Location Names
+    location_albania: "Albanien",
+    location_northern_albania: "Nordalbanien", 
+    location_central_albania: "Zentralalbanien",
+    
+    // Page titles
+    page_title_home: "Wanderlust Albania - Reiseagentur",
+    page_title_about: "Über Wanderlust Albania",
+    page_title_hotels: "Hotels - Wanderlust Albania",
+    page_title_places: "Orte zu Besuchen - Wanderlust Albania", 
+    page_title_travels: "Reisen - Wanderlust Albania",
+    page_title_guides: "Lizenzierte Führer - Wanderlust Albania"
   },
   
   fr: {
-    nav_home: "Accueil", nav_about: "À Propos", nav_places: "Lieux", nav_hotels: "Hôtels", nav_travels: "Voyages", nav_guides: "Guides",
-    header_phone: "+355 684 170 700", header_lang_select: "Choisir la Langue",
-    hero_title: "DÉVOILEZ LA TERRE OÙ RESPIRENT LES LÉGENDES", hero_subtitle: "L'Albanie n'est pas un voyage. C'est une révélation.",
-    btn_learn_more: "En Savoir Plus", btn_book_now: "Réserver Maintenant", btn_contact_us: "Contactez-Nous",
-    popular_subtitle: "Destinations qui redéfinissent la découverte", popular_title: "Ce ne sont pas des \"lieux populaires.\" Ce sont des révélations.",
-    testimonials_subtitle: "Ce que disent nos voyageurs", testimonials_title: "Aventures qui créent des souvenirs authentiques",
-    footer_text: "Parce que votre voyage mérite du sens, et l'Albanie le délivre."
+    // Navigation
+    nav_home: "Accueil",
+    nav_about: "À Propos de Nous",
+    nav_places: "Lieux à Visiter", 
+    nav_hotels: "Hôtels",
+    nav_travels: "Voyages",
+    nav_guides: "Guides Licenciés",
+    
+    // Header
+    header_phone: "+355 684 170 700",
+    header_lang_select: "Choisir la Langue",
+    
+    // Hero Section
+    hero_title: "Voyage pour explorer le monde",
+    hero_subtitle: "Découvrez les joyaux cachés de l'Albanie avec des expériences de voyage personnalisées et durables qui vous connectent à la culture locale authentique et aux paysages à couper le souffle.",
+    
+    // Buttons
+    btn_learn_more: "En Savoir Plus",
+    btn_book_now: "Réserver Maintenant",
+    btn_contact_us: "Contactez-Nous",
+    btn_get_directions: "Obtenir les Directions",
+    btn_view_gallery: "Voir la Galerie",
+    btn_read_more: "Lire Plus",
+    btn_back_home: "Retour à l'Accueil",
+    btn_send_message: "Envoyer le Message",
+    cta_explore: "Explorer Maintenant",
+    cta_book: "Réserver Maintenant",
+    
+    // Popular Destinations Section
+    popular_subtitle: "Découvrir un lieu",
+    popular_title: "Destination populaire",
+    popular_desc: "L'Albanie offre des expériences à couper le souffle, des plages vierges aux montagnes majestueuses, des châteaux médiévaux aux scènes culturelles vibrantes.",
+    popular_explore: "Explorer Plus de Destinations",
+    
+    // Destination Cards
+    popular_berat: "Berat",
+    popular_berat_desc: "Découvrez la \"Ville aux Mille Fenêtres\" avec son architecture ottomane unique et son statut de patrimoine mondial de l'UNESCO.",
+    popular_shkodra: "Shkodra",
+    popular_shkodra_desc: "Explorez la capitale culturale de l'Albanie avec son magnifique château de Rozafa, sa riche histoire et son beau cadre au bord du lac.",
+    popular_tirana: "Tirana",
+    popular_tirana_desc: "Découvrez la vibrante capitale de l'Albanie avec ses bâtiments colorés, son atmosphère animée et son mélange fascinant d'histoire et de modernité.",
+    
+    // Package Section
+    package_subtitle: "Forfaits Populaires",
+    package_title: "Découvrez Nos Forfaits",
+    package_desc: "Expériences de voyage soigneusement conçues qui mettent en valeur le meilleur de l'Albanie tout en respectant les communautés locales et l'environnement.",
+    package_custom_title: "Itinéraires Personnalisés",
+    package_custom_desc: "Voyages façonnés autour de votre style et de votre rythme, conçus pour vous correspondre, pas aux masses.",
+    package_guide_title: "Moments Durables",
+    package_guide_desc: "Chaque lieu, choisi à la main pour vous aider à vivre des histoires qui valent la peine d'être racontées, pas seulement prendre des photos.",
+    package_support_title: "Navigation Intelligente",
+    package_support_desc: "Trouvez votre chemin avec précision, des sites majeurs aux endroits secrets locaux, toujours à portée de main.",
+    package_best_title: "Conseils et Aperçus Utiles",
+    package_best_desc: "Gardez une longueur d'avance avec des suggestions en temps réel basées sur vos intérêts et votre environnement.",
+    package_alerts_title: "Alertes Opportunes",
+    package_alerts_desc: "Qu'il s'agisse d'une réservation ou d'une randonnée, restez informé et à l'heure, sans stress, sans surprises.",
+    package_tools_title: "Outils de Voyage Tout-en-Un",
+    package_tools_desc: "Des réservations aux listes de contrôle, gérez chaque partie de votre voyage dans un espace rationalisé.",
+    
+    // Testimonials Section
+    testimonials_subtitle: "Ce que disent nos voyageurs",
+    testimonials_title: "Aventures qui créent des souvenirs authentiques",
+    
+    // Gallery Section
+    gallery_subtitle: "Galerie Photo",
+    gallery_title: "Photos de Voyageurs",
+    gallery_description: "Découvrez l'Albanie à travers les yeux de nos voyageurs. Quels moments authentiques capturés la beauté, la culture et les expériences indimenticables qui vous attendent.",
+    
+    // Contact Form Section
+    contact_subtitle: "Entrer en Contact",
+    contact_title: "Pronto pour viaggi indimenticabili. Ricordati di noi!",
+    contact_description: "Lasciaci aiutarti a pianificare votre aventure albanaise parfaite. Remplissez le formulaire ci-dessous et nos experts en voyage vous contacteront dans les 24 heures.",
+    
+    // Contact Form Fields
+    contact_name_label: "Nom Complet",
+    contact_name_placeholder: "Entrez votre nom complet",
+    contact_email_label: "Adresse E-mail", 
+    contact_email_placeholder: "Entrez votre e-mail",
+    contact_phone_label: "Numéro de Téléphone",
+    contact_phone_placeholder: "Entrez votre numéro de téléphone",
+    contact_date_label: "Date de Voyage",
+    contact_date_placeholder: "JJ/MM/AAAA",
+    contact_subject_label: "Sujet",
+    contact_subject_placeholder: "Entrez le sujet du message",
+    contact_message_label: "Votre Message",
+    contact_message_placeholder: "Entrez votre message ici",
+    
+    // Footer
+    footer_text: "Parce que votre voyage mérite du sens, et l'Albanie le délivre.",
+    footer_contact_title: "Contactez-Nous",
+    footer_contact_description: "N'hésitez pas à nous contacter et à nous joindre!",
+    footer_address: "Bulevardi Zogu I, Shkodër 4001",
+    footer_email: "info@wanderlustalbania.eu",
+    footer_phone: "+355 684 170 700",
+    footer_copyright_text: "Tous droits réservés. Design par",
+    footer_copyright_company: "Wanderlust Albania",
+    footer_copyright_designer: "codewithenea.it",
+    
+    // About page specific translations
+    about_hero_title: "À Propos de Wanderlust Albania",
+    about_hero_subtitle: "Votre passerelle personnelle pour découvrir l'Albanie de la manière la plus authentique et écologique possible",
+    about_story_title: "Notre Histoire",
+    about_story_desc: "Wanderlust Albania est plus qu'une compagnie de voyage, c'est votre passerelle personnelle pour découvrir l'Albanie de la manière la plus authentique et écologique possible.",
+    about_values_title: "Nos Valeurs",
+    
+    // Contact Information Labels
+    contact_info_label: "Pour les demandes:",
+    
+    // Common Location Names
+    location_albania: "Albanie",
+    location_northern_albania: "Albanie du Nord", 
+    location_central_albania: "Albanie Centrale",
+    
+    // Page titles
+    page_title_home: "Wanderlust Albania - Agence de voyage",
+    page_title_about: "À Propos de Wanderlust Albania",
+    page_title_hotels: "Hôtels - Wanderlust Albania",
+    page_title_places: "Lieux à Visiter - Wanderlust Albania", 
+    page_title_travels: "Voyages - Wanderlust Albania",
+    page_title_guides: "Guides Licenciés - Wanderlust Albania"
   },
   
   it: {
-    nav_home: "Home", nav_about: "Chi Siamo", nav_places: "Luoghi", nav_hotels: "Hotel", nav_travels: "Viaggi", nav_guides: "Guide",
-    header_phone: "+355 684 170 700", header_lang_select: "Scegli Lingua",
-    hero_title: "SVELA LA TERRA DOVE RESPIRANO LE LEGGENDE", hero_subtitle: "L'Albania non è un viaggio. È una rivelazione.",
-    btn_learn_more: "Scopri di Più", btn_book_now: "Prenota Ora", btn_contact_us: "Contattaci",
-    popular_subtitle: "Destinazioni che ridefiniscono la scoperta", popular_title: "Questi non sono \"luoghi popolari.\" Sono rivelazioni.",
-    testimonials_subtitle: "Cosa dicono i nostri viaggiatori", testimonials_title: "Avventure che creano ricordi autentici",
-    footer_text: "Perché il tuo viaggio merita significato, e l'Albania lo offre."
+    // Navigation
+    nav_home: "Home",
+    nav_about: "Chi Siamo",
+    nav_places: "Luoghi da Visitare", 
+    nav_hotels: "Hotel",
+    nav_travels: "Viaggi",
+    nav_guides: "Guide Autorizzate",
+    
+    // Header
+    header_phone: "+355 684 170 700",
+    header_lang_select: "Scegli Lingua",
+    
+    // Hero Section
+    hero_title: "Viaggio per esplorare il mondo",
+    hero_subtitle: "Scopri le gemme nascoste dell'Albania con esperienze di viaggio personalizzate e sostenibili che ti collegano alla cultura locale autentica e ai paesaggi mozzafiato.",
+    
+    // Buttons
+    btn_learn_more: "Scopri di Più",
+    btn_book_now: "Prenota Ora",
+    btn_contact_us: "Contattaci",
+    btn_get_directions: "Ottieni Indicazioni",
+    btn_view_gallery: "Vedi Galleria",
+    btn_read_more: "Leggi di Più",
+    btn_back_home: "Torna alla Home",
+    btn_send_message: "Invia Messaggio",
+    cta_explore: "Esplora Ora",
+    cta_book: "Prenota Ora",
+    
+    // Popular Destinations Section
+    popular_subtitle: "Scopri il luogo",
+    popular_title: "Destinazione popolare",
+    popular_desc: "L'Albania offre esperienze mozzafiato dalle spiagge incontaminate alle montagne maestose, dai castelli medievali alle scene culturali vibranti.",
+    popular_explore: "Esplora Più Destinazioni",
+    
+    // Destination Cards
+    popular_berat: "Berat",
+    popular_berat_desc: "Scopri la \"Città delle Mille Finestre\" con la sua architettura ottomana unica e lo status di Patrimonio Mondiale UNESCO.",
+    popular_shkodra: "Shkodra",
+    popular_shkodra_desc: "Esplora la capitale culturale dell'Albania con il suo splendido Castello di Rozafa, la ricca storia e la bella posizione sul lago.",
+    popular_tirana: "Tirana",
+    popular_tirana_desc: "Scopri la vibrante capitale dell'Albania con i suoi edifici colorati, l'atmosfera vivace e l'affascinante mix di storia e modernità.",
+    
+    // Package Section
+    package_subtitle: "Pacchetti Popolari",
+    package_title: "Scopri i Nostri Pacchetti",
+    package_desc: "Esperienze di viaggio accuratamente realizzate che mostrano il meglio dell'Albania rispettando le comunità locali e l'ambiente.",
+    package_custom_title: "Itinerari Personalizzati",
+    package_custom_desc: "Viaggi modellati intorno al tuo stile e ritmo, creati per adattarsi a te, non alle masse.",
+    package_guide_title: "Momenti Duraturi",
+    package_guide_desc: "Ogni luogo, selezionato a mano per aiutarti a vivere storie che vale la pena raccontare, non solo scattare foto.",
+    package_support_title: "Navigazione Intelligente",
+    package_support_desc: "Trova la tua strada con precisione, dai siti principali ai luoghi segreti locali, sempre a portata di mano.",
+    package_best_title: "Consigli e Intuizioni Utili",
+    package_best_desc: "Mantieniti un passo avanti con suggerimenti in tempo reale basati sui tuoi interessi e dintorni.",
+    package_alerts_title: "Avvisi Tempestivi",
+    package_alerts_desc: "Che si tratti di una prenotazione o di un'escursione, rimani informato e puntuale, senza stress, senza sorprese.",
+    package_tools_title: "Strumenti di Viaggio All-in-One",
+    package_tools_desc: "Dalle prenotazioni alle checklist, gestisci ogni parte del tuo viaggio in uno spazio rationalisé.",
+    
+    // Testimonials Section
+    testimonials_subtitle: "Cosa dicono i nostri viaggiatori",
+    testimonials_title: "Avventure che creano ricordi autentici",
+    
+    // Gallery Section
+    gallery_subtitle: "Galleria Fotografica",
+    gallery_title: "Foto dai Viaggiatori",
+    gallery_description: "Scopri l'Albania attraverso gli occhi dei nostri viaggiatori. Questi momenti autentici catturano la bellezza, la cultura e le esperienze indimenticabili che ti aspettano.",
+    
+    // Contact Form Section
+    contact_subtitle: "Entra in Contatto",
+    contact_title: "Pronto per viaggi indimenticabili. Ricordati di noi!",
+    contact_description: "Lasciaci aiutarti a pianificare la tua avventura albanese perfetta. Compila il modulo qui sotto e i nostri esperti di viaggio ti contatteranno entro 24 ore.",
+    
+    // Contact Form Fields
+    contact_name_label: "Nome Completo",
+    contact_name_placeholder: "Inserisci il tuo nome completo",
+    contact_email_label: "Indirizzo Email", 
+    contact_email_placeholder: "Inserisci la tua email",
+    contact_phone_label: "Numero di Telefono",
+    contact_phone_placeholder: "Inserisci il tuo numero di telefono",
+    contact_date_label: "Data di Viaggio",
+    contact_date_placeholder: "GG/MM/AAAA",
+    contact_subject_label: "Oggetto",
+    contact_subject_placeholder: "Inserisci l'oggetto del messaggio",
+    contact_message_label: "Il Tuo Messaggio",
+    contact_message_placeholder: "Inserisci il tuo messaggio qui",
+    
+    // Footer
+    footer_text: "Perché il tuo viaggio merita significato, e l'Albania lo offre.",
+    footer_contact_title: "Contattaci",
+    footer_contact_description: "Sentiti libero di contattarci e raggiungerci!",
+    footer_address: "Bulevardi Zogu I, Shkodër 4001",
+    footer_email: "info@wanderlustalbania.eu",
+    footer_phone: "+355 684 170 700",
+    footer_copyright_text: "Tutti i diritti riservati. Design di",
+    footer_copyright_company: "Wanderlust Albania",
+    footer_copyright_designer: "codewithenea.it",
+    
+    // About page specific translations
+    about_hero_title: "Chi è Wanderlust Albania",
+    about_hero_subtitle: "Il tuo gateway personale per scoprire l'Albania nel modo più autentico ed eco-sostenibile possibile",
+    about_story_title: "La Nostra Storia",
+    about_story_desc: "Wanderlust Albania è più di una compagnia di viaggi, è il tuo gateway personale per scoprire l'Albania nel modo più autentico ed eco-sostenibile possibile.",
+    about_values_title: "I Nostri Valori",
+    
+    // Contact Information Labels
+    contact_info_label: "Per richieste:",
+    
+    // Common Location Names
+    location_albania: "Albania",
+    location_northern_albania: "Albania del Nord", 
+    location_central_albania: "Albania Centrale",
+    
+    // Page titles
+    page_title_home: "Wanderlust Albania - Agenzia di viaggi",
+    page_title_about: "Chi Siamo - Wanderlust Albania",
+    page_title_hotels: "Hotel - Wanderlust Albania",
+    page_title_places: "Luoghi da Visitare - Wanderlust Albania", 
+    page_title_travels: "Viaggi - Wanderlust Albania",
+    page_title_guides: "Guide Autorizzate - Wanderlust Albania"
   }
 };
 
 // Translation Manager Class
 class TranslationManager {
   constructor() {
-    this.currentLanguage = this.getStoredLanguage() || 'en';
+    this.currentLanguage = 'en';
     this.initialize();
   }
-  
+
+  // Get stored language from localStorage
   getStoredLanguage() {
-    return localStorage.getItem('tourly-language');
+    return localStorage.getItem('wanderlust-language') || 'en';
   }
-  
+
+  // Store language preference
   setStoredLanguage(lang) {
-    localStorage.setItem('tourly-language', lang);
+    localStorage.setItem('wanderlust-language', lang);
   }
-  
+
+  // Initialize translation system
   initialize() {
+    this.currentLanguage = this.getStoredLanguage();
     this.setupLanguageSelectors();
     this.translatePage();
+    console.log('Translation Manager initialized with language:', this.currentLanguage);
   }
-  
+
+  // Setup event listeners for language selectors
   setupLanguageSelectors() {
-    // Update language button display
-    const languageBtns = document.querySelectorAll('.language-btn span');
-    const currentLangTexts = document.querySelectorAll('.current-lang');
-    
-    const langDisplayMap = {
+    // Desktop language options
+    const desktopLangOptions = document.querySelectorAll('.language-dropdown a[data-lang]');
+    desktopLangOptions.forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = option.getAttribute('data-lang');
+        this.changeLanguage(lang);
+      });
+    });
+
+    // Mobile language options
+    const mobileLangOptions = document.querySelectorAll('.mobile-language-list a[data-lang]');
+    mobileLangOptions.forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = option.getAttribute('data-lang');
+        this.changeLanguage(lang);
+      });
+    });
+
+    // Update current language display
+    this.updateLanguageDisplay();
+  }
+
+  // Get language display name
+  getLanguageName(langCode) {
+    const languageNames = {
       'en': 'EN',
-      'sq': 'SQ', 
+      'sq': 'SQ',
       'de': 'DE',
       'fr': 'FR',
       'it': 'IT'
     };
-    
-    languageBtns.forEach(btn => {
-      btn.textContent = langDisplayMap[this.currentLanguage] || 'EN';
-    });
-    
-    currentLangTexts.forEach(text => {
-      text.textContent = this.getLanguageName(this.currentLanguage);
-    });
-    
-    // Set active language option
-    document.querySelectorAll('.lang-option').forEach(option => {
-      const lang = option.getAttribute('data-lang');
-      option.classList.toggle('active', lang === this.currentLanguage);
-    });
+    return languageNames[langCode] || 'EN';
   }
-  
-  getLanguageName(langCode) {
-    const names = {
-      'en': 'English',
-      'sq': 'Shqip',
-      'de': 'Deutsch', 
-      'fr': 'Français',
-      'it': 'Italiano'
-    };
-    return names[langCode] || 'English';
-  }
-  
+
+  // Change language
   changeLanguage(langCode) {
     if (translations[langCode]) {
       this.currentLanguage = langCode;
       this.setStoredLanguage(langCode);
-      this.setupLanguageSelectors();
       this.translatePage();
+      this.updateLanguageDisplay();
+      this.updatePageTitle();
+      console.log('Language changed to:', langCode);
+    } else {
+      console.error('Language not supported:', langCode);
     }
   }
-  
+
+  // Update language display in selectors
+  updateLanguageDisplay() {
+    // Update desktop language button
+    const langBtn = document.querySelector('.language-btn span');
+    if (langBtn) {
+      langBtn.textContent = this.getLanguageName(this.currentLanguage);
+    }
+
+    // Update active states
+    const allLangOptions = document.querySelectorAll('[data-lang]');
+    allLangOptions.forEach(option => {
+      const isActive = option.getAttribute('data-lang') === this.currentLanguage;
+      option.classList.toggle('active', isActive);
+    });
+  }
+
+  // Translate all elements on the page
   translatePage() {
     const currentTranslations = this.getCurrentTranslations();
-    if (!currentTranslations) return;
-
-    // Translate elements with data-translate attributes
-    const elementsToTranslate = document.querySelectorAll('[data-translate]');
-    elementsToTranslate.forEach(element => {
+    
+    if (!currentTranslations) {
+      console.error('No translations found for language:', this.currentLanguage);
+      return;
+    }
+    
+    let translatedCount = 0;
+    let missingTranslations = [];
+    
+    // Translate elements with data-translate attribute
+    const translatableElements = document.querySelectorAll('[data-translate]');
+    translatableElements.forEach(element => {
       const key = element.getAttribute('data-translate');
-      const translation = currentTranslations[key];
-      
-      if (translation) {
+      if (currentTranslations[key]) {
         // Handle different element types
-        if (element.tagName.toLowerCase() === 'input' && element.type === 'submit') {
-          element.value = translation;
-        } else if (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'textarea') {
-          // For input fields, translate placeholder if it exists
-          if (element.placeholder) {
-            const placeholderKey = element.getAttribute('data-translate-placeholder');
-            if (placeholderKey && currentTranslations[placeholderKey]) {
-              element.placeholder = currentTranslations[placeholderKey];
-            }
-          }
-          // Don't change the actual input value, just translate associated text
+        if (element.tagName === 'INPUT' && element.type === 'submit') {
+          element.value = currentTranslations[key];
+        } else if (element.tagName === 'BUTTON' && element.type === 'submit') {
+          element.textContent = currentTranslations[key];
+        } else if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+          // Don't override user input, only placeholder
         } else {
-          element.textContent = translation;
+          element.textContent = currentTranslations[key];
         }
+        translatedCount++;
+      } else {
+        missingTranslations.push(key);
+        console.warn('Missing translation for key:', key, 'in language:', this.currentLanguage);
       }
     });
 
-    // Handle placeholder translations separately
+    // Translate placeholders with data-translate-placeholder attribute
     const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
     placeholderElements.forEach(element => {
       const key = element.getAttribute('data-translate-placeholder');
-      const translation = currentTranslations[key];
-      
-      if (translation && (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'textarea')) {
-        element.placeholder = translation;
+      if (currentTranslations[key]) {
+        element.placeholder = currentTranslations[key];
+        translatedCount++;
+      } else {
+        missingTranslations.push(key + ' (placeholder)');
+        console.warn('Missing placeholder translation for key:', key, 'in language:', this.currentLanguage);
       }
     });
 
-    // Update page title
-    this.updatePageTitle();
-  }
-  
-  updatePageTitle() {
-    const lang = translations[this.currentLanguage] || translations.en;
-    const currentPath = window.location.pathname;
+    console.log(`✅ Translation completed for ${this.currentLanguage}:`);
+    console.log(`   - Translated ${translatedCount} elements`);
+    console.log(`   - Found ${translatableElements.length + placeholderElements.length} translatable elements`);
     
-    if (currentPath.includes('about')) {
-      document.title = `${lang.about_hero_title} - Tourly`;
-    } else if (currentPath.includes('places')) {
-      document.title = `${lang.nav_places} - Tourly`;
-    } else if (currentPath.includes('hotels')) {
-      document.title = `${lang.nav_hotels} - Tourly`;
-    } else if (currentPath.includes('travels')) {
-      document.title = `${lang.nav_travels} - Tourly`;
-    } else if (currentPath.includes('guides')) {
-      document.title = `${lang.nav_guides} - Tourly`;
-    } else {
-      document.title = `Tourly - ${lang.hero_title}`;
+    if (missingTranslations.length > 0) {
+      console.warn(`   - Missing ${missingTranslations.length} translations:`, missingTranslations);
     }
   }
-  
+
+  // Update page title if translation exists
+  updatePageTitle() {
+    const currentTranslations = this.getCurrentTranslations();
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    
+    // Map pages to title keys
+    const pageTitleKeys = {
+      'index.html': 'page_title_home',
+      'about.html': 'page_title_about',
+      'hotels.html': 'page_title_hotels',
+      'places.html': 'page_title_places',
+      'travels.html': 'page_title_travels',
+      'guides.html': 'page_title_guides'
+    };
+
+    const titleKey = pageTitleKeys[currentPath];
+    if (titleKey && currentTranslations[titleKey]) {
+      document.title = currentTranslations[titleKey];
+    }
+  }
+
+  // Get current language translations
   getCurrentTranslations() {
     return translations[this.currentLanguage] || translations.en;
   }
 }
 
-// Initialize translation manager
-let translationManager;
-
+// Auto-initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
-  translationManager = new TranslationManager();
+  // Create global translation manager instance
+  window.translationManager = new TranslationManager();
   
-  // Add event listeners for language options
-  document.querySelectorAll('.lang-option').forEach(option => {
-    option.addEventListener('click', function(e) {
-      e.preventDefault();
-      const selectedLang = this.getAttribute('data-lang');
-      if (selectedLang && translationManager) {
-        translationManager.changeLanguage(selectedLang);
-        
-        // Close dropdowns if open
-        document.querySelectorAll('.language-dropdown').forEach(dropdown => {
-          dropdown.classList.remove('active');
-        });
-        
-        console.log('Language changed to:', selectedLang);
-      }
-    });
+  // Re-translate when page becomes visible (for cached pages)
+  document.addEventListener('visibilitychange', function() {
+    if (!document.hidden && window.translationManager) {
+      window.translationManager.translatePage();
+    }
   });
   
-  // Add event listeners for language dropdowns in mobile menu
-  document.querySelectorAll('[data-lang]').forEach(langElement => {
-    langElement.addEventListener('click', function(e) {
-      e.preventDefault();
-      const selectedLang = this.getAttribute('data-lang');
-      if (selectedLang && translationManager) {
-        translationManager.changeLanguage(selectedLang);
-        
-        // Close any open mobile menus or dropdowns
-        const mobileMenu = document.querySelector('[data-mobile-menu]');
-        const overlay = document.querySelector('[data-mobile-overlay]');
-        if (mobileMenu && mobileMenu.classList.contains('active')) {
-          mobileMenu.classList.remove('active');
-          if (overlay) overlay.classList.remove('active');
-          document.body.classList.remove('nav-active');
-          document.body.style.overflow = '';
-        }
-        
-        console.log('Language changed to:', selectedLang);
-      }
-    });
-  });
+  console.log('Translation system fully loaded and initialized');
 });
 
 // Export for global use
