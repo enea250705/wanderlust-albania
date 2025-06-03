@@ -3,594 +3,303 @@ const translations = {
   en: {
     // Navigation
     nav_home: "Home",
-    nav_about: "About",
-    nav_places: "Places", 
+    nav_about: "About Us",
+    nav_places: "Places to Visit", 
     nav_hotels: "Hotels",
     nav_travels: "Travels",
-    nav_guides: "Guides",
+    nav_guides: "Licensed Guides",
     
     // Header
     header_phone: "+355 684 170 700",
     header_lang_select: "Choose Language",
     
     // Hero Section
-    hero_title: "Discover Albania's Hidden Treasures",
-    hero_subtitle: "Explore breathtaking landscapes, rich culture, and unforgettable experiences in the heart of the Balkans",
-    hero_cta: "Start Your Journey",
-    hero_video_play: "Play Video",
+    hero_title: "UNVEIL THE LAND WHERE LEGENDS BREATHE",
+    hero_subtitle: "Albania is not a trip. It's a revelation. From the eagle's flight over the Accursed Mountains to whispers of Illyrian kings in ancient stones—each step writes your story in a land untouched by time. Welcome to a place the world forgot to ruin.",
     
-    // Features Section  
-    features_title: "Why Choose Tourly?",
-    features_subtitle: "Experience Albania like never before with our expert guidance and personalized service",
-    
-    feature_guide_title: "Expert Local Guides",
-    feature_guide_desc: "Our knowledgeable guides bring Albania's history and culture to life with authentic storytelling",
-    
-    feature_custom_title: "Customized Experiences", 
-    feature_custom_desc: "Tailored itineraries designed around your interests and travel preferences",
-    
-    feature_support_title: "24/7 Support",
-    feature_support_desc: "Complete assistance throughout your journey with our dedicated customer service team",
-    
-    feature_best_title: "Best Price Guarantee",
-    feature_best_desc: "Competitive rates with no hidden fees and exceptional value for money",
-    
-    // Popular Destinations
-    popular_title: "Popular Destinations",
-    popular_subtitle: "Discover Albania's most stunning locations and hidden gems",
-    
-    popular_tirana: "Tirana",
-    popular_tirana_desc: "Albania's vibrant capital city with colorful architecture and rich history",
-    
-    popular_durres: "Durrës", 
-    popular_durres_desc: "Ancient coastal city with beautiful beaches and Roman amphitheater",
-    
-    popular_shkodra: "Shkodër",
-    popular_shkodra_desc: "Historic city near stunning Lake Shkodër and Albanian Alps",
-    
-    popular_pogradec: "Pogradec",
-    popular_pogradec_desc: "Charming lakeside town on the shores of Lake Ohrid",
-    
-    popular_vlora: "Vlorë", 
-    popular_vlora_desc: "Historic port city where the Adriatic and Ionian seas meet",
-    
-    popular_berat: "Berat",
-    popular_berat_desc: "UNESCO World Heritage city known as 'City of a Thousand Windows'",
-    
-    popular_explore: "Explore Now",
-    
-    // Footer
-    footer_about_title: "About Tourly",
-    footer_about_desc: "Your trusted partner for discovering Albania's beauty. We provide authentic travel experiences with expert guides and personalized service.",
-    
-    footer_quick_title: "Quick Links", 
-    footer_contact_title: "Contact Info",
-    footer_follow_title: "Follow Us",
-    
-    footer_address: "Tirana, Albania",
-    footer_email: "info@tourly.al",
-    footer_phone: "+355 684 170 700",
-    
-    footer_copyright: "© 2024 Tourly. All rights reserved.",
-    footer_privacy: "Privacy Policy",
-    footer_terms: "Terms of Service",
-    
-    // About Page
-    about_hero_title: "About Tourly",
-    about_hero_subtitle: "Passionate about showcasing Albania's natural beauty and rich cultural heritage",
-    about_story_title: "Our Story",
-    about_story_desc: "Founded with a passion for sharing Albania's hidden treasures, Tourly has been connecting travelers with authentic Albanian experiences since our inception.",
-    about_mission_title: "Our Mission", 
-    about_mission_desc: "To showcase Albania's incredible diversity - from pristine beaches to towering mountains, from ancient castles to vibrant cities.",
-    about_team_title: "Meet Our Team",
-    about_values_title: "Our Values",
-    
-    // Hotels Page
-    hotels_hero_title: "Hotels & Accommodations",
-    hotels_hero_subtitle: "Discover comfortable stays across Albania's most beautiful destinations",
-    hotels_back_home: "← Back to Homepage",
-    
-    // Places Page  
-    places_hero_title: "Places to Visit & Trips",
-    places_hero_subtitle: "Explore Albania's most captivating destinations with our curated travel experiences",
-    
-    // Travels Page
-    travels_hero_title: "Explore Albania's Hidden Treasures",
-    travels_hero_subtitle: "Every journey is a story waiting to be written. Let us guide you through Albania's most breathtaking destinations.",
-    travels_itineraries_title: "Curated Day Experiences Across Albania",
-    travels_itineraries_subtitle: "Handpicked full-day journeys designed to immerse, inspire, and reveal the soul of each destination.",
-    
-    // Guides Page
-    guides_hero_title: "Licensed Guides",
-    guides_hero_subtitle: "Meet our expert guides who bring Albania's stories to life",
-    guides_back_home: "← Back to Homepage",
-    
-    // Common buttons and actions
-    btn_learn_more: "Learn More",
-    btn_book_now: "Book Now", 
+    // Buttons
+    btn_learn_more: "Learn more",
+    btn_book_now: "Book now",
     btn_contact_us: "Contact Us",
     btn_get_directions: "Get Directions",
     btn_view_gallery: "View Gallery",
     btn_read_more: "Read More",
     btn_back_home: "Back to Homepage",
+    btn_send_message: "Send Message",
     
-    // Search and filters
-    search_placeholder: "Search destinations...",
-    filter_all: "All",
-    filter_cities: "Cities",
-    filter_beaches: "Beaches", 
-    filter_mountains: "Mountains",
-    filter_historical: "Historical Sites",
+    // Popular Destinations Section
+    popular_subtitle: "Destinacione që Ridefinojnë Zbulimin",
+    popular_title: "Këto nuk janë \"vende popullore.\" Janë zbulime.",
+    popular_description: "Çdo vend në këtë hartë nuk është thjesht i bukur, është i gjallë me shpirt, histori dhe heshtje që mund ta ndiej. Ne nuk ju tregojmë thjesht se ku të shkoni, ju udhëheqim në anën e panjohur të Shqipërisë për të cilën bota nuk ju ka folur kurrë.",
+    popular_explore: "Eksploroni Më Shumë Destinacione",
     
-    // Social
-    social_facebook: "Facebook",
-    social_instagram: "Instagram", 
-    social_twitter: "Twitter",
-    social_youtube: "YouTube"
+    // Destination Cards
+    popular_berat: "Berat",
+    popular_berat_desc: "Zbuloni \"Qytetin e Një Mijë Dritareve\" me arkitekturën e tij unike otomane dhe statusin e Trashëgimisë Botërore të UNESCO-s.",
+    popular_shkodra: "Shkodër",
+    popular_shkodra_desc: "Eksploroni kryeqytetin kulturor të Shqipërisë me Kalën e mahnitshme të Rozafës, historinë e pasur dhe vendosjen e bukur pranë liqenit.",
+    popular_tirana: "Tiranë",
+    popular_tirana_desc: "Zbuloni kryeqytetin e gjallë të Shqipërisë me ndërtesat e tij me ngjyra, atmosferën e gjallë dhe përzierjen magjepsëse të historisë dhe modernitetit.",
+    
+    // Features Section
+    features_subtitle: "🌍 Karakteristika që Ngritin Çdo Udhëtim",
+    features_title: "Mjete të zgjedhura me kujdes. Përvojë të qëndrueshme. Udhëtim i vërtetë, i ridefinuar.",
+    
+    feature_custom_title: "Curated Itineraries",
+    feature_custom_desc: "Trips shaped around your style and pace, crafted to match you, not the masses.",
+    feature_guide_title: "Lasting Moments",
+    feature_guide_desc: "Every location, handpicked to help you live stories worth telling, not just take pictures.",
+    feature_support_title: "Smart Navigation",
+    feature_support_desc: "Find your way with precision, from major sights to secret local spots, always at your fingertips.",
+    feature_best_title: "Helpful Tips & Insights",
+    feature_best_desc: "Stay one step ahead with real-time suggestions based on your interests and surroundings.",
+    feature_alerts_title: "Timely Alerts",
+    feature_alerts_desc: "Whether it's a reservation or a hike, stay informed and on time, no stress, no surprises.",
+    feature_tools_title: "All-in-One Trip Tools",
+    feature_tools_desc: "From bookings to checklists, manage every part of your journey in one streamlined space.",
+    
+    // Testimonials Section
+    testimonials_subtitle: "What Our Travelers Say",
+    testimonials_title: "Adventures that create authentic memories",
+    
+    // Gallery Section
+    gallery_subtitle: "Photo Gallery",
+    gallery_title: "Photo's From Travellers",
+    gallery_description: "Discover Albania through the eyes of our travelers. These authentic moments capture the beauty, culture, and unforgettable experiences that await you.",
+    
+    // Contact Form Section
+    contact_subtitle: "Get In Touch",
+    contact_title: "Ready For Unforgettable Travel. Remember Us!",
+    contact_description: "Let us help you plan your perfect Albanian adventure. Fill out the form below and our travel experts will contact you within 24 hours.",
+    
+    // Contact Form Fields
+    contact_name_label: "Full Name",
+    contact_name_placeholder: "Enter your full name",
+    contact_email_label: "Email Address", 
+    contact_email_placeholder: "Enter your email",
+    contact_phone_label: "Phone Number",
+    contact_phone_placeholder: "Enter your phone number",
+    contact_date_label: "Travel Date",
+    contact_date_placeholder: "MM/DD/YYYY",
+    contact_subject_label: "Subject",
+    contact_subject_placeholder: "Enter message subject",
+    contact_message_label: "Your Message",
+    contact_message_placeholder: "Enter your message here",
+    
+    // Footer
+    footer_text: "Because your journey deserves meaning, and Albania delivers it.",
+    footer_contact_title: "Contact Us",
+    footer_contact_description: "Feel free to contact and reach us !!",
+    footer_address: "Bulevardi Zogu I, Shkodër 4001",
+    footer_email: "info@wanderlustalbania.eu",
+    footer_phone: "+355 684 170 700",
+    footer_copyright_text: "All rights reserved. Design by",
+    footer_copyright_company: "Wanderlust Albania",
+    footer_copyright_designer: "codewithenea.it",
+    
+    // Hotels Page
+    hotels_hero_title: "Authentic Albanian Hospitality",
+    hotels_hero_subtitle: "From mountain retreats to coastal resorts, experience the best accommodations Albania has to offer",
+    hotels_section_subtitle: "Mountain Retreats & Coastal Gems",
+    hotels_section_title: "Experience Albania's Diverse Accommodations",
+    hotels_section_description: "Discover the best places to stay throughout Albania - from charming highland guesthouses in Theth to luxurious coastal resorts along the Albanian Riviera. Our carefully selected accommodations offer authentic experiences, exceptional service, and unforgettable stays in both the rugged mountains of the north and the pristine beaches of the south.",
+    
+    // Places Page
+    places_hero_title: "Places to Visit & Trips",
+    places_hero_subtitle: "Explore Albania's most captivating destinations with our curated travel experiences",
+    
+    // Travels Page  
+    travels_hero_title: "Explore Albania's Hidden Treasures",
+    travels_hero_subtitle: "Every journey is a story waiting to be written. Let us guide you through Albania's most breathtaking destinations.",
+    
+    // Guides Page
+    guides_hero_title: "Licensed Guides", 
+    guides_hero_subtitle: "Meet our expert guides who bring Albania's stories to life",
+    
+    // About Page
+    about_hero_title: "About Us",
+    about_hero_subtitle: "Passionate about showcasing Albania's natural beauty and rich cultural heritage",
+    
+    // Contact Information Labels
+    contact_info_label: "For inquiries:",
+    
+    // Common Location Names
+    location_albania: "Albania",
+    location_northern_albania: "Northern Albania", 
+    location_central_albania: "Central Albania",
+    location_theth: "Theth, Albania",
+    location_dhermi: "Dhermi, Albania",
+    location_ksamil: "Ksamil, Albania",
+    location_vlore: "Vlorë, Albania",
+    location_durres: "Durrës, Albania",
+    location_gjirokaster: "Gjirokastër, Albania",
+    location_alps: "Albanian Alps, Albania"
   },
   
   sq: {
     // Navigation
     nav_home: "Ballina",
     nav_about: "Rreth Nesh",
-    nav_places: "Vende", 
+    nav_places: "Vende për të Vizituar", 
     nav_hotels: "Hotele",
     nav_travels: "Udhëtime",
-    nav_guides: "Udhëzues",
+    nav_guides: "Udhëzues të Licencuar",
     
     // Header
     header_phone: "+355 684 170 700",
     header_lang_select: "Zgjidhni Gjuhën",
     
     // Hero Section
-    hero_title: "Zbuloni Thesaret e Fshehta të Shqipërisë",
-    hero_subtitle: "Eksploroni peizazhe mahnitëse, kulturë të pasur dhe përvojë të paharrueshme në zemrën e Ballkanit",
-    hero_cta: "Filloni Udhëtimin Tuaj",
-    hero_video_play: "Luaj Videon",
+    hero_title: "ZBULONI TOKËN KU FRYMOJNË LEGJENDKAT",
+    hero_subtitle: "Shqipëria nuk është një udhëtim. Është një zbulim. Nga fluturimi i shqiponjës mbi Malet e Mallkuara te pëshpëritjet e mbretërve ilirë në gurët e lashtë—çdo hap shkruan historinë tuaj në një tokë të paprekur nga koha. Mirë se erdhët në një vend që bota harroi ta shkatërronte.",
     
-    // Features Section  
-    features_title: "Pse të Zgjidhni Tourly?",
-    features_subtitle: "Përjetoni Shqipërinë si kurrë më parë me udhëzimin tonë ekspert dhe shërbimin e personalizuar",
-    
-    feature_guide_title: "Udhëzues Lokalë Ekspertë",
-    feature_guide_desc: "Udhëzuesit tanë me njohuri të thella e bëjnë të gjallë historinë dhe kulturën shqiptare me tregime autentike",
-    
-    feature_custom_title: "Përvojë të Personalizuara", 
-    feature_custom_desc: "Itinerare të përshtatura sipas interesave dhe preferencave tuaja të udhëtimit",
-    
-    feature_support_title: "Mbështetje 24/7",
-    feature_support_desc: "Ndihmë e plotë gjatë gjithë udhëtimit tuaj me ekipin tonë të dedikuar të shërbimit ndaj klientit",
-    
-    feature_best_title: "Garanci Çmimi më i Mirë",
-    feature_best_desc: "Tarifa konkurruese pa tarifa të fshehta dhe vlerë e jashtëzakonshme për paratë",
-    
-    // Popular Destinations
-    popular_title: "Destinacione Popullore",
-    popular_subtitle: "Zbuloni vendet më mahnitëse të Shqipërisë dhe perla të fshehta",
-    
-    popular_tirana: "Tiranë",
-    popular_tirana_desc: "Kryeqyteti i gjallë i Shqipërisë me arkitekturë me ngjyra dhe histori të pasur",
-    
-    popular_durres: "Durrës", 
-    popular_durres_desc: "Qytet i lashtë bregdetar me plazhe të bukura dhe amfiteatrin romak",
-    
-    popular_shkodra: "Shkodër",
-    popular_shkodra_desc: "Qytet historik pranë Liqenit të Shkodrit dhe Alpeve Shqiptare",
-    
-    popular_pogradec: "Pogradec",
-    popular_pogradec_desc: "Qytet tërheqës në brigjet e Liqenit të Ohrit",
-    
-    popular_vlora: "Vlorë", 
-    popular_vlora_desc: "Qytet i lashtë portual ku takohen detet Adriatik dhe Jon",
-    
-    popular_berat: "Berat",
-    popular_berat_desc: "Qytet UNESCO i trashëgimisë botërore i njohur si 'Qyteti i Një Mijë Dritareve'",
-    
-    popular_explore: "Eksploroni Tani",
-    
-    // Testimonials
-    testimonials_title: "Çfarë Thonë Udhëtarët Tanë",
-    testimonials_subtitle: "Përvojë të vërteta nga udhëtarët që zbuluan Shqipërinë me Tourly",
-    
-    // Footer
-    footer_about_title: "Rreth Tourly",
-    footer_about_desc: "Partneri juaj i besuar për zbulimin e bukurisë së Shqipërisë. Ne ofrojmë përvojë autentike udhëtimi me udhëzues ekspertë dhe shërbim të personalizuar.",
-    
-    footer_quick_title: "Lidhje të Shpejta", 
-    footer_contact_title: "Informacion Kontakti",
-    footer_follow_title: "Na Ndiqni",
-    
-    footer_address: "Tiranë, Shqipëri",
-    footer_email: "info@tourly.al",
-    footer_phone: "+355 684 170 700",
-    
-    footer_copyright: "© 2024 Tourly. Të gjitha të drejtat e rezervuara.",
-    footer_privacy: "Politika e Privatësisë",
-    footer_terms: "Kushtet e Shërbimit",
-    
-    // About Page
-    about_hero_title: "Rreth Tourly",
-    about_hero_subtitle: "Të pasionuar pas shfaqjes së bukurisë natyrore dhe trashëgimisë kulturore të pasur të Shqipërisë",
-    
-    about_story_title: "Historia Jonë",
-    about_story_desc: "E themeluar me pasion për ndarjen e thesareve të fshehta të Shqipërisë, Tourly ka qenë duke lidhur udhëtarët me përvojë autentike shqiptare që nga fillimi ynë. Ekipi ynë i ekspertëve lokalë kombinon njohuri të thella kulturore me shërbim modern udhëtimi për të krijuar udhëtime të paharrueshme.",
-    
-    about_mission_title: "Misioni Ynë", 
-    about_mission_desc: "Të tregojmë diversitetin e pabesueshëm të Shqipërisë - nga plazhet e paprekura te malet e larta, nga kastelet e lashta te qytetet e gjalla. Ne besojmë se çdo udhëtar meriton të zbulojë Shqipërinë e vërtetë përmes përvojave autentike dhe të personalizuara.",
-    
-    about_team_title: "Njihuni me Ekipin Tonë",
-    about_values_title: "Vlerat Tona",
-    
-    // Common buttons and actions
-    btn_learn_more: "Mësoni Më Shumë",
-    btn_book_now: "Rezervoni Tani", 
+    // Buttons
+    btn_learn_more: "Mësoni më shumë",
+    btn_book_now: "Rezervoni tani",
     btn_contact_us: "Na Kontaktoni",
     btn_get_directions: "Merrni Drejtimet",
     btn_view_gallery: "Shikoni Galerinë",
     btn_read_more: "Lexoni Më Shumë",
     btn_back_home: "Kthehu në Ballina",
+    btn_send_message: "Dërgoni Mesazhin",
     
-    // Search and filters
-    search_placeholder: "Kërkoni destinacione...",
-    filter_all: "Të Gjitha",
-    filter_cities: "Qytete",
-    filter_beaches: "Plazhe", 
-    filter_mountains: "Male",
-    filter_historical: "Vende Historike",
+    // Popular Destinations Section
+    popular_subtitle: "Destinacione që Ridefinojnë Zbulimin",
+    popular_title: "Këto nuk janë \"vende popullore.\" Janë zbulime.",
+    popular_description: "Çdo vend në këtë hartë nuk është thjesht i bukur, është i gjallë me shpirt, histori dhe heshtje që mund ta ndiej. Ne nuk ju tregojmë thjesht se ku të shkoni, ju udhëheqim në anën e panjohur të Shqipërisë për të cilën bota nuk ju ka folur kurrë.",
+    popular_explore: "Eksploroni Më Shumë Destinacione",
     
-    // Social
-    social_facebook: "Facebook",
-    social_instagram: "Instagram", 
-    social_twitter: "Twitter",
-    social_youtube: "YouTube"
+    // Destination Cards
+    popular_berat: "Berat",
+    popular_berat_desc: "Zbuloni \"Qytetin e Një Mijë Dritareve\" me arkitekturën e tij unike otomane dhe statusin e Trashëgimisë Botërore të UNESCO-s.",
+    popular_shkodra: "Shkodër",
+    popular_shkodra_desc: "Eksploroni kryeqytetin kulturor të Shqipërisë me Kalën e mahnitshme të Rozafës, historinë e pasur dhe vendosjen e bukur pranë liqenit.",
+    popular_tirana: "Tiranë",
+    popular_tirana_desc: "Zbuloni kryeqytetin e gjallë të Shqipërisë me ndërtesat e tij me ngjyra, atmosferën e gjallë dhe përzierjen magjepsëse të historisë dhe modernitetit.",
+    
+    // Features Section
+    features_subtitle: "🌍 Karakteristika që Ngritin Çdo Udhëtim",
+    features_title: "Mjete të zgjedhura me kujdes. Përvojë të qëndrueshme. Udhëtim i vërtetë, i ridefinuar.",
+    
+    feature_custom_title: "Itinerare të Kuratoruara",
+    feature_custom_desc: "Udhëtime të formuara rreth stilit dhe ritmit tuaj, të krijuara për t'ju përshtatur juve, jo masave.",
+    feature_guide_title: "Momente të Qëndrueshme",
+    feature_guide_desc: "Çdo vendndodhje, e zgjedhur me kujdes për t'ju ndihmuar të jetoni histori që vlen të tregoni, jo thjesht të bëni foto.",
+    feature_support_title: "Navigim i Mençur",
+    feature_support_desc: "Gjeni rrugën tuaj me saktësi, nga pamje kryesore te vende sekrete lokale, gjithmonë në majë të gishtave.",
+    feature_best_title: "Këshilla dhe Njohuri të Dobishme",
+    feature_best_desc: "Qëndroni një hap përpara me sugjerime në kohë reale bazuar në interesat dhe rrethinat tuaja.",
+    feature_alerts_title: "Alarme në Kohë",
+    feature_alerts_desc: "Qoftë një rezervim apo një shëtitje në mal, qëndroni të informuar dhe në kohë, pa stres, pa surpriza.",
+    feature_tools_title: "Mjete Udhëtimi Gjithëpërfshirëse",
+    feature_tools_desc: "Nga rezervimet te listat e kontrollimit, menaxhoni çdo pjesë të udhëtimit tuaj në një hapësirë të thjeshtëzuar.",
+    
+    // Testimonials Section
+    testimonials_subtitle: "Çfarë Thonë Udhëtarët Tanë",
+    testimonials_title: "Aventura që krijojnë kujtime autentike",
+    
+    // Gallery Section
+    gallery_subtitle: "Galeria e Fotografive",
+    gallery_title: "Foto nga Udhëtarët",
+    gallery_description: "Zbuloni Shqipërinë përmes syve të udhëtarëve tanë. Këto momente autentike kapin bukurinë, kulturën dhe përvojat e paharrueshme që ju presin.",
+    
+    // Contact Form Section
+    contact_subtitle: "Jini në Kontakt",
+    contact_title: "Gati për Udhëtim të Paharruar. Na Mbani Mend!",
+    contact_description: "Lejojeni të ndihmojmë në planifikimin e aventurës tuaj të përsosur shqiptare. Plotësoni formularin më poshtë dhe ekspertët tanë të udhëtimit do t'ju kontaktojnë brenda 24 orëve.",
+    
+    // Contact Form Fields
+    contact_name_label: "Emri i Plotë",
+    contact_name_placeholder: "Shkruani emrin tuaj të plotë",
+    contact_email_label: "Adresa e Email-it", 
+    contact_email_placeholder: "Shkruani email-in tuaj",
+    contact_phone_label: "Numri i Telefonit",
+    contact_phone_placeholder: "Shkruani numrin tuaj të telefonit",
+    contact_date_label: "Data e Udhëtimit",
+    contact_date_placeholder: "MM/DD/YYYY",
+    contact_subject_label: "Tema",
+    contact_subject_placeholder: "Shkruani temën e mesazhit",
+    contact_message_label: "Mesazhi Juaj",
+    contact_message_placeholder: "Shkruani mesazhin tuaj këtu",
+    
+    // Footer
+    footer_text: "Sepse udhëtimi juaj meriton kuptim, dhe Shqipëria ia jep atë.",
+    footer_contact_title: "Na Kontaktoni",
+    footer_contact_description: "Jini të lirë të na kontaktoni dhe të na arrini !!",
+    footer_address: "Bulevardi Zogu I, Shkodër 4001",
+    footer_email: "info@wanderlustalbania.eu",
+    footer_phone: "+355 684 170 700",
+    footer_copyright_text: "Të gjitha të drejtat e rezervuara. Dizajnuar nga",
+    footer_copyright_company: "Wanderlust Albania",
+    footer_copyright_designer: "codewithenea.it",
+    
+    // Hotels Page
+    hotels_hero_title: "Mikpritja Autentike Shqiptare",
+    hotels_hero_subtitle: "Nga strehimet malore te resortet bregdetare, përjetoni sistemet më të mira të akomodimit që Shqipëria ka për t'ju ofruar",
+    hotels_section_subtitle: "Strehime Malore & Gurë të Bregdetit",
+    hotels_section_title: "Përjetoni Sistemet e Ndryshme të Akomodimit të Shqipërisë",
+    hotels_section_description: "Zbuloni vendet më të mira për të qëndruar në të gjithë Shqipërinë - nga shtëpitë e mikpritjes tërheqëse të maleve në Theth te resortet luksoze bregdetare përgjatë Rivierës Shqiptare. Sistemet tona të akomodimit të zgjedhura me kujdes ofrojnë përvojë autentike, shërbim të jashtëzakonshëm dhe qëndrime të paharrueshme si në malet e ashpra të veriut ashtu edhe në plazhet e paprekura të jugut.",
+    
+    // Places Page
+    places_hero_title: "Vende për të Vizituar & Udhëtime",
+    places_hero_subtitle: "Eksploroni destinacionet më tërheqëse të Shqipërisë me përvojat tona të kuratoruara të udhëtimit",
+    
+    // Travels Page  
+    travels_hero_title: "Eksploroni Thesaret e Fshehta të Shqipërisë",
+    travels_hero_subtitle: "Çdo udhëtim është një histori që pret të shkruhet. Lejojeni të ju udhëheqim nëpër destinacionet më mahnitëse të Shqipërisë.",
+    
+    // Guides Page
+    guides_hero_title: "Udhëzues të Licencuar", 
+    guides_hero_subtitle: "Takoni udhëzuesit tanë ekspertë që i japin jetë historive të Shqipërisë",
+    
+    // About Page
+    about_hero_title: "Rreth Nesh",
+    about_hero_subtitle: "Të pasionuar për të treguar bukurinë natyrore dhe trashëgiminë e pasur kulturore të Shqipërisë",
+    
+    // Contact Information Labels
+    contact_info_label: "Për pyetje:",
+    
+    // Common Location Names
+    location_albania: "Shqipëri",
+    location_northern_albania: "Shqipëria e Veriut", 
+    location_central_albania: "Shqipëria Qendrore",
+    location_theth: "Theth, Shqipëri",
+    location_dhermi: "Dhërmi, Shqipëri",
+    location_ksamil: "Ksamil, Shqipëri",
+    location_vlore: "Vlorë, Shqipëri",
+    location_durres: "Durrës, Shqipëri",
+    location_gjirokaster: "Gjirokastër, Shqipëri",
+    location_alps: "Alpet Shqiptare, Shqipëri"
   },
   
   de: {
-    // Navigation
-    nav_home: "Startseite",
-    nav_about: "Über Uns",
-    nav_places: "Orte", 
-    nav_hotels: "Hotels",
-    nav_travels: "Reisen",
-    nav_guides: "Guides",
-    
-    // Header
-    header_phone: "+355 684 170 700",
-    header_lang_select: "Sprache Wählen",
-    
-    // Hero Section
-    hero_title: "Entdecken Sie Albaniens Verborgene Schätze",
-    hero_subtitle: "Erkunden Sie atemberaubende Landschaften, reiche Kultur und unvergessliche Erlebnisse im Herzen des Balkans",
-    hero_cta: "Starten Sie Ihre Reise",
-    hero_video_play: "Video Abspielen",
-    
-    // Features Section  
-    features_title: "Warum Tourly Wählen?",
-    features_subtitle: "Erleben Sie Albanien wie nie zuvor mit unserer fachkundigen Begleitung und persönlichem Service",
-    
-    feature_guide_title: "Lokale Experten-Guides",
-    feature_guide_desc: "Unsere sachkundigen Führer erwecken Albaniens Geschichte und Kultur durch authentisches Erzählen zum Leben",
-    
-    feature_custom_title: "Maßgeschneiderte Erlebnisse", 
-    feature_custom_desc: "Individuell gestaltete Reiserouten nach Ihren Interessen und Reisevorlieben",
-    
-    feature_support_title: "24/7 Support",
-    feature_support_desc: "Vollständige Unterstützung während Ihrer gesamten Reise mit unserem engagierten Kundenservice-Team",
-    
-    feature_best_title: "Bestpreis-Garantie",
-    feature_best_desc: "Konkurrenzfähige Preise ohne versteckte Gebühren und außergewöhnliches Preis-Leistungs-Verhältnis",
-    
-    // Popular Destinations
-    popular_title: "Beliebte Reiseziele",
-    popular_subtitle: "Entdecken Sie Albaniens atemberaubendste Orte und versteckte Perlen",
-    
-    popular_tirana: "Tirana",
-    popular_tirana_desc: "Albaniens lebendige Hauptstadt mit bunter Architektur und reicher Geschichte",
-    
-    popular_durres: "Durrës", 
-    popular_durres_desc: "Antike Küstenstadt mit wunderschönen Stränden und römischem Amphitheater",
-    
-    popular_shkodra: "Shkodër",
-    popular_shkodra_desc: "Historische Stadt nahe dem atemberaubenden Shkodër-See und den Albanischen Alpen",
-    
-    popular_pogradec: "Pogradec",
-    popular_pogradec_desc: "Charmante Seestadt am Ufer des Ohrid-Sees",
-    
-    popular_vlora: "Vlorë", 
-    popular_vlora_desc: "Historische Hafenstadt, wo sich Adria und Ionisches Meer treffen",
-    
-    popular_berat: "Berat",
-    popular_berat_desc: "UNESCO-Weltkulturerbe-Stadt bekannt als 'Stadt der Tausend Fenster'",
-    
-    popular_explore: "Jetzt Erkunden",
-    
-    // Testimonials
-    testimonials_title: "Was Unsere Reisenden Sagen",
-    testimonials_subtitle: "Echte Erfahrungen von Reisenden, die Albanien mit Tourly entdeckt haben",
-    
-    // Footer
-    footer_about_title: "Über Tourly",
-    footer_about_desc: "Ihr vertrauensvoller Partner für die Entdeckung der Schönheit Albaniens. Wir bieten authentische Reiseerlebnisse mit Experten-Guides und persönlichem Service.",
-    
-    footer_quick_title: "Schnelllinks", 
-    footer_contact_title: "Kontaktinfo",
-    footer_follow_title: "Folgen Sie Uns",
-    
-    footer_address: "Tirana, Albanien",
-    footer_email: "info@tourly.al",
-    footer_phone: "+355 684 170 700",
-    
-    footer_copyright: "© 2024 Tourly. Alle Rechte vorbehalten.",
-    footer_privacy: "Datenschutzrichtlinie",
-    footer_terms: "Nutzungsbedingungen",
-    
-    // About Page
-    about_hero_title: "Über Tourly",
-    about_hero_subtitle: "Leidenschaftlich dabei, Albaniens natürliche Schönheit und reiches kulturelles Erbe zu zeigen",
-    
-    about_story_title: "Unsere Geschichte",
-    about_story_desc: "Gegründet aus Leidenschaft für das Teilen von Albaniens versteckten Schätzen, verbindet Tourly seit unserer Gründung Reisende mit authentischen albanischen Erlebnissen. Unser Team lokaler Experten kombiniert tiefes kulturelles Wissen mit modernem Reiseservice, um unvergessliche Reisen zu schaffen.",
-    
-    about_mission_title: "Unsere Mission", 
-    about_mission_desc: "Albaniens unglaubliche Vielfalt zu zeigen - von unberührten Stränden bis zu hohen Bergen, von alten Burgen bis zu lebendigen Städten. Wir glauben, dass jeder Reisende verdient, das echte Albanien durch authentische, persönliche Erfahrungen zu entdecken.",
-    
-    about_team_title: "Lernen Sie Unser Team Kennen",
-    about_values_title: "Unsere Werte",
-    
-    // Common buttons and actions
-    btn_learn_more: "Mehr Erfahren",
-    btn_book_now: "Jetzt Buchen", 
-    btn_contact_us: "Kontaktieren Sie Uns",
-    btn_get_directions: "Wegbeschreibung",
-    btn_view_gallery: "Galerie Ansehen",
-    btn_read_more: "Mehr Lesen",
-    btn_back_home: "Zurück zur Startseite",
-    
-    // Search and filters
-    search_placeholder: "Reiseziele suchen...",
-    filter_all: "Alle",
-    filter_cities: "Städte",
-    filter_beaches: "Strände", 
-    filter_mountains: "Berge",
-    filter_historical: "Historische Stätten",
-    
-    // Social
-    social_facebook: "Facebook",
-    social_instagram: "Instagram", 
-    social_twitter: "Twitter",
-    social_youtube: "YouTube"
+    nav_home: "Startseite", nav_about: "Über Uns", nav_places: "Orte", nav_hotels: "Hotels", nav_travels: "Reisen", nav_guides: "Reiseführer",
+    header_phone: "+355 684 170 700", header_lang_select: "Sprache Wählen",
+    hero_title: "ENTHÜLLEN SIE DAS LAND, WO LEGENDEN ATMEN", hero_subtitle: "Albanien ist nicht nur eine Reise. Es ist eine Offenbarung.",
+    btn_learn_more: "Mehr Erfahren", btn_book_now: "Jetzt Buchen", btn_contact_us: "Kontaktieren Sie Uns",
+    popular_subtitle: "Destinationen, die Entdeckung neu definieren", popular_title: "Das sind keine \"beliebten Orte.\" Das sind Offenbarungen.",
+    testimonials_subtitle: "Was unsere Reisenden sagen", testimonials_title: "Abenteuer, die authentische Erinnerungen schaffen",
+    footer_text: "Weil Ihre Reise Bedeutung verdient, und Albanien liefert sie."
   },
   
   fr: {
-    // Navigation
-    nav_home: "Accueil",
-    nav_about: "À Propos",
-    nav_places: "Lieux", 
-    nav_hotels: "Hôtels",
-    nav_travels: "Voyages",
-    nav_guides: "Guides",
-    
-    // Header
-    header_phone: "+355 684 170 700",
-    header_lang_select: "Choisir la Langue",
-    
-    // Hero Section
-    hero_title: "Découvrez les Trésors Cachés de l'Albanie",
-    hero_subtitle: "Explorez des paysages à couper le souffle, une culture riche et des expériences inoubliables au cœur des Balkans",
-    hero_cta: "Commencez Votre Voyage",
-    hero_video_play: "Lire la Vidéo",
-    
-    // Features Section  
-    features_title: "Pourquoi Choisir Tourly?",
-    features_subtitle: "Vivez l'Albanie comme jamais auparavant avec nos guides experts et notre service personnalisé",
-    
-    feature_guide_title: "Guides Locaux Experts",
-    feature_guide_desc: "Nos guides compétents donnent vie à l'histoire et à la culture albanaises avec des récits authentiques",
-    
-    feature_custom_title: "Expériences Personnalisées", 
-    feature_custom_desc: "Itinéraires sur mesure conçus selon vos intérêts et préférences de voyage",
-    
-    feature_support_title: "Support 24/7",
-    feature_support_desc: "Assistance complète tout au long de votre voyage avec notre équipe de service client dédiée",
-    
-    feature_best_title: "Garantie du Meilleur Prix",
-    feature_best_desc: "Tarifs compétitifs sans frais cachés et valeur exceptionnelle",
-    
-    // Popular Destinations
-    popular_title: "Destinations Populaires",
-    popular_subtitle: "Découvrez les plus beaux endroits d'Albanie et ses joyaux cachés",
-    
-    popular_tirana: "Tirana",
-    popular_tirana_desc: "La capitale vibrante de l'Albanie avec une architecture colorée et une riche histoire",
-    
-    popular_durres: "Durrës", 
-    popular_durres_desc: "Ancienne ville côtière avec de belles plages et un amphithéâtre romain",
-    
-    popular_shkodra: "Shkodër",
-    popular_shkodra_desc: "Ville historique près du magnifique lac Shkodër et des Alpes albanaises",
-    
-    popular_pogradec: "Pogradec",
-    popular_pogradec_desc: "Charmante ville lacustre sur les rives du lac Ohrid",
-    
-    popular_vlora: "Vlorë", 
-    popular_vlora_desc: "Ville portuaire historique où se rencontrent les mers Adriatique et Ionienne",
-    
-    popular_berat: "Berat",
-    popular_berat_desc: "Ville du patrimoine mondial UNESCO connue comme 'Ville aux Mille Fenêtres'",
-    
-    popular_explore: "Explorer Maintenant",
-    
-    // Testimonials
-    testimonials_title: "Ce Que Disent Nos Voyageurs",
-    testimonials_subtitle: "Expériences réelles de voyageurs qui ont découvert l'Albanie avec Tourly",
-    
-    // Footer
-    footer_about_title: "À Propos de Tourly",
-    footer_about_desc: "Votre partenaire de confiance pour découvrir la beauté de l'Albanie. Nous offrons des expériences de voyage authentiques avec des guides experts et un service personnalisé.",
-    
-    footer_quick_title: "Liens Rapides", 
-    footer_contact_title: "Informations de Contact",
-    footer_follow_title: "Suivez-Nous",
-    
-    footer_address: "Tirana, Albanie",
-    footer_email: "info@tourly.al",
-    footer_phone: "+355 684 170 700",
-    
-    footer_copyright: "© 2024 Tourly. Tous droits réservés.",
-    footer_privacy: "Politique de Confidentialité",
-    footer_terms: "Conditions de Service",
-    
-    // About Page
-    about_hero_title: "À Propos de Tourly",
-    about_hero_subtitle: "Passionnés de présenter la beauté naturelle et le riche patrimonio culturale de l'Albanie",
-    
-    about_story_title: "Notre Histoire",
-    about_story_desc: "Fondée avec une passion pour partager les trésors cachés de l'Albanie, Tourly connecte les voyageurs avec des expériences albanaises authentiques depuis notre création. Notre équipe d'experts locaux combine une connaissance culturelle profonde avec un service de voyage moderne pour créer des voyages inoubliables.",
-    
-    about_mission_title: "Notre Mission", 
-    about_mission_desc: "Montrer l'incroyable diversité de l'Albanie - des plages vierges aux hautes montagnes, des châteaux anciens aux villes vibrantes. Nous croyons que chaque voyageur mérite de découvrir la vraie Albanie à travers des expériences authentiques et personnalisées.",
-    
-    about_team_title: "Rencontrez Notre Équipe",
-    about_values_title: "Nos Valeurs",
-    
-    // Common buttons and actions
-    btn_learn_more: "En Savoir Plus",
-    btn_book_now: "Réserver Maintenant", 
-    btn_contact_us: "Nous Contacter",
-    btn_get_directions: "Obtenir les Directions",
-    btn_view_gallery: "Voir la Galerie",
-    btn_read_more: "Lire Plus",
-    btn_back_home: "Retour à l'Accueil",
-    
-    // Search and filters
-    search_placeholder: "Rechercher des destinations...",
-    filter_all: "Tout",
-    filter_cities: "Villes",
-    filter_beaches: "Plages", 
-    filter_mountains: "Montagnes",
-    filter_historical: "Sites Historiques",
-    
-    // Social
-    social_facebook: "Facebook",
-    social_instagram: "Instagram", 
-    social_twitter: "Twitter",
-    social_youtube: "YouTube"
+    nav_home: "Accueil", nav_about: "À Propos", nav_places: "Lieux", nav_hotels: "Hôtels", nav_travels: "Voyages", nav_guides: "Guides",
+    header_phone: "+355 684 170 700", header_lang_select: "Choisir la Langue",
+    hero_title: "DÉVOILEZ LA TERRE OÙ RESPIRENT LES LÉGENDES", hero_subtitle: "L'Albanie n'est pas un voyage. C'est une révélation.",
+    btn_learn_more: "En Savoir Plus", btn_book_now: "Réserver Maintenant", btn_contact_us: "Contactez-Nous",
+    popular_subtitle: "Destinations qui redéfinissent la découverte", popular_title: "Ce ne sont pas des \"lieux populaires.\" Ce sont des révélations.",
+    testimonials_subtitle: "Ce que disent nos voyageurs", testimonials_title: "Aventures qui créent des souvenirs authentiques",
+    footer_text: "Parce que votre voyage mérite du sens, et l'Albanie le délivre."
   },
   
   it: {
-    // Navigation
-    nav_home: "Home",
-    nav_about: "Chi Siamo",
-    nav_places: "Luoghi", 
-    nav_hotels: "Hotel",
-    nav_travels: "Viaggi",
-    nav_guides: "Guide",
-    
-    // Header
-    header_phone: "+355 684 170 700",
-    header_lang_select: "Scegli Lingua",
-    
-    // Hero Section
-    hero_title: "Scopri i Tesori Nascosti dell'Albania",
-    hero_subtitle: "Esplora paesaggi mozzafiato, cultura ricca ed esperienze indimenticabili nel cuore dei Balcani",
-    hero_cta: "Inizia il Tuo Viaggio",
-    hero_video_play: "Riproduci Video",
-    
-    // Features Section  
-    features_title: "Perché Scegliere Tourly?",
-    features_subtitle: "Vivi l'Albania come mai prima d'ora con la nostra guida esperta e servizio personalizzato",
-    
-    feature_guide_title: "Guide Locali Esperte",
-    feature_guide_desc: "Le nostre guide competenti danno vita alla storia e cultura albanesi con racconti autentici",
-    
-    feature_custom_title: "Esperienze Personalizzate", 
-    feature_custom_desc: "Itinerari su misura progettati intorno ai tuoi interessi e preferenze di viaggio",
-    
-    feature_support_title: "Supporto 24/7",
-    feature_support_desc: "Assistenza completa durante tutto il tuo viaggio con il nostro team dedicato di servizio clienti",
-    
-    feature_best_title: "Garanzia Miglior Prezzo",
-    feature_best_desc: "Tariffe competitive senza costi nascosti e valore eccezionale per i soldi",
-    
-    // Popular Destinations
-    popular_title: "Destinazioni Popolari",
-    popular_subtitle: "Scopri i luoghi più stupendi dell'Albania e le gemme nascoste",
-    
-    popular_tirana: "Tirana",
-    popular_tirana_desc: "La vibrante capitale dell'Albania con architettura colorata e ricca storia",
-    
-    popular_durres: "Durazzo", 
-    popular_durres_desc: "Antica città costiera con bellissime spiagge e anfiteatro romano",
-    
-    popular_shkodra: "Scutari",
-    popular_shkodra_desc: "Città storica vicino al magnifico Lago di Scutari e alle Alpi Albanesi",
-    
-    popular_pogradec: "Pogradec",
-    popular_pogradec_desc: "Affascinante città lacustre sulle rive del Lago di Ohrid",
-    
-    popular_vlora: "Valona", 
-    popular_vlora_desc: "Città portuale storica dove si incontrano i mari Adriatico e Ionio",
-    
-    popular_berat: "Berat",
-    popular_berat_desc: "Città patrimonio mondiale UNESCO conosciuta come 'Città delle Mille Finestre'",
-    
-    popular_explore: "Esplora Ora",
-    
-    // Testimonials
-    testimonials_title: "Cosa Dicono i Nostri Viaggiatori",
-    testimonials_subtitle: "Esperienze reali di viaggiatori che hanno scoperto l'Albania con Tourly",
-    
-    // Footer
-    footer_about_title: "Chi è Tourly",
-    footer_about_desc: "Il tuo partner fidato per scoprire la bellezza dell'Albania. Offriamo esperienze di viaggio autentiche con guide esperte e servizio personalizzato.",
-    
-    footer_quick_title: "Link Veloci", 
-    footer_contact_title: "Info Contatto",
-    footer_follow_title: "Seguici",
-    
-    footer_address: "Tirana, Albania",
-    footer_email: "info@tourly.al",
-    footer_phone: "+355 684 170 700",
-    
-    footer_copyright: "© 2024 Tourly. Tutti i diritti riservati.",
-    footer_privacy: "Politica Privacy",
-    footer_terms: "Termini di Servizio",
-    
-    // About Page
-    about_hero_title: "Chi Siamo",
-    about_hero_subtitle: "Appassionati nel mostrare la bellezza naturale e il ricco patrimonio culturale dell'Albania",
-    
-    about_story_title: "La Nostra Storia",
-    about_story_desc: "Fondata con la passione per condividere i tesori nascosti dell'Albania, Tourly connette i viaggiatori con esperienze albanesi autentiche dalla nostra nascita. Il nostro team di esperti locali combina profonda conoscenza culturale con servizio di viaggio moderno per creare viaggi indimenticabili.",
-    
-    about_mission_title: "La Nostra Missione", 
-    about_mission_desc: "Mostrare l'incredibile diversità dell'Albania - dalle spiagge incontaminate alle alte montagne, dai castelli antichi alle città vibranti. Crediamo che ogni viaggiatore meriti di scoprire la vera Albania attraverso esperienze autentiche e personalizzate.",
-    
-    about_team_title: "Conosci il Nostro Team",
-    about_values_title: "I Nostri Valori",
-    
-    // Common buttons and actions
-    btn_learn_more: "Scopri di Più",
-    btn_book_now: "Prenota Ora", 
-    btn_contact_us: "Contattaci",
-    btn_get_directions: "Ottieni Indicazioni",
-    btn_view_gallery: "Vedi Galleria",
-    btn_read_more: "Leggi di Più",
-    btn_back_home: "Torna alla Homepage",
-    
-    // Search and filters
-    search_placeholder: "Cerca destinazioni...",
-    filter_all: "Tutto",
-    filter_cities: "Città",
-    filter_beaches: "Spiagge", 
-    filter_mountains: "Montagne",
-    filter_historical: "Siti Storici",
-    
-    // Social
-    social_facebook: "Facebook",
-    social_instagram: "Instagram", 
-    social_twitter: "Twitter",
-    social_youtube: "YouTube"
+    nav_home: "Home", nav_about: "Chi Siamo", nav_places: "Luoghi", nav_hotels: "Hotel", nav_travels: "Viaggi", nav_guides: "Guide",
+    header_phone: "+355 684 170 700", header_lang_select: "Scegli Lingua",
+    hero_title: "SVELA LA TERRA DOVE RESPIRANO LE LEGGENDE", hero_subtitle: "L'Albania non è un viaggio. È una rivelazione.",
+    btn_learn_more: "Scopri di Più", btn_book_now: "Prenota Ora", btn_contact_us: "Contattaci",
+    popular_subtitle: "Destinazioni che ridefiniscono la scoperta", popular_title: "Questi non sono \"luoghi popolari.\" Sono rivelazioni.",
+    testimonials_subtitle: "Cosa dicono i nostri viaggiatori", testimonials_title: "Avventure che creano ricordi autentici",
+    footer_text: "Perché il tuo viaggio merita significato, e l'Albania lo offre."
   }
 };
 
@@ -663,21 +372,46 @@ class TranslationManager {
   }
   
   translatePage() {
-    const elements = document.querySelectorAll('[data-translate]');
-    const lang = translations[this.currentLanguage] || translations.en;
-    
-    elements.forEach(element => {
+    const currentTranslations = this.getCurrentTranslations();
+    if (!currentTranslations) return;
+
+    // Translate elements with data-translate attributes
+    const elementsToTranslate = document.querySelectorAll('[data-translate]');
+    elementsToTranslate.forEach(element => {
       const key = element.getAttribute('data-translate');
-      if (lang[key]) {
-        if (element.tagName === 'INPUT' && element.type === 'text') {
-          element.placeholder = lang[key];
+      const translation = currentTranslations[key];
+      
+      if (translation) {
+        // Handle different element types
+        if (element.tagName.toLowerCase() === 'input' && element.type === 'submit') {
+          element.value = translation;
+        } else if (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'textarea') {
+          // For input fields, translate placeholder if it exists
+          if (element.placeholder) {
+            const placeholderKey = element.getAttribute('data-translate-placeholder');
+            if (placeholderKey && currentTranslations[placeholderKey]) {
+              element.placeholder = currentTranslations[placeholderKey];
+            }
+          }
+          // Don't change the actual input value, just translate associated text
         } else {
-          element.textContent = lang[key];
+          element.textContent = translation;
         }
       }
     });
-    
-    // Update document title based on page
+
+    // Handle placeholder translations separately
+    const placeholderElements = document.querySelectorAll('[data-translate-placeholder]');
+    placeholderElements.forEach(element => {
+      const key = element.getAttribute('data-translate-placeholder');
+      const translation = currentTranslations[key];
+      
+      if (translation && (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'textarea')) {
+        element.placeholder = translation;
+      }
+    });
+
+    // Update page title
     this.updatePageTitle();
   }
   
@@ -755,4 +489,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Export for global use
 window.TranslationManager = TranslationManager;
+window.translations = translations; 
 window.translations = translations; 
