@@ -710,6 +710,47 @@ let translationManager;
 
 document.addEventListener('DOMContentLoaded', function() {
   translationManager = new TranslationManager();
+  
+  // Add event listeners for language options
+  document.querySelectorAll('.lang-option').forEach(option => {
+    option.addEventListener('click', function(e) {
+      e.preventDefault();
+      const selectedLang = this.getAttribute('data-lang');
+      if (selectedLang && translationManager) {
+        translationManager.changeLanguage(selectedLang);
+        
+        // Close dropdowns if open
+        document.querySelectorAll('.language-dropdown').forEach(dropdown => {
+          dropdown.classList.remove('active');
+        });
+        
+        console.log('Language changed to:', selectedLang);
+      }
+    });
+  });
+  
+  // Add event listeners for language dropdowns in mobile menu
+  document.querySelectorAll('[data-lang]').forEach(langElement => {
+    langElement.addEventListener('click', function(e) {
+      e.preventDefault();
+      const selectedLang = this.getAttribute('data-lang');
+      if (selectedLang && translationManager) {
+        translationManager.changeLanguage(selectedLang);
+        
+        // Close any open mobile menus or dropdowns
+        const mobileMenu = document.querySelector('[data-mobile-menu]');
+        const overlay = document.querySelector('[data-mobile-overlay]');
+        if (mobileMenu && mobileMenu.classList.contains('active')) {
+          mobileMenu.classList.remove('active');
+          if (overlay) overlay.classList.remove('active');
+          document.body.classList.remove('nav-active');
+          document.body.style.overflow = '';
+        }
+        
+        console.log('Language changed to:', selectedLang);
+      }
+    });
+  });
 });
 
 // Export for global use

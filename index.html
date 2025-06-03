@@ -2428,18 +2428,26 @@
           option.addEventListener('click', function(e) {
             e.preventDefault();
             
+            // Get the selected language
+            const selectedLang = this.getAttribute('data-lang');
+            
+            // Use the translation manager if available
+            if (window.translationManager && selectedLang) {
+              window.translationManager.changeLanguage(selectedLang);
+            } else {
+              // Fallback: just update button text
+              const lang = selectedLang.toUpperCase();
+              const langBtnText = document.querySelector('.language-btn span');
+              if (langBtnText) {
+                langBtnText.textContent = lang;
+              }
+            }
+            
             // Remove active class from all options
             langOptions.forEach(opt => opt.classList.remove('active'));
             
             // Add active class to clicked option
             this.classList.add('active');
-            
-            // Update the language button text
-            const lang = this.getAttribute('data-lang').toUpperCase();
-            const langBtnText = document.querySelector('.language-btn span');
-            if (langBtnText) {
-              langBtnText.textContent = lang;
-            }
             
             // Close language dropdown
             if (langDropdown) {
