@@ -1088,7 +1088,7 @@
             <ul class="language-dropdown">
               <li><a href="#" data-lang="sq">Shqip</a></li>
               <li><a href="#" data-lang="de">Deutsch</a></li>
-            <li><a href="#" data-lang="fr">Français</a></li>
+            
               <li><a href="#" data-lang="en">English</a></li>
             <li><a href="#" data-lang="it">Italiano</a></li>
             </ul>
@@ -1144,7 +1144,7 @@
         <ul class="mobile-language-list">
           <li><a href="#" data-lang="sq" class="lang-option">Shqip</a></li>
           <li><a href="#" data-lang="de" class="lang-option">Deutsch</a></li>
-          <li><a href="#" data-lang="fr" class="lang-option">Français</a></li>
+          
           <li><a href="#" data-lang="en" class="lang-option active">English</a></li>
           <li><a href="#" data-lang="it" class="lang-option">Italiano</a></li>
         </ul>
@@ -1159,116 +1159,142 @@
     <article>
 
       <!-- HERO -->
-      <section class="hero destination-hero places-hero" id="home">
+      <section class="hero places-hero" id="home">
+        <div class="video-container">
+          <video autoplay muted loop playsinline class="hero-video">
+            <source src="homevid.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-overlay"></div>
+        </div>
         <div class="container">
-          <h2 class="h1 hero-title">Places to Visit & Trips</h2>
-          <p class="hero-text">
-            Discover Albania's breathtaking destinations - from pristine beaches to mountain views and historic treasures.
+
+          <h2 class="h1 hero-title" data-translate="places_hero_title">Places to Visit & Trips</h2>
+
+          <p class="hero-text" data-translate="places_hero_subtitle">
+            From pristine beaches to majestic mountains, ancient cities to hidden gems - explore the diverse beauty that makes Albania unforgettable.
           </p>
+
         </div>
       </section>
 
-      <!-- PLACES SECTION -->
-      <section class="places-section" id="places">
+      <!-- Places Section -->
+      <section class="places section" id="places">
         <div class="container">
-          <p class="section-subtitle">Magnificent Destinations</p>
-          <h2 class="h2 section-title">Albania's Most Beautiful Places</h2>
-          <p class="section-text">
-            Albania boasts an incredible diversity of natural landscapes, from pristine beaches to majestic mountains, crystal-clear waters to historic sites. Explore our selection of must-visit places that showcase the country's stunning beauty and rich cultural heritage.
+
+          <p class="section-subtitle" data-translate="places_section_subtitle">🏛️ Must-Visit Destinations</p>
+
+          <h2 class="h2 section-title" data-translate="places_section_title">Albania's Most Beautiful Places</h2>
+
+          <p class="section-text" data-translate="places_section_desc">
+            Discover the most spectacular destinations that showcase Albania's rich history, stunning nature, and cultural heritage.
           </p>
 
-          <div class="places-grid">
-            <!-- Koman Lake -->
-            <div class="place-card">
-              <figure class="place-banner">
-                <img src="./assets/images/koman.jpg" alt="Koman Lake" loading="lazy">
-              </figure>
-              <div class="place-content">
-                <h3 class="place-title">Koman Lake</h3>
-                <p class="place-text">
-                  Experience the breathtaking ferry journey through the dramatic fjord-like landscape of Koman Lake. Surrounded by steep mountains that plunge into emerald waters, this man-made lake offers one of Europe's most spectacular boat rides.
-                </p>
-              </div>
-            </div>
+          <ul class="places-list">
 
-            <!-- Jalë Beach -->
-            <div class="place-card">
-              <figure class="place-banner">
-                <img src="./assets/images/jale.jpg" alt="Jalë Beach" loading="lazy">
-              </figure>
-              <div class="place-content">
-                <h3 class="place-title">Jalë Beach</h3>
-                <p class="place-text">
-                  Discover one of the Albanian Riviera's most beautiful beaches. With its crystal-clear turquoise waters, white pebble shores, and lively atmosphere, Jalë Beach offers the perfect blend of natural beauty and vibrant beach culture.
-                </p>
+            <li>
+              <div class="place-card">
+                <figure class="place-banner">
+                  <img src="./assets/images/theth.jpg" alt="Theth National Park" loading="lazy">
+                </figure>
+                <div class="place-content">
+                  <h3 class="h3 place-title" data-translate="place_theth_title">Theth National Park</h3>
+                  <p class="place-text" data-translate="place_theth_desc">
+                    Pristine alpine wilderness with dramatic peaks, traditional stone houses, and the famous Blue Eye waterfall.
+                  </p>
+                  <a href="#" class="place-link" data-translate="btn_learn_more_link">
+                    → Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
               </div>
-            </div>
+            </li>
 
-            <!-- Shala River -->
-            <div class="place-card">
-              <figure class="place-banner">
-                <img src="./assets/images/lumiishales.jpg" alt="Shala River" loading="lazy">
-              </figure>
-              <div class="place-content">
-                <h3 class="place-title">Shala River</h3>
-                <p class="place-text">
-                  Often called "Thailand of Albania," the Shala River's crystal-clear turquoise waters flow between majestic mountains, creating a breathtaking natural paradise. This hidden gem offers swimming in pristine waters against a stunning alpine backdrop.
-                </p>
+            <li>
+              <div class="place-card">
+                <figure class="place-banner">
+                  <img src="./assets/images/dhermi.jpg" alt="Dhermi Beach" loading="lazy">
+                </figure>
+                <div class="place-content">
+                  <h3 class="h3 place-title" data-translate="place_dhermi_title">Dhermi Beach</h3>
+                  <p class="place-text" data-translate="place_dhermi_desc">
+                    Crystal-clear turquoise waters meet white pebble beaches in this stunning Albanian Riviera destination.
+                  </p>
+                  <a href="#" class="place-link" data-translate="btn_learn_more_link">
+                    → Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
               </div>
-            </div>
+            </li>
 
-            <!-- Pulebardha Beach -->
-            <div class="place-card">
-              <figure class="place-banner">
-                <img src="./assets/images/pulebardhabeach.jpg" alt="Pulebardha Beach" loading="lazy">
-              </figure>
-              <div class="place-content">
-                <h3 class="place-title">Pulebardha Beach</h3>
-                <p class="place-text">
-                  Experience the untouched beauty of this secluded beach, accessible only by boat. Named after the seagulls ("pulebardha") that frequent the area, this pristine beach features crystal-clear waters and dramatic white cliffs.
-                </p>
+            <li>
+              <div class="place-card">
+                <figure class="place-banner">
+                  <img src="./assets/images/ksamil.jpg" alt="Ksamil Islands" loading="lazy">
+                </figure>
+                <div class="place-content">
+                  <h3 class="h3 place-title" data-translate="place_ksamil_title">Ksamil Islands</h3>
+                  <p class="place-text" data-translate="place_ksamil_desc">
+                    Paradise islands with pristine beaches and crystal waters, known as the 'Maldives of Albania'.
+                  </p>
+                  <a href="#" class="place-link" data-translate="btn_learn_more_link">
+                    → Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
               </div>
-            </div>
+            </li>
 
-            <!-- Theth -->
-            <div class="place-card">
-              <figure class="place-banner">
-                <img src="./assets/images/theth.jpg" alt="Theth" loading="lazy">
-              </figure>
-              <div class="place-content">
-                <h3 class="place-title">Theth</h3>
-                <p class="place-text">
-                  Nestled in the Albanian Alps, Theth is a remote mountain village that offers breathtaking landscapes, traditional stone houses, and excellent hiking opportunities. The iconic Theth Church stands against a backdrop of dramatic peaks.
-                </p>
+            <li>
+              <div class="place-card">
+                <figure class="place-banner">
+                  <img src="./assets/images/blue-eye.jpg" alt="Blue Eye Spring" loading="lazy">
+                </figure>
+                <div class="place-content">
+                  <h3 class="h3 place-title" data-translate="place_blue_eye_title">Blue Eye Spring</h3>
+                  <p class="place-text" data-translate="place_blue_eye_desc">
+                    A natural phenomenon with incredibly blue spring water emerging from a depth of more than 50 meters.
+                  </p>
+                  <a href="#" class="place-link" data-translate="btn_learn_more_link">
+                    → Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
               </div>
-            </div>
+            </li>
 
-            <!-- Mesi Bridge -->
-            <div class="place-card">
-              <figure class="place-banner">
-                <img src="./assets/images/uramesit.jpg" alt="Mesi Bridge" loading="lazy">
-              </figure>
-              <div class="place-content">
-                <h3 class="place-title">Mesi Bridge</h3>
-                <p class="place-text">
-                  This beautifully preserved Ottoman stone bridge near Shkodra dates back to the 18th century. With its elegant arches reflected in the clear waters of the Kir River, Mesi Bridge represents one of Albania's finest examples of Ottoman architecture.
-                </p>
+            <li>
+              <div class="place-card">
+                <figure class="place-banner">
+                  <img src="./assets/images/apollonia.jpg" alt="Apollonia Archaeological Park" loading="lazy">
+                </figure>
+                <div class="place-content">
+                  <h3 class="h3 place-title" data-translate="place_apollonia_title">Apollonia Archaeological Park</h3>
+                  <p class="place-text" data-translate="place_apollonia_desc">
+                    Ancient Greek ruins dating back to 588 BC, featuring impressive temples, theaters, and monuments.
+                  </p>
+                  <a href="#" class="place-link" data-translate="btn_learn_more_link">
+                    → Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
               </div>
-            </div>
+            </li>
 
-            <!-- Blue Eye Theth -->
-            <div class="place-card">
-              <figure class="place-banner">
-                <img src="./assets/images/blueeyetheth.webp" alt="Blue Eye Theth" loading="lazy">
-              </figure>
-              <div class="place-content">
-                <h3 class="place-title">Blue Eye Theth</h3>
-                <p class="place-text">
-                  A natural phenomenon in the Theth National Park, this natural spring creates a deep blue pool surrounded by lush greenery. The vibrant turquoise center resembles an eye, giving this mesmerizing spot its name.
-                </p>
+            <li>
+              <div class="place-card">
+                <figure class="place-banner">
+                  <img src="./assets/images/butrint.jpg" alt="Butrint National Park" loading="lazy">
+                </figure>
+                <div class="place-content">
+                  <h3 class="h3 place-title" data-translate="place_butrint_title">Butrint National Park</h3>
+                  <p class="place-text" data-translate="place_butrint_desc">
+                    UNESCO World Heritage site with ancient ruins spanning Greek, Roman, Byzantine, and Venetian periods.
+                  </p>
+                  <a href="#" class="place-link" data-translate="btn_learn_more_link">
+                    → Learn More <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </a>
+                </div>
               </div>
-            </div>
-          </div>
+            </li>
+
+          </ul>
         </div>
       </section>
 
