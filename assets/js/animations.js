@@ -218,6 +218,18 @@ document.addEventListener('DOMContentLoaded', () => {
   // Setup smooth scrolling
   window.animationManager.setupSmoothScroll();
   
+  // IMMEDIATE VISIBILITY: Show elements in viewport immediately
+  const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .fade-in-down, .scale-in');
+  animatedElements.forEach(element => {
+    const rect = element.getBoundingClientRect();
+    // If element is in viewport on page load, show it immediately
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      element.style.opacity = '1';
+      element.style.transform = 'translateY(0) translateX(0) scale(1)';
+      element.classList.add('animated');
+    }
+  });
+  
   // Add animation classes to existing elements
   const sections = document.querySelectorAll('section');
   sections.forEach((section, index) => {
@@ -245,6 +257,8 @@ document.addEventListener('DOMContentLoaded', () => {
   buttons.forEach(button => {
     button.classList.add('btn-animated');
   });
+  
+  console.log('✅ Animation system initialized with immediate visibility fallback');
 });
 
 // Export for external use

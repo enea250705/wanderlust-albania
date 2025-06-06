@@ -79,6 +79,19 @@
 }
 
 /* ========================================
+   FALLBACK MECHANISM - ENSURE CONTENT IS VISIBLE
+======================================== */
+
+/* Fallback: Make all content visible after 2 seconds if animations don't work */
+.fade-in-up,
+.fade-in-left,
+.fade-in-right,
+.fade-in-down,
+.scale-in {
+  animation: fadeIn 0.6s ease 1.5s both;
+}
+
+/* ========================================
    SCROLL ANIMATION CLASSES
 ======================================== */
 
