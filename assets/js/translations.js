@@ -126,7 +126,69 @@ const translations = {
     social_facebook: "Facebook",
     social_instagram: "Instagram", 
     social_twitter: "Twitter",
-    social_youtube: "YouTube"
+    social_youtube: "YouTube",
+    
+    // Additional Features (missing from index.html)
+    feature_alerts_title: "Timely Alerts",
+    feature_alerts_desc: "Whether it's a reservation or a hike, stay informed and on time, no stress, no surprises.",
+    feature_tools_title: "All-in-One Trip Tools", 
+    feature_tools_desc: "From bookings to checklists, manage every part of your journey in one streamlined space.",
+    
+    // Testimonials Section
+    testimonials_title: "What Our Travelers Say",
+    testimonials_subtitle: "Adventures that create authentic memories",
+    testimonial_rating: "5/5",
+    
+    // Testimonial Content
+    testimonial_1_text: "The Balkan tour was incredibly beautiful. Sadi, our tour guide, made the trip unforgettable with his relaxed and open attitude. Always smiling, always ready with a great story about his homeland. He managed everything smoothly, without showing the slightest sign of stress. Who would have thought the Balkans were so beautiful? This trip is definitely recommended!",
+    testimonial_1_author: "Viktoria Esau",
+    testimonial_1_date: "7 months ago",
+    
+    testimonial_2_text: "The Balkan round trip was truly unique. We were a small international group and had Sadjan, the world's best tour guide. 24/7, always present with charm, dedication, and a great attitude. Not to forget our bus driver, who could drive backwards just as well as forwards! We wish you continued success in your business!",
+    testimonial_2_author: "Mareike Altemayer", 
+    testimonial_2_date: "6 months ago",
+    
+    testimonial_3_text: "Super tour guide! Competent, entertaining, very pleasant in dealing with the travel guests.",
+    testimonial_3_author: "Wilfried Stenzel",
+    testimonial_3_date: "6 months ago",
+    
+    testimonial_4_text: "The Albania round trip was wonderful. Our tour guide didn't just accompany us — he made this trip something special, a wonderful adventure. You were like a buddy to us. You're the kind of guide everyone wishes for on a trip. Thank you, Sadi.",
+    testimonial_4_author: "Siegmund Pazulla",
+    testimonial_4_date: "7 months ago",
+    
+    testimonial_5_text: "Sadjan was a great tour guide and companion during our Balkan round trip. The trip took us through 6 countries: Bulgaria, Greece, Albania, North Macedonia, Montenegro, and Kosovo. Special thanks to the bus driver from Skopje, who did a fantastic job and drove safely and reliably. Sadjan led the tour with great passion and was committed to solving all the big and small problems of the travelers. A truly exceptional performance. He described his homeland Albania with humor and a personal touch. It was never boring on the bus, and we always had good laughs.",
+    testimonial_5_author: "Jochen Helbig",
+    testimonial_5_date: "6 months ago",
+    
+    testimonial_6_text: "Sadi was our tour guide for the Balkan round trip. Reliable, knowledgeable in geography and history, always friendly and approachable. He remains calm in tricky situations and manages even difficult groups well. Smart and highly recommended.",
+    testimonial_6_author: "Jürgen Berg (Snoopy)",
+    testimonial_6_date: "7 months ago",
+    
+    testimonial_7_text: "Fantastic tour guidance by Sadi! We were lucky to have Sadi as our tour guide and can highly recommend him! He was extremely helpful and explained everything with great patience and attention to detail. Especially impressive was how he addressed the needs of all travelers — even the older participants, whom he treated with special care and attention. His friendly and open manner made the Balkan round trip incredibly enjoyable. If you want an informative, well-organized, and relaxed journey, you're in the best hands with Sadi!",
+    testimonial_7_author: "Julzzz",
+    testimonial_7_date: "7 months ago",
+    
+    // Location Labels
+    location_albania: "Albania",
+    location_northern_albania: "Northern Albania", 
+    location_central_albania: "Central Albania",
+    location_southern_albania: "Southern Albania",
+    
+    // Gallery Section
+    gallery_subtitle: "Photo Gallery",
+    gallery_title: "Photo's From Travellers", 
+    gallery_description: "Discover Albania through the eyes of our travelers. These authentic moments capture the beauty, culture, and unforgettable experiences that await you.",
+    
+    // Contact Section
+    contact_subtitle: "Get In Touch",
+    contact_title: "Ready For Unforgettable Travel. Remember Us!",
+    contact_description: "Let us help you plan your perfect Albanian adventure. Fill out the form below and our travel experts will contact you within 24 hours.",
+    
+    // Form Labels
+    form_label_name: "Full Name",
+    form_label_email: "Email Address", 
+    form_placeholder_name: "Enter your full name",
+    form_placeholder_email: "Enter your email"
   },
   
   sq: {
@@ -188,9 +250,67 @@ const translations = {
     
     popular_explore: "Eksploroni Tani",
     
+    // Additional Features
+    feature_alerts_title: "Sinjale të Kohës",
+    feature_alerts_desc: "Qoftë rezervim apo ecje me këmbë, qëndroni të informuar dhe në kohë, pa stres, pa surpriza.",
+    feature_tools_title: "Mjete të Plota Udhëtimi",
+    feature_tools_desc: "Nga rezervimet te listat e kontrolleve, menaxhoni çdo pjesë të udhëtimit tuaj në një hapësirë të thjeshtë.",
+    
     // Testimonials
     testimonials_title: "Çfarë Thonë Udhëtarët Tanë",
-    testimonials_subtitle: "Përvojë të vërteta nga udhëtarët që zbuluan Shqipërinë me Tourly",
+    testimonials_subtitle: "Aventura që krijojnë kujtime autentike",
+    testimonial_rating: "5/5",
+    
+    // Testimonial Content
+    testimonial_1_text: "Turi i Ballkanit ishte jashtëzakonisht i bukur. Sadi, udhëzuesi ynë i tureve, e bëri udhëtimin të paharrueshëm me qëndrimin e tij të qetë dhe të hapur. Gjithmonë duke buzëqeshur, gjithmonë gati me një histori të mrekullueshme për atdheun e tij. I menaxhoi të gjitha gjërat pa treguar shenjën më të vogël të stresit. Kush do ta mendonte se Ballkani ishte kaq i bukur? Ky udhëtim është definivisht i rekomanduar!",
+    testimonial_1_author: "Viktoria Esau",
+    testimonial_1_date: "7 muaj më parë",
+    
+    testimonial_2_text: "Udhëtimi rreth Ballkanit ishte vërtet unik. Ne ishim një grup i vogël ndërkombëtar dhe kishim Sadjan, udhëzuesin më të mirë të tureve në botë. 24/7, gjithmonë i pranishëm me hijeshi, përkushtim dhe qëndrim të shkëlqyer. Pa harruar shoferinn tonë të autobusit, i cili mund të drejtonte prapa po aq mirë sa përpara! Ju urojmë vazhdim suksesin në biznesin tuaj!",
+    testimonial_2_author: "Mareike Altemayer",
+    testimonial_2_date: "6 muaj më parë",
+    
+    testimonial_3_text: "Udhëzues super tureshi! Kompetent, argëtues, shumë i këndshëm në marrëdhëniet me mysafirët e udhëtimit.",
+    testimonial_3_author: "Wilfried Stenzel", 
+    testimonial_3_date: "6 muaj më parë",
+    
+    testimonial_4_text: "Udhëtimi rreth Shqipërisë ishte i mrekullueshëm. Udhëzuesi ynë nuk na shoqëroi thjesht — ai e bëri këtë udhëtim diçka speciale, një aventurë të mrekullueshme. Ishe si një shok për ne. Je lloji i udhëzuesit që të gjithë dëshirojnë të kenë në një udhëtim. Faleminderit, Sadi.",
+    testimonial_4_author: "Siegmund Pazulla",
+    testimonial_4_date: "7 muaj më parë",
+    
+    testimonial_5_text: "Sadjan ishte një udhëzues i shkëlqyer dhe shoqërues gjatë udhëtimit tonë rreth Ballkanit. Udhëtimi na çoi nëpër 6 vende: Bullgari, Greqi, Shqipëri, Maqedoni e Veriut, Mal të Zi dhe Kosovë. Falenderim të veçantë për shoferin e autobusit nga Shkupi, i cili bëri një punë fantastike dhe drejtoi në mënyrë të sigurt dhe të besueshme. Sadjan e udhëhoqi turin me pasion të madh dhe ishte i përkushtuar për të zgjidhur të gjitha problemet e mëdha dhe të vogla të udhëtarëve. Një performancë vërtet e jashtëzakonshme.",
+    testimonial_5_author: "Jochen Helbig",
+    testimonial_5_date: "6 muaj më parë",
+    
+    testimonial_6_text: "Sadi ishte udhëzuesi ynë i tureve për udhëtimin rreth Ballkanit. I besueshëm, me njohuri në gjeografi dhe histori, gjithmonë miqësor dhe i afrueshëm. Mbetet i qetë në situata të vështira dhe menaxhon mirë edhe grupet e vështira. I zgjuar dhe shumë i rekomandueshëm.",
+    testimonial_6_author: "Jürgen Berg (Snoopy)",
+    testimonial_6_date: "7 muaj më parë",
+    
+    testimonial_7_text: "Udhëzim fantastik nga Sadi! Ishim me fat që kishim Sadi si udhëzuesin tonë të tureve dhe mund ta rekomandojmë lartë! Ai ishte jashtëzakonisht i dobishëm dhe shpjegoi gjithçka me durim të madh dhe kujdes ndaj detajeve. Veçanërisht mbresëlënës ishte se si i trajtoi nevojat e të gjithë udhëtarëve — madje edhe pjesëmarrësit më të moshuar, të cilët i trajtoi me kujdes dhe vëmendje të veçantë.",
+    testimonial_7_author: "Julzzz",
+    testimonial_7_date: "7 muaj më parë",
+    
+    // Location Labels  
+    location_albania: "Shqipëri",
+    location_northern_albania: "Shqipëria e Veriut",
+    location_central_albania: "Shqipëria Qendrore", 
+    location_southern_albania: "Shqipëria e Jugut",
+    
+    // Gallery Section
+    gallery_subtitle: "Galeria e Fotove",
+    gallery_title: "Foto nga Udhëtarët",
+    gallery_description: "Zbuloni Shqipërinë nëpërmjet syve të udhëtarëve tanë. Këto momente autentike kapin bukurinë, kulturën dhe përvojat e paharrueshme që ju presin.",
+    
+    // Contact Section  
+    contact_subtitle: "Na Kontaktoni",
+    contact_title: "Gati për Udhëtime të Paharrueshme. Na Mbani Mend!",
+    contact_description: "Lejoni të ju ndihmojmë të planifikoni aventurën tuaj të përfektë shqiptare. Plotësoni formularin më poshtë dhe ekspertët tanë të udhëtimit do t'ju kontaktojnë brenda 24 orëve.",
+    
+    // Form Labels
+    form_label_name: "Emri i Plotë", 
+    form_label_email: "Adresa Email",
+    form_placeholder_name: "Vendosni emrin tuaj të plotë",
+    form_placeholder_email: "Vendosni email-in tuaj",
     
     // Footer
     footer_about_title: "Rreth Tourly",
@@ -358,7 +478,69 @@ const translations = {
     social_facebook: "Facebook",
     social_instagram: "Instagram", 
     social_twitter: "Twitter",
-    social_youtube: "YouTube"
+    social_youtube: "YouTube",
+    
+    // Additional Features 
+    feature_alerts_title: "Rechtzeitige Benachrichtigungen",
+    feature_alerts_desc: "Ob Reservierung oder Wanderung, bleiben Sie informiert und pünktlich, kein Stress, keine Überraschungen.",
+    feature_tools_title: "All-in-One Reisetools",
+    feature_tools_desc: "Von Buchungen bis Checklisten, verwalten Sie jeden Teil Ihrer Reise in einem vereinfachten Bereich.",
+    
+    // Testimonials Section
+    testimonials_title: "Was Unsere Reisenden Sagen",
+    testimonials_subtitle: "Abenteuer, die authentische Erinnerungen schaffen",
+    testimonial_rating: "5/5",
+    
+    // Testimonials Content 
+    testimonial_1_text: "Die Balkan-Tour war unglaublich schön. Sadi, unser Reiseführer, machte die Reise unvergesslich mit seiner entspannten und offenen Art. Immer lächelnd, immer bereit mit einer großartigen Geschichte über seine Heimat. Er managte alles reibungslos, ohne das geringste Zeichen von Stress zu zeigen. Wer hätte gedacht, dass der Balkan so schön ist? Diese Reise ist definitiv zu empfehlen!",
+    testimonial_1_author: "Viktoria Esau", 
+    testimonial_1_date: "vor 7 Monaten",
+    
+    testimonial_2_text: "Die Balkan-Rundreise war wirklich einzigartig. Wir waren eine kleine internationale Gruppe und hatten Sadjan, den weltbesten Reiseführer. 24/7, immer präsent mit Charme, Hingabe und großartiger Einstellung. Nicht zu vergessen unser Busfahrer, der rückwärts genauso gut fahren konnte wie vorwärts! Wir wünschen Ihnen weiterhin Erfolg in Ihrem Geschäft!",
+    testimonial_2_author: "Mareike Altemayer",
+    testimonial_2_date: "vor 6 Monaten",
+    
+    testimonial_3_text: "Super Reiseführer! Kompetent, unterhaltsam, sehr angenehm im Umgang mit den Reisegästen.",
+    testimonial_3_author: "Wilfried Stenzel",
+    testimonial_3_date: "vor 6 Monaten",
+    
+    testimonial_4_text: "Die Albanien-Rundreise war wunderbar. Unser Reiseführer begleitete uns nicht nur — er machte diese Reise zu etwas Besonderem, einem wunderbaren Abenteuer. Du warst wie ein Kumpel für uns. Du bist die Art von Führer, die sich jeder auf einer Reise wünscht. Danke, Sadi.",
+    testimonial_4_author: "Siegmund Pazulla",
+    testimonial_4_date: "vor 7 Monaten",
+    
+    testimonial_5_text: "Sadjan war ein großartiger Reiseführer und Begleiter während unserer Balkan-Rundreise. Die Reise führte uns durch 6 Länder: Bulgarien, Griechenland, Albanien, Nordmazedonien, Montenegro und Kosovo. Besonderen Dank an den Busfahrer aus Skopje, der fantastische Arbeit leistete und sicher und zuverlässig fuhr. Sadjan führte die Tour mit großer Leidenschaft.",
+    testimonial_5_author: "Jochen Helbig",
+    testimonial_5_date: "vor 6 Monaten",
+    
+    testimonial_6_text: "Sadi war unser Reiseführer für die Balkan-Rundreise. Zuverlässig, kundig in Geographie und Geschichte, immer freundlich und zugänglich. Er bleibt in kniffligen Situationen ruhig und managt auch schwierige Gruppen gut. Klug und sehr empfehlenswert.",
+    testimonial_6_author: "Jürgen Berg (Snoopy)",
+    testimonial_6_date: "vor 7 Monaten",
+    
+    testimonial_7_text: "Fantastische Reiseführung von Sadi! Wir hatten das Glück, Sadi als unseren Reiseführer zu haben und können ihn sehr empfehlen! Er war äußerst hilfsbereit und erklärte alles mit großer Geduld und Liebe zum Detail. Besonders beeindruckend war, wie er auf die Bedürfnisse aller Reisenden einging.",
+    testimonial_7_author: "Julzzz",
+    testimonial_7_date: "vor 7 Monaten",
+    
+    // Location Labels
+    location_albania: "Albanien",
+    location_northern_albania: "Nordalbanien",
+    location_central_albania: "Zentralalbanien", 
+    location_southern_albania: "Südalbanien",
+    
+    // Gallery Section
+    gallery_subtitle: "Fotogalerie",
+    gallery_title: "Fotos von Reisenden",
+    gallery_description: "Entdecken Sie Albanien durch die Augen unserer Reisenden. Diese authentischen Momente erfassen die Schönheit, Kultur und unvergesslichen Erlebnisse, die auf Sie warten.",
+    
+    // Contact Section
+    contact_subtitle: "Kontakt aufnehmen",
+    contact_title: "Bereit für unvergessliche Reisen. Denken Sie an uns!",
+    contact_description: "Lassen Sie uns Ihnen helfen, Ihr perfektes albanisches Abenteuer zu planen. Füllen Sie das Formular unten aus und unsere Reiseexperten werden Sie innerhalb von 24 Stunden kontaktieren.",
+    
+    // Form Labels
+    form_label_name: "Vollständiger Name",
+    form_label_email: "E-Mail-Adresse",
+    form_placeholder_name: "Geben Sie Ihren vollständigen Namen ein",
+    form_placeholder_email: "Geben Sie Ihre E-Mail ein"
   },
   
   fr: {
@@ -669,11 +851,20 @@ class TranslationManager {
     elements.forEach(element => {
       const key = element.getAttribute('data-translate');
       if (lang[key]) {
-        if (element.tagName === 'INPUT' && element.type === 'text') {
-          element.placeholder = lang[key];
+        if (element.tagName === 'INPUT') {
+          // Handle input placeholders and values
+          if (key.includes('placeholder')) {
+            element.placeholder = lang[key];
+          } else {
+            element.value = lang[key];
+          }
         } else {
           element.textContent = lang[key];
         }
+      } else {
+        // Keep original content if translation doesn't exist
+        console.warn(`Translation missing for key: ${key} in language: ${this.currentLanguage}`);
+        // Don't modify the element if translation is missing
       }
     });
     
