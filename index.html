@@ -162,7 +162,8 @@
       visibility: hidden;
       transform: translateY(10px);
       transition: all 0.3s ease;
-      z-index: 2000;
+      z-index: 3000;
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
     
     .language-dropdown.active {
@@ -2410,6 +2411,7 @@
         langBtn.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
+          console.log('Language button clicked');
           langDropdown.classList.toggle('active');
         });
         
@@ -2419,22 +2421,34 @@
             langDropdown.classList.remove('active');
           }
         });
+      } else {
+        console.error('Language button or dropdown not found');
       }
       
       // Language selection handling
       const langOptions = document.querySelectorAll('.lang-option');
-      if (langOptions) {
-        langOptions.forEach(option => {
+      console.log('Found language options:', langOptions.length);
+      
+      if (langOptions && langOptions.length > 0) {
+        langOptions.forEach((option, index) => {
+          console.log(`Adding listener to option ${index}:`, option.getAttribute('data-lang'));
           option.addEventListener('click', function(e) {
             e.preventDefault();
+            e.stopPropagation();
             
             // Get the selected language
             const selectedLang = this.getAttribute('data-lang');
+            console.log('Language selected:', selectedLang);
             
             // Use the translation manager if available
             if (window.translationManager && selectedLang) {
+              console.log('Using translation manager');
               window.translationManager.changeLanguage(selectedLang);
+            } else if (window.translationManager && selectedLang) {
+              console.log('Using global translation manager');
+              translationManager.changeLanguage(selectedLang);
             } else {
+              console.log('Using fallback method');
               // Fallback: just update button text
               const lang = selectedLang.toUpperCase();
               const langBtnText = document.querySelector('.language-btn span');
@@ -2460,6 +2474,8 @@
             }
           });
         });
+      } else {
+        console.error('No language options found');
       }
       
       // Header scroll effect
@@ -2558,6 +2574,21 @@
 
   <!-- Translation System -->
   <script src="assets/js/translations.js"></script>
+  <script src="assets/js/complete-translation-system.js"></script>
+  <script src="assets/js/comprehensive-translations-fix.js"></script>
+  
+  <!-- Initialize Translation Manager Globally -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Make sure translation manager is available globally
+      if (typeof translationManager !== 'undefined') {
+        window.translationManager = translationManager;
+        console.log('Translation manager initialized globally');
+      } else {
+        console.error('Translation manager not found');
+      }
+    });
+  </script>
 
 </body>
 
