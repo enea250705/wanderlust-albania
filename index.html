@@ -173,25 +173,27 @@
     
     .lang-menu {
       position: absolute;
-      top: calc(100% + 8px);
+      top: calc(100% + 10px);
       right: 0;
-      background: white;
-      border: 2px solid #ddd;
+      background: #ffff99 !important;
+      border: 5px solid #ff0000 !important;
       border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-      min-width: 160px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5) !important;
+      min-width: 200px;
       opacity: 0;
       visibility: hidden;
       transform: translateY(-10px) scale(0.95);
       transition: all 0.2s ease;
-      z-index: 9999;
+      z-index: 99999 !important;
       overflow: hidden;
+      display: block !important;
     }
     
     .lang-menu.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0) scale(1);
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) scale(1) !important;
+      display: block !important;
     }
     
     .lang-item {
@@ -1387,21 +1389,37 @@
               trigger.style.cursor = 'pointer';
               
               // Add click handler
-              trigger.onclick = function(e) {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log('IMMEDIATE: Trigger clicked!');
-                
-                if (menu.classList.contains('show')) {
-                  menu.classList.remove('show');
-                  trigger.classList.remove('active');
-                  console.log('IMMEDIATE: Menu closed');
-                } else {
-                  menu.classList.add('show');
-                  trigger.classList.add('active');
-                  console.log('IMMEDIATE: Menu opened');
-                }
-              };
+                             trigger.onclick = function(e) {
+                 e.preventDefault();
+                 e.stopPropagation();
+                 console.log('IMMEDIATE: Trigger clicked!');
+                 
+                 // Force show the menu for testing
+                 menu.style.display = 'block';
+                 menu.style.opacity = '1';
+                 menu.style.visibility = 'visible';
+                 menu.style.transform = 'translateY(0) scale(1)';
+                 menu.style.zIndex = '99999';
+                 menu.style.position = 'absolute';
+                 menu.style.background = '#ffff00';
+                 menu.style.border = '5px solid red';
+                 
+                 if (menu.classList.contains('show')) {
+                   menu.classList.remove('show');
+                   trigger.classList.remove('active');
+                   console.log('IMMEDIATE: Menu closed');
+                   menu.style.display = 'none';
+                 } else {
+                   menu.classList.add('show');
+                   trigger.classList.add('active');
+                   console.log('IMMEDIATE: Menu opened');
+                   console.log('IMMEDIATE: Menu styles applied');
+                 }
+                 
+                 // Debug info
+                 console.log('IMMEDIATE: Menu element:', menu);
+                 console.log('IMMEDIATE: Menu computed style:', window.getComputedStyle(menu));
+               };
               
               // Add click handlers to language items
               const items = menu.querySelectorAll('.lang-item');
@@ -1427,11 +1445,31 @@
                 };
               });
               
-              console.log('IMMEDIATE: Language selector setup complete!');
-            } else {
-              console.error('IMMEDIATE: Elements not found!');
-            }
-          }, 100);
+                             console.log('IMMEDIATE: Language selector setup complete!');
+               
+               // Add a test button for debugging
+               const testBtn = document.createElement('button');
+               testBtn.textContent = 'TEST DROPDOWN';
+               testBtn.style.cssText = 'position: fixed; top: 10px; left: 10px; z-index: 99999; background: red; color: white; padding: 10px; border: none; cursor: pointer;';
+               testBtn.onclick = function() {
+                 console.log('TEST: Forcing dropdown to show');
+                 menu.style.display = 'block';
+                 menu.style.opacity = '1';
+                 menu.style.visibility = 'visible';
+                 menu.style.position = 'fixed';
+                 menu.style.top = '100px';
+                 menu.style.left = '100px';
+                 menu.style.background = 'yellow';
+                 menu.style.border = '5px solid red';
+                 menu.style.zIndex = '99999';
+                 menu.classList.add('show');
+               };
+               document.body.appendChild(testBtn);
+               
+             } else {
+               console.error('IMMEDIATE: Elements not found!');
+             }
+           }, 100);
         </script>
 
         <!-- Mobile Menu Toggle -->
