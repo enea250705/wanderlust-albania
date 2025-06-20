@@ -133,19 +133,31 @@
       display: flex;
       align-items: center;
       gap: 5px;
-      background: none;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(0, 0, 0, 0.2);
       border-radius: 6px;
-      padding: 6px 10px;
+      padding: 8px 12px;
       font-size: 14px;
       font-weight: 500;
       color: var(--gunmetal);
       cursor: pointer;
       transition: all 0.3s ease;
+      position: relative;
+      z-index: 100;
+      min-width: 50px;
+      justify-content: center;
     }
     
     .language-btn:hover {
-      background-color: rgba(0, 102, 204, 0.08);
+      background-color: rgba(0, 102, 204, 0.15);
+      border-color: rgba(0, 102, 204, 0.3);
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
+    }
+    
+    .language-btn:active {
+      transform: translateY(0);
+      background-color: rgba(0, 102, 204, 0.2);
     }
     
     .language-dropdown {
@@ -2406,23 +2418,43 @@
         });
       }
       
-      // Language dropdown toggle
+      // Language dropdown toggle - Improved version
+      console.log('Looking for language button and dropdown...');
+      console.log('Language button found:', !!langBtn);
+      console.log('Language dropdown found:', !!langDropdown);
+      
       if (langBtn && langDropdown) {
+        // Make sure the button is clickable
+        langBtn.style.pointerEvents = 'auto';
         langBtn.addEventListener('click', function(e) {
           e.preventDefault();
           e.stopPropagation();
-          console.log('Language button clicked');
-          langDropdown.classList.toggle('active');
+          console.log('Language button clicked - toggling dropdown');
+          
+          // Force toggle the dropdown
+          const isActive = langDropdown.classList.contains('active');
+          if (isActive) {
+            langDropdown.classList.remove('active');
+            console.log('Dropdown closed');
+          } else {
+            langDropdown.classList.add('active');
+            console.log('Dropdown opened');
+          }
         });
         
         // Close language dropdown when clicking outside
         document.addEventListener('click', function(e) {
           if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
             langDropdown.classList.remove('active');
+            console.log('Dropdown closed by outside click');
           }
         });
+        
+        console.log('Language dropdown event listeners attached successfully');
       } else {
-        console.error('Language button or dropdown not found');
+        console.error('Language button or dropdown not found!');
+        console.log('Available elements with .language-btn:', document.querySelectorAll('.language-btn'));
+        console.log('Available elements with .language-dropdown:', document.querySelectorAll('.language-dropdown'));
       }
       
       // Language selection handling
@@ -2541,6 +2573,62 @@
       }
       
       console.log('Enhanced navigation and testimonials script initialized');
+    });
+    
+    // Additional language selector backup
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Setting up backup language selector...');
+      
+      // Try different approach to find the language button
+      const langButton = document.querySelector('.language-btn');
+      const langDropdown = document.querySelector('.language-dropdown');
+      
+      if (langButton) {
+        console.log('Found language button with backup method');
+        langButton.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('BACKUP: Language button clicked!');
+          
+          if (langDropdown) {
+            langDropdown.classList.toggle('active');
+            console.log('BACKUP: Dropdown toggled');
+          }
+        });
+      } else {
+        console.error('BACKUP: Language button not found');
+      }
+      
+      // Add direct click handlers to language options
+      const allLangOptions = document.querySelectorAll('.lang-option');
+      console.log('BACKUP: Found', allLangOptions.length, 'language options');
+      
+      allLangOptions.forEach((option, index) => {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          console.log('BACKUP: Language option clicked:', this.getAttribute('data-lang'));
+          
+          // Simple language change
+          const selectedLang = this.getAttribute('data-lang');
+          const langBtnSpan = document.querySelector('.language-btn span');
+          
+          if (langBtnSpan && selectedLang) {
+            langBtnSpan.textContent = selectedLang.toUpperCase();
+            console.log('BACKUP: Button text updated to:', selectedLang.toUpperCase());
+          }
+          
+          // Close dropdown
+          if (langDropdown) {
+            langDropdown.classList.remove('active');
+          }
+          
+          // Try to use translation manager
+          if (window.translationManager) {
+            window.translationManager.changeLanguage(selectedLang);
+            console.log('BACKUP: Translation manager called');
+          }
+        });
+      });
     });
   </script>
 
