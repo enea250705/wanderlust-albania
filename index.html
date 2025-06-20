@@ -134,18 +134,20 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      background: white;
-      border: 2px solid #ddd;
+      background: #f0f8ff;
+      border: 3px solid #0066cc;
       border-radius: 8px;
-      padding: 10px 15px;
+      padding: 12px 16px;
       cursor: pointer;
-      font-weight: 600;
-      font-size: 14px;
-      color: #333;
+      font-weight: 700;
+      font-size: 15px;
+      color: #0066cc;
       transition: all 0.2s ease;
-      min-width: 60px;
+      min-width: 70px;
       justify-content: space-between;
       user-select: none;
+      position: relative;
+      z-index: 1000;
     }
     
     .lang-trigger:hover {
@@ -194,7 +196,7 @@
     
     .lang-item {
       display: flex;
-      alignitem: center;
+      align-items: center;
       justify-content: space-between;
       padding: 12px 16px;
       cursor: pointer;
@@ -1364,6 +1366,73 @@
             </div>
           </div>
         </div>
+
+        <!-- Immediate Language Selector Script -->
+        <script>
+          console.log('IMMEDIATE: Setting up language selector...');
+          
+          // Wait a moment for DOM to be ready
+          setTimeout(function() {
+            const trigger = document.getElementById('langTrigger');
+            const menu = document.getElementById('langMenu');
+            
+            console.log('IMMEDIATE: Elements found:', {
+              trigger: !!trigger,
+              menu: !!menu
+            });
+            
+            if (trigger && menu) {
+              // Make sure elements are visible and clickable
+              trigger.style.pointerEvents = 'auto';
+              trigger.style.cursor = 'pointer';
+              
+              // Add click handler
+              trigger.onclick = function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('IMMEDIATE: Trigger clicked!');
+                
+                if (menu.classList.contains('show')) {
+                  menu.classList.remove('show');
+                  trigger.classList.remove('active');
+                  console.log('IMMEDIATE: Menu closed');
+                } else {
+                  menu.classList.add('show');
+                  trigger.classList.add('active');
+                  console.log('IMMEDIATE: Menu opened');
+                }
+              };
+              
+              // Add click handlers to language items
+              const items = menu.querySelectorAll('.lang-item');
+              items.forEach(function(item) {
+                item.onclick = function(e) {
+                  e.stopPropagation();
+                  const lang = this.getAttribute('data-lang');
+                  const code = this.querySelector('.lang-code').textContent;
+                  
+                  console.log('IMMEDIATE: Language selected:', lang);
+                  
+                  // Update display
+                  document.getElementById('currentLangText').textContent = code;
+                  
+                  // Close menu
+                  menu.classList.remove('show');
+                  trigger.classList.remove('active');
+                  
+                  // Change language if translation manager exists
+                  if (window.translationManager) {
+                    window.translationManager.changeLanguage(lang);
+                  }
+                };
+              });
+              
+              console.log('IMMEDIATE: Language selector setup complete!');
+            } else {
+              console.error('IMMEDIATE: Elements not found!');
+            }
+          }, 100);
+        </script>
 
         <!-- Mobile Menu Toggle -->
         <button class="mobile-menu-toggle" data-mobile-menu-toggle>
