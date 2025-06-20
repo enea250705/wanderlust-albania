@@ -901,6 +901,8 @@ let translationManager;
 
 document.addEventListener('DOMContentLoaded', function() {
   translationManager = new TranslationManager();
+  // Make it globally accessible
+  window.translationManager = translationManager;
   
   // Add event listeners for language options
   document.querySelectorAll('.lang-option').forEach(option => {
