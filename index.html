@@ -124,82 +124,111 @@
       color: var(--bright-navy-blue);
     }
     
-    /* Language Selector */
-    .language-selector {
+    /* Desktop Language Selector - New Simple Version */
+    .desktop-language-selector {
       position: relative;
+      display: inline-block;
     }
     
-    .language-btn {
+    .lang-trigger {
       display: flex;
       align-items: center;
-      gap: 5px;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid rgba(0, 0, 0, 0.2);
-      border-radius: 6px;
-      padding: 8px 12px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gunmetal);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      position: relative;
-      z-index: 100;
-      min-width: 50px;
-      justify-content: center;
-    }
-    
-    .language-btn:hover {
-      background-color: rgba(0, 102, 204, 0.15);
-      border-color: rgba(0, 102, 204, 0.3);
-      transform: translateY(-1px);
-      box-shadow: 0 2px 8px rgba(0, 102, 204, 0.2);
-    }
-    
-    .language-btn:active {
-      transform: translateY(0);
-      background-color: rgba(0, 102, 204, 0.2);
-    }
-    
-    .language-dropdown {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      width: 150px;
-      background-color: var(--white);
+      gap: 8px;
+      background: white;
+      border: 2px solid #ddd;
       border-radius: 8px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-      padding: 10px 0;
-      margin-top: 10px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      color: #333;
+      transition: all 0.2s ease;
+      min-width: 60px;
+      justify-content: space-between;
+      user-select: none;
+    }
+    
+    .lang-trigger:hover {
+      border-color: #0066cc;
+      background: #f8f9ff;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.15);
+    }
+    
+    .lang-trigger:active {
+      transform: translateY(0);
+      background: #f0f0f0;
+    }
+    
+    .lang-trigger svg {
+      transition: transform 0.2s ease;
+      color: #666;
+    }
+    
+    .lang-trigger.active svg {
+      transform: rotate(180deg);
+    }
+    
+    .lang-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: white;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      min-width: 160px;
       opacity: 0;
       visibility: hidden;
-      transform: translateY(10px);
-      transition: all 0.3s ease;
-      z-index: 3000;
-      border: 1px solid rgba(0, 0, 0, 0.1);
+      transform: translateY(-10px) scale(0.95);
+      transition: all 0.2s ease;
+      z-index: 9999;
+      overflow: hidden;
     }
     
-    .language-dropdown.active {
+    .lang-menu.show {
       opacity: 1;
       visibility: visible;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
     
-    .language-dropdown li {
-      list-style: none;
+    .lang-item {
+      display: flex;
+      alignitem: center;
+      justify-content: space-between;
+      padding: 12px 16px;
+      cursor: pointer;
+      transition: background 0.15s ease;
+      border-bottom: 1px solid #f0f0f0;
     }
     
-    .language-dropdown li a {
-      display: block;
-      padding: 8px 15px;
-      color: var(--gunmetal);
+    .lang-item:last-child {
+      border-bottom: none;
+    }
+    
+    .lang-item:hover {
+      background: #f8f9ff;
+    }
+    
+    .lang-item.active {
+      background: #e6f2ff;
+      color: #0066cc;
+    }
+    
+    .lang-code {
+      font-weight: 600;
+      font-size: 13px;
+      color: #666;
+    }
+    
+    .lang-name {
       font-size: 14px;
-      text-decoration: none;
-      transition: all 0.3s ease;
+      color: #333;
     }
     
-    .language-dropdown li a:hover {
-      background-color: rgba(0, 102, 204, 0.08);
-      color: var(--bright-navy-blue);
+    .lang-item:hover .lang-code,
+    .lang-item:hover .lang-name {
+      color: #0066cc;
     }
     
     /* Mobile Menu Toggle */
@@ -470,6 +499,10 @@
     /* Responsive Styles */
     @media (max-width: 992px) {
       .desktop-nav {
+        display: none;
+      }
+      
+      .desktop-language-selector {
         display: none;
       }
       
@@ -1300,19 +1333,36 @@
           <span data-translate="header_phone">+355 684 170 700</span>
         </a>
 
-        <!-- Language Selector -->
-        <div class="language-selector">
-          <button class="language-btn">
-            <span>EN</span>
-            <ion-icon name="chevron-down-outline"></ion-icon>
-          </button>
-          <ul class="language-dropdown">
-            <li><a href="#" data-lang="sq" class="lang-option">Shqip</a></li>
-            <li><a href="#" data-lang="de" class="lang-option">Deutsch</a></li>
-            <li><a href="#" data-lang="fr" class="lang-option">Français</a></li>
-            <li><a href="#" data-lang="en" class="lang-option active">English</a></li>
-            <li><a href="#" data-lang="it" class="lang-option">Italiano</a></li>
-          </ul>
+        <!-- Language Selector - New Desktop Version -->
+        <div class="desktop-language-selector">
+          <div class="lang-trigger" id="langTrigger">
+            <span class="current-lang" id="currentLangText">EN</span>
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="lang-menu" id="langMenu">
+            <div class="lang-item" data-lang="en">
+              <span class="lang-code">EN</span>
+              <span class="lang-name">English</span>
+            </div>
+            <div class="lang-item" data-lang="sq">
+              <span class="lang-code">SQ</span>
+              <span class="lang-name">Shqip</span>
+            </div>
+            <div class="lang-item" data-lang="de">
+              <span class="lang-code">DE</span>
+              <span class="lang-name">Deutsch</span>
+            </div>
+            <div class="lang-item" data-lang="fr">
+              <span class="lang-code">FR</span>
+              <span class="lang-name">Français</span>
+            </div>
+            <div class="lang-item" data-lang="it">
+              <span class="lang-code">IT</span>
+              <span class="lang-name">Italiano</span>
+            </div>
+          </div>
         </div>
 
         <!-- Mobile Menu Toggle -->
@@ -2418,97 +2468,112 @@
         });
       }
       
-      // Language dropdown toggle - Improved version
-      console.log('Looking for language button and dropdown...');
-      console.log('Language button found:', !!langBtn);
-      console.log('Language dropdown found:', !!langDropdown);
+      // NEW DESKTOP LANGUAGE SELECTOR - Simple and Clean
+      const langTrigger = document.getElementById('langTrigger');
+      const langMenu = document.getElementById('langMenu');
+      const currentLangText = document.getElementById('currentLangText');
       
-      if (langBtn && langDropdown) {
-        // Make sure the button is clickable
-        langBtn.style.pointerEvents = 'auto';
-        langBtn.addEventListener('click', function(e) {
-          e.preventDefault();
+      console.log('NEW Language selector elements:', {
+        trigger: !!langTrigger,
+        menu: !!langMenu,
+        text: !!currentLangText
+      });
+      
+      if (langTrigger && langMenu) {
+        // Toggle dropdown when clicking trigger
+        langTrigger.addEventListener('click', function(e) {
           e.stopPropagation();
-          console.log('Language button clicked - toggling dropdown');
+          console.log('NEW: Language trigger clicked');
           
-          // Force toggle the dropdown
-          const isActive = langDropdown.classList.contains('active');
-          if (isActive) {
-            langDropdown.classList.remove('active');
-            console.log('Dropdown closed');
+          const isOpen = langMenu.classList.contains('show');
+          if (isOpen) {
+            langMenu.classList.remove('show');
+            langTrigger.classList.remove('active');
+            console.log('NEW: Menu closed');
           } else {
-            langDropdown.classList.add('active');
-            console.log('Dropdown opened');
+            langMenu.classList.add('show');
+            langTrigger.classList.add('active');
+            console.log('NEW: Menu opened');
           }
         });
         
-        // Close language dropdown when clicking outside
+        // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-          if (!langBtn.contains(e.target) && !langDropdown.contains(e.target)) {
-            langDropdown.classList.remove('active');
-            console.log('Dropdown closed by outside click');
+          if (!langTrigger.contains(e.target) && !langMenu.contains(e.target)) {
+            langMenu.classList.remove('show');
+            langTrigger.classList.remove('active');
           }
         });
         
-        console.log('Language dropdown event listeners attached successfully');
+        console.log('NEW: Desktop language selector initialized successfully');
       } else {
-        console.error('Language button or dropdown not found!');
-        console.log('Available elements with .language-btn:', document.querySelectorAll('.language-btn'));
-        console.log('Available elements with .language-dropdown:', document.querySelectorAll('.language-dropdown'));
+        console.error('NEW: Language selector elements not found');
       }
       
-      // Language selection handling
-      const langOptions = document.querySelectorAll('.lang-option');
-      console.log('Found language options:', langOptions.length);
+      // NEW Language selection handling for desktop
+      const langItems = document.querySelectorAll('.lang-item');
+      console.log('NEW: Found desktop language items:', langItems.length);
       
-      if (langOptions && langOptions.length > 0) {
-        langOptions.forEach((option, index) => {
-          console.log(`Adding listener to option ${index}:`, option.getAttribute('data-lang'));
-          option.addEventListener('click', function(e) {
-            e.preventDefault();
+      if (langItems && langItems.length > 0) {
+        langItems.forEach((item, index) => {
+          item.addEventListener('click', function(e) {
             e.stopPropagation();
             
-            // Get the selected language
             const selectedLang = this.getAttribute('data-lang');
-            console.log('Language selected:', selectedLang);
+            const langCode = this.querySelector('.lang-code').textContent;
             
-            // Use the translation manager if available
-            if (window.translationManager && selectedLang) {
-              console.log('Using translation manager');
-              window.translationManager.changeLanguage(selectedLang);
-            } else if (window.translationManager && selectedLang) {
-              console.log('Using global translation manager');
-              translationManager.changeLanguage(selectedLang);
-            } else {
-              console.log('Using fallback method');
-              // Fallback: just update button text
-              const lang = selectedLang.toUpperCase();
-              const langBtnText = document.querySelector('.language-btn span');
-              if (langBtnText) {
-                langBtnText.textContent = lang;
-              }
+            console.log('NEW: Desktop language selected:', selectedLang);
+            
+            // Update the trigger text
+            if (currentLangText) {
+              currentLangText.textContent = langCode;
             }
             
-            // Remove active class from all options
-            langOptions.forEach(opt => opt.classList.remove('active'));
-            
-            // Add active class to clicked option
+            // Update active states
+            langItems.forEach(i => i.classList.remove('active'));
             this.classList.add('active');
             
-            // Close language dropdown
-            if (langDropdown) {
-              langDropdown.classList.remove('active');
+            // Close menu
+            if (langMenu) {
+              langMenu.classList.remove('show');
+              langTrigger.classList.remove('active');
             }
             
-            // Close mobile menu if open
-            if (mobileMenu && mobileMenu.classList.contains('active')) {
-              closeMobileMenu();
+            // Use translation manager
+            if (window.translationManager && selectedLang) {
+              window.translationManager.changeLanguage(selectedLang);
+              console.log('NEW: Translation manager called for:', selectedLang);
+            } else if (window.translationManager && selectedLang) {
+              translationManager.changeLanguage(selectedLang);
+              console.log('NEW: Global translation manager called');
             }
           });
         });
-      } else {
-        console.error('No language options found');
       }
+      
+      // Keep mobile language options working
+      const mobileLangOptions = document.querySelectorAll('.mobile-language-list .lang-option');
+      console.log('Mobile language options found:', mobileLangOptions.length);
+      
+      mobileLangOptions.forEach((option) => {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          const selectedLang = this.getAttribute('data-lang');
+          console.log('Mobile language selected:', selectedLang);
+          
+          // Use translation manager
+          if (window.translationManager && selectedLang) {
+            window.translationManager.changeLanguage(selectedLang);
+          } else if (translationManager && selectedLang) {
+            translationManager.changeLanguage(selectedLang);
+          }
+          
+          // Close mobile menu
+          if (mobileMenu && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+          }
+        });
+      });
       
       // Header scroll effect
       let lastScrollY = 0;
@@ -2575,60 +2640,22 @@
       console.log('Enhanced navigation and testimonials script initialized');
     });
     
-    // Additional language selector backup
+    // Initialize desktop language selector on page load
     document.addEventListener('DOMContentLoaded', function() {
-      console.log('Setting up backup language selector...');
+      console.log('Initializing NEW desktop language selector...');
       
-      // Try different approach to find the language button
-      const langButton = document.querySelector('.language-btn');
-      const langDropdown = document.querySelector('.language-dropdown');
+      // Set initial active language
+      const currentLang = (window.translationManager && window.translationManager.currentLanguage) || 'en';
+      const activeItem = document.querySelector(`.lang-item[data-lang="${currentLang}"]`);
+      const currentText = document.getElementById('currentLangText');
       
-      if (langButton) {
-        console.log('Found language button with backup method');
-        langButton.addEventListener('click', function(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          console.log('BACKUP: Language button clicked!');
-          
-          if (langDropdown) {
-            langDropdown.classList.toggle('active');
-            console.log('BACKUP: Dropdown toggled');
-          }
-        });
-      } else {
-        console.error('BACKUP: Language button not found');
+      if (activeItem) {
+        activeItem.classList.add('active');
+        if (currentText) {
+          currentText.textContent = activeItem.querySelector('.lang-code').textContent;
+        }
+        console.log('NEW: Set initial language to:', currentLang);
       }
-      
-      // Add direct click handlers to language options
-      const allLangOptions = document.querySelectorAll('.lang-option');
-      console.log('BACKUP: Found', allLangOptions.length, 'language options');
-      
-      allLangOptions.forEach((option, index) => {
-        option.addEventListener('click', function(e) {
-          e.preventDefault();
-          console.log('BACKUP: Language option clicked:', this.getAttribute('data-lang'));
-          
-          // Simple language change
-          const selectedLang = this.getAttribute('data-lang');
-          const langBtnSpan = document.querySelector('.language-btn span');
-          
-          if (langBtnSpan && selectedLang) {
-            langBtnSpan.textContent = selectedLang.toUpperCase();
-            console.log('BACKUP: Button text updated to:', selectedLang.toUpperCase());
-          }
-          
-          // Close dropdown
-          if (langDropdown) {
-            langDropdown.classList.remove('active');
-          }
-          
-          // Try to use translation manager
-          if (window.translationManager) {
-            window.translationManager.changeLanguage(selectedLang);
-            console.log('BACKUP: Translation manager called');
-          }
-        });
-      });
     });
   </script>
 
