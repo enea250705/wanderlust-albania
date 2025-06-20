@@ -459,7 +459,7 @@ const translations = {
     
     // Common buttons and actions
     btn_learn_more: "Mehr Erfahren",
-    btn_book_now: "Jetzt Buchen", 
+    btn_book_now: "Jetzt Buchen",
     btn_contact_us: "Kontaktieren Sie Uns",
     btn_get_directions: "Wegbeschreibung",
     btn_view_gallery: "Galerie Ansehen",
@@ -782,20 +782,20 @@ class TranslationManager {
     this.currentLanguage = this.getStoredLanguage() || 'en';
     this.initialize();
   }
-  
+
   getStoredLanguage() {
     return localStorage.getItem('tourly-language');
   }
-  
+
   setStoredLanguage(lang) {
     localStorage.setItem('tourly-language', lang);
   }
-  
+
   initialize() {
     this.setupLanguageSelectors();
     this.translatePage();
   }
-  
+
   setupLanguageSelectors() {
     // Update language button display
     const languageBtns = document.querySelectorAll('.language-btn span');
@@ -819,11 +819,11 @@ class TranslationManager {
     
     // Set active language option
     document.querySelectorAll('.lang-option').forEach(option => {
-      const lang = option.getAttribute('data-lang');
+        const lang = option.getAttribute('data-lang');
       option.classList.toggle('active', lang === this.currentLanguage);
-    });
+      });
   }
-  
+
   getLanguageName(langCode) {
     const names = {
       'en': 'English',
@@ -834,7 +834,7 @@ class TranslationManager {
     };
     return names[langCode] || 'English';
   }
-  
+
   changeLanguage(langCode) {
     if (translations[langCode]) {
       this.currentLanguage = langCode;
@@ -901,8 +901,6 @@ let translationManager;
 
 document.addEventListener('DOMContentLoaded', function() {
   translationManager = new TranslationManager();
-  // Make it globally accessible
-  window.translationManager = translationManager;
   
   // Add event listeners for language options
   document.querySelectorAll('.lang-option').forEach(option => {

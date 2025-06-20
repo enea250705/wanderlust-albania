@@ -26,6 +26,65 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
+  <!-- Simple Dropdown Script -->
+  <script>
+    function toggleLangDropdown() {
+      const dropdown = document.getElementById('langDropdown');
+      const btn = document.querySelector('.lang-btn');
+      
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
+        btn.classList.remove('active');
+        
+        // Add closing animation
+        setTimeout(() => {
+          if (!dropdown.classList.contains('show')) {
+            dropdown.style.display = 'none';
+          }
+        }, 300);
+      } else {
+        dropdown.style.display = 'block';
+        // Force a reflow for smooth animation
+        dropdown.offsetHeight;
+        dropdown.classList.add('show');
+        btn.classList.add('active');
+        
+        // Animate each option with stagger effect
+        const options = dropdown.querySelectorAll('.lang-option');
+        options.forEach((option, index) => {
+          option.style.animation = `slideInOption 0.3s ease forwards ${index * 0.05}s`;
+        });
+      }
+    }
+
+    function selectLanguage(langCode, displayCode) {
+      console.log('Language selected:', langCode, displayCode);
+      
+      document.getElementById('currentLang').textContent = displayCode;
+      
+      const dropdown = document.getElementById('langDropdown');
+      const btn = document.querySelector('.lang-btn');
+      
+      dropdown.classList.remove('show');
+      btn.classList.remove('active');
+      
+      // Change language using existing translation system
+      if (window.translationManager) {
+        window.translationManager.changeLanguage(langCode);
+      }
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.lang-dropdown-wrapper')) {
+        const dropdown = document.getElementById('langDropdown');
+        const btn = document.querySelector('.lang-btn');
+        if (dropdown) dropdown.classList.remove('show');
+        if (btn) btn.classList.remove('active');
+      }
+    });
+  </script>
+
   <style>
     /* Modern Header & Navigation */
     .header {
@@ -1337,140 +1396,20 @@
           <span data-translate="header_phone">+355 684 170 700</span>
         </a>
 
-        <!-- Language Selector - New Desktop Version -->
-        <div class="desktop-language-selector">
-          <div class="lang-trigger" id="langTrigger">
-            <span class="current-lang" id="currentLangText">EN</span>
-            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
-              <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div class="lang-menu" id="langMenu">
-            <div class="lang-item" data-lang="en">
-              <span class="lang-code">EN</span>
-              <span class="lang-name">English</span>
-            </div>
-            <div class="lang-item" data-lang="sq">
-              <span class="lang-code">SQ</span>
-              <span class="lang-name">Shqip</span>
-            </div>
-            <div class="lang-item" data-lang="de">
-              <span class="lang-code">DE</span>
-              <span class="lang-name">Deutsch</span>
-            </div>
-            <div class="lang-item" data-lang="fr">
-              <span class="lang-code">FR</span>
-              <span class="lang-name">Français</span>
-            </div>
-            <div class="lang-item" data-lang="it">
-              <span class="lang-code">IT</span>
-              <span class="lang-name">Italiano</span>
-            </div>
+                <!-- Simple Language Dropdown -->
+        <div class="lang-dropdown-wrapper">
+          <button class="lang-btn" onclick="toggleLangDropdown()">
+            <span id="currentLang">EN</span>
+            <span class="arrow">▼</span>
+          </button>
+          <div class="lang-dropdown" id="langDropdown">
+            <div class="lang-option" onclick="selectLanguage('en', 'EN')">🇺🇸 English</div>
+            <div class="lang-option" onclick="selectLanguage('sq', 'SQ')">🇦🇱 Shqip</div>
+            <div class="lang-option" onclick="selectLanguage('de', 'DE')">🇩🇪 Deutsch</div>
+            <div class="lang-option" onclick="selectLanguage('fr', 'FR')">🇫🇷 Français</div>
+            <div class="lang-option" onclick="selectLanguage('it', 'IT')">🇮🇹 Italiano</div>
           </div>
         </div>
-
-        <!-- Immediate Language Selector Script -->
-        <script>
-          console.log('IMMEDIATE: Setting up language selector...');
-          
-          // Wait a moment for DOM to be ready
-          setTimeout(function() {
-            const trigger = document.getElementById('langTrigger');
-            const menu = document.getElementById('langMenu');
-            
-            console.log('IMMEDIATE: Elements found:', {
-              trigger: !!trigger,
-              menu: !!menu
-            });
-            
-            if (trigger && menu) {
-              // Make sure elements are visible and clickable
-              trigger.style.pointerEvents = 'auto';
-              trigger.style.cursor = 'pointer';
-              
-              // Add click handler
-                             trigger.onclick = function(e) {
-                 e.preventDefault();
-                 e.stopPropagation();
-                 console.log('IMMEDIATE: Trigger clicked!');
-                 
-                 // Force show the menu for testing
-                 menu.style.display = 'block';
-                 menu.style.opacity = '1';
-                 menu.style.visibility = 'visible';
-                 menu.style.transform = 'translateY(0) scale(1)';
-                 menu.style.zIndex = '99999';
-                 menu.style.position = 'absolute';
-                 menu.style.background = '#ffff00';
-                 menu.style.border = '5px solid red';
-                 
-                 if (menu.classList.contains('show')) {
-                   menu.classList.remove('show');
-                   trigger.classList.remove('active');
-                   console.log('IMMEDIATE: Menu closed');
-                   menu.style.display = 'none';
-                 } else {
-                   menu.classList.add('show');
-                   trigger.classList.add('active');
-                   console.log('IMMEDIATE: Menu opened');
-                   console.log('IMMEDIATE: Menu styles applied');
-                 }
-                 
-                 // Debug info
-                 console.log('IMMEDIATE: Menu element:', menu);
-                 console.log('IMMEDIATE: Menu computed style:', window.getComputedStyle(menu));
-               };
-              
-              // Add click handlers to language items
-              const items = menu.querySelectorAll('.lang-item');
-              items.forEach(function(item) {
-                item.onclick = function(e) {
-                  e.stopPropagation();
-                  const lang = this.getAttribute('data-lang');
-                  const code = this.querySelector('.lang-code').textContent;
-                  
-                  console.log('IMMEDIATE: Language selected:', lang);
-                  
-                  // Update display
-                  document.getElementById('currentLangText').textContent = code;
-                  
-                  // Close menu
-                  menu.classList.remove('show');
-                  trigger.classList.remove('active');
-                  
-                  // Change language if translation manager exists
-                  if (window.translationManager) {
-                    window.translationManager.changeLanguage(lang);
-                  }
-                };
-              });
-              
-                             console.log('IMMEDIATE: Language selector setup complete!');
-               
-               // Add a test button for debugging
-               const testBtn = document.createElement('button');
-               testBtn.textContent = 'TEST DROPDOWN';
-               testBtn.style.cssText = 'position: fixed; top: 10px; left: 10px; z-index: 99999; background: red; color: white; padding: 10px; border: none; cursor: pointer;';
-               testBtn.onclick = function() {
-                 console.log('TEST: Forcing dropdown to show');
-                 menu.style.display = 'block';
-                 menu.style.opacity = '1';
-                 menu.style.visibility = 'visible';
-                 menu.style.position = 'fixed';
-                 menu.style.top = '100px';
-                 menu.style.left = '100px';
-                 menu.style.background = 'yellow';
-                 menu.style.border = '5px solid red';
-                 menu.style.zIndex = '99999';
-                 menu.classList.add('show');
-               };
-               document.body.appendChild(testBtn);
-               
-             } else {
-               console.error('IMMEDIATE: Elements not found!');
-             }
-           }, 100);
-        </script>
 
         <!-- Mobile Menu Toggle -->
         <button class="mobile-menu-toggle" data-mobile-menu-toggle>
@@ -1516,17 +1455,7 @@
         </ul>
       </nav>
 
-      <!-- Mobile Language Selector -->
-      <div class="mobile-language-selector">
-        <h4 class="lang-title" data-translate="header_lang_select">Choose Language</h4>
-        <ul class="mobile-language-list">
-          <li><a href="#" data-lang="sq" class="lang-option">Shqip</a></li>
-          <li><a href="#" data-lang="de" class="lang-option">Deutsch</a></li>
-          <li><a href="#" data-lang="fr" class="lang-option">Français</a></li>
-          <li><a href="#" data-lang="en" class="lang-option active">English</a></li>
-          <li><a href="#" data-lang="it" class="lang-option">Italiano</a></li>
-        </ul>
-      </div>
+
 
       <!-- Social Links -->
       <div class="mobile-social">
