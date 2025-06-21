@@ -10,7 +10,9 @@
   <!-- 
     - favicon
   -->
-  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="shortcut icon" href="./assets/images/wanderlogo1.png" type="image/png">
+  <link rel="icon" href="./assets/images/wanderlogo1.png" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/images/wanderlogo1.png">
 
   <!-- 
     - custom css link
@@ -60,7 +62,18 @@
     function selectLanguage(langCode, displayCode) {
       console.log('Language selected:', langCode, displayCode);
       
-      document.getElementById('currentLang').textContent = displayCode;
+      // Map language codes to full names for better display
+      const languageNames = {
+        'EN': 'English',
+        'SQ': 'Shqip', 
+        'DE': 'Deutsch',
+        'FR': 'Français',
+        'IT': 'Italiano'
+      };
+      
+      // Update the display text to show full language name
+      const displayText = languageNames[displayCode] || displayCode;
+      document.getElementById('currentLang').textContent = displayText;
       
       const dropdown = document.getElementById('langDropdown');
       const btn = document.querySelector('.lang-btn');
@@ -1399,7 +1412,7 @@
                 <!-- Simple Language Dropdown -->
         <div class="lang-dropdown-wrapper">
           <button class="lang-btn" onclick="toggleLangDropdown()">
-            <span id="currentLang">EN</span>
+            <span id="currentLang">English</span>
             <span class="arrow">▼</span>
           </button>
           <div class="lang-dropdown" id="langDropdown">
