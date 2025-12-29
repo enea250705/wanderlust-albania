@@ -800,6 +800,7 @@ class TranslationManager {
     // Update language button display
     const languageBtns = document.querySelectorAll('.language-btn span');
     const currentLangTexts = document.querySelectorAll('.current-lang');
+    const currentLangById = document.getElementById('currentLang'); // For index.html button
     
     const langDisplayMap = {
       'en': 'EN',
@@ -816,6 +817,11 @@ class TranslationManager {
     currentLangTexts.forEach(text => {
       text.textContent = this.getLanguageName(this.currentLanguage);
     });
+    
+    // Update the #currentLang button (used in index.html)
+    if (currentLangById) {
+      currentLangById.textContent = this.getLanguageName(this.currentLanguage);
+    }
     
     // Set active language option
     document.querySelectorAll('.lang-option').forEach(option => {

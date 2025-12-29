@@ -676,6 +676,12 @@
       overflow: hidden;
       border-radius: var(--radius-15);
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .popular-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     }
     
     .popular-card .card-img {
@@ -1538,7 +1544,7 @@
 
           <div class="btn-group" style="display: flex; gap: 15px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap;">
             <button class="btn btn-primary" data-translate="btn_learn_more">Learn more</button>
-            <button class="btn btn-secondary" data-translate="btn_book_now">Book now</button>
+            <button class="btn btn-secondary" data-translate="btn_book_now" style="margin-left: 0;">Book now</button>
           </div>
 
           <p class="section-subtitle" data-translate="popular_subtitle">Destinations That Redefine Discovery</p>
@@ -1552,7 +1558,7 @@
           <ul class="popular-list">
 
             <li>
-              <div class="popular-card">
+              <a href="berat.html" class="popular-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
 
                 <figure class="card-img">
                   <img src="./assets/images/berat.jpg" alt="Berat, Albania" loading="lazy">
@@ -1569,11 +1575,11 @@
                   </div>
 
                   <p class="card-subtitle">
-                    <a href="berat.html" data-translate="location_albania">Albania</a>
+                    <span data-translate="location_albania">Albania</span>
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="berat.html" data-translate="popular_berat">Berat</a>
+                    <span data-translate="popular_berat">Berat</span>
                   </h3>
 
                   <p class="card-text" data-translate="popular_berat_desc">
@@ -1582,11 +1588,11 @@
 
                 </div>
 
-              </div>
+              </a>
             </li>
 
             <li>
-              <div class="popular-card">
+              <a href="shkodra.html" class="popular-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
 
                 <figure class="card-img">
                   <img src="./assets/images/shkoder1.jpg" alt="Shkodra, Albania" loading="lazy">
@@ -1603,11 +1609,11 @@
                   </div>
 
                   <p class="card-subtitle">
-                    <a href="shkodra.html" data-translate="location_northern_albania">Northern Albania</a>
+                    <span data-translate="location_northern_albania">Northern Albania</span>
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="shkodra.html" data-translate="popular_shkodra">Shkodra</a>
+                    <span data-translate="popular_shkodra">Shkodra</span>
                   </h3>
 
                   <p class="card-text" data-translate="popular_shkodra_desc">
@@ -1616,11 +1622,11 @@
 
                 </div>
 
-              </div>
+              </a>
             </li>
 
             <li>
-              <div class="popular-card">
+              <a href="tirana.html" class="popular-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
 
                 <figure class="card-img">
                   <img src="./assets/images/tirana1.jpg" alt="Tirana, Albania" loading="lazy">
@@ -1637,11 +1643,11 @@
                   </div>
 
                   <p class="card-subtitle">
-                    <a href="tirana.html" data-translate="location_central_albania">Central Albania</a>
+                    <span data-translate="location_central_albania">Central Albania</span>
                   </p>
 
                   <h3 class="h3 card-title">
-                    <a href="tirana.html" data-translate="popular_tirana">Tirana</a>
+                    <span data-translate="popular_tirana">Tirana</span>
                   </h3>
 
                   <p class="card-text" data-translate="popular_tirana_desc">
@@ -1650,12 +1656,112 @@
 
                 </div>
 
-              </div>
+              </a>
+            </li>
+
+            <li>
+              <a href="durres.html" class="popular-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+
+                <figure class="card-img">
+                  <img src="./assets/images/durres.jpg" alt="Durrës, Albania" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <span data-translate="location_albania">Albania</span>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <span>Durrës</span>
+                  </h3>
+
+                  <p class="card-text">
+                    History meets refinement — explore coastal Durrës and tour the renowned Skënderbeg Cognac Distillery in a day rich with flavor and heritage.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="vlora.html" class="popular-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+
+                <figure class="card-img">
+                  <img src="./assets/images/vlorakaraburunsazan.jpg" alt="Vlora, Albania" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <span>Southern Albania</span>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <span>Vlora</span>
+                  </h3>
+
+                  <p class="card-text">
+                    Sail into the wild beauty of the Ionian — this marine park adventure brings you sea caves, unspoiled beaches, and cinematic coastal views.
+                  </p>
+
+                </div>
+
+              </a>
+            </li>
+
+            <li>
+              <a href="pogradec.html" class="popular-card" style="text-decoration: none; color: inherit; display: block; cursor: pointer;">
+
+                <figure class="card-img">
+                  <img src="./assets/images/pogradec.jpg" alt="Pogradec, Albania" loading="lazy">
+                </figure>
+
+                <div class="card-content">
+
+                  <div class="card-rating">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+
+                  <p class="card-subtitle">
+                    <span>Eastern Albania</span>
+                  </p>
+
+                  <h3 class="h3 card-title">
+                    <span>Pogradec</span>
+                  </h3>
+
+                  <p class="card-text">
+                    A full-day journey through Lake Ohrid's ancient shores — cross borders to experience Albania and North Macedonia's cultural treasures.
+                  </p>
+
+                </div>
+
+              </a>
             </li>
 
           </ul>
-
-          <a href="travels.html" class="btn btn-primary" data-translate="popular_explore">Explore More Destinations</a>
 
         </div>
       </section>
